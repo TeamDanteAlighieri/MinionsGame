@@ -1,7 +1,6 @@
 ﻿//the different tiles on that particular layer 
 namespace SecondAttempt
 {
-    
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -37,7 +36,7 @@ namespace SecondAttempt
         public void Update(GameTime gameTime)
         { }
 
-        public void Draw(SpriteBatch spriteBatch)
-        { }
+        /*public void Draw(SpriteBatch spriteBatch)
+        { }*/
     }
 }

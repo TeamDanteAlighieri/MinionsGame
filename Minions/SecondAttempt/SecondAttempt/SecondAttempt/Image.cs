@@ -27,8 +27,8 @@
         public string Effects;
 
         public FadeEffect FadeEffect;
-
         public SpriteSheetEffect SpriteSheetEffect;
+
         void SetEffect<T>(ref T effect)
         {
             if (effect == null)
