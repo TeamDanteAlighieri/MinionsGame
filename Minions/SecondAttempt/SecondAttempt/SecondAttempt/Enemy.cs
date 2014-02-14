@@ -8,10 +8,10 @@ namespace Minions
 {
 	public class Enemy : Character
 	{
-		public Enemy(string name, int attackPower, int speed, int blood, Location location)
+		/*public Enemy(string name, int attackPower, int speed, int blood, Location location)
 			: base(name, attackPower, speed, blood, location)
 		{
-		}
+		}*/
 
 	}
 }

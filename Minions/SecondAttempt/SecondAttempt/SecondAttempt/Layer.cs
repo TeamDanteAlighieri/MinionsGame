@@ -38,14 +38,16 @@ namespace SecondAttempt
 
         public void LoadContent(Vector2 tileDimensions)
         {
-            Vector2 position = tileDimensions - new Vector2(32, 32);
+            Image.LoadContent();
+            Vector2 position = -tileDimensions;
             foreach (var row in Tile.Row)
             {
                 string[] split = row.Split(']'); //splitva ot xml faila na kartata po ]
+                position.X = -tileDimensions.X; // we are going to resset the x position every time we increase the y poss
                 position.Y += tileDimensions.Y;
                 foreach (string s in split)
                 {
-
+                    
                     if (s != String.Empty)
                     {
                         position.X += tileDimensions.X;
@@ -56,9 +58,9 @@ namespace SecondAttempt
                         int value1 = int.Parse(str.Substring(0, str.IndexOf(':')));
                         int value2 = int.Parse(str.Substring(str.IndexOf(':') + 1));
 
-                        /*tiles[tiles.Count - 1].LoadContent(position, new Rectangle(
+                        tiles[tiles.Count - 1].LoadContent(position, new Rectangle(
                             value1 * (int)tileDimensions.X, value2 * (int)tileDimensions.Y,
-                            (int)tileDimensions.X, (int)tileDimensions.Y));*/
+                            (int)tileDimensions.X, (int)tileDimensions.Y));//we store the position of the current tile  
                     }
                 }
             }
@@ -66,7 +68,7 @@ namespace SecondAttempt
 
         public void UnloadContent()
         {
-
+            Image.UnloadContent();
         }
 
         public void Update(GameTime gameTime)
@@ -75,6 +77,12 @@ namespace SecondAttempt
         }
         public void Draw(SpriteBatch spriteBatch)
         {
+            foreach(var tile in tiles)
+            {
+                Image.Position = tile.Position;
+                Image.SourceRect = tile.SourceRect;
+                Image.Draw(spriteBatch);
+            }
 
         }
     }

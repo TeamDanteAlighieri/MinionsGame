@@ -12,13 +12,13 @@ namespace Minions
 		private int money;
 		private int mana;
 
-		public Minion(string name, int attackPower, int speed, int blood, Location location, int experience, int money, int mana)
+		/*public Minion(string name, int attackPower, int speed, int blood, Location location, int experience, int money, int mana)
 			: base(name, attackPower, speed, blood, location)
 		{
 			this.Experience = experience;
 			this.Money = money;
 			this.Mana = mana;
-		}
+		}*/
 
 		public int Experience
 		{

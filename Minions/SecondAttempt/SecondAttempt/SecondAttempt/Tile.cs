@@ -9,6 +9,7 @@ namespace SecondAttempt
 
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Graphics;
+
     public class Tile
     {
         Vector2 position;
@@ -24,7 +25,7 @@ namespace SecondAttempt
             get { return position; }
         }
 
-        public void LoadContent()
+        public void LoadContent(Vector2 position, Rectangle sourceRect)
         {
             this.position = position;
             this.sourceRect = sourceRect;

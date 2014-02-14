@@ -12,16 +12,16 @@ namespace Minions
 		private int attackPower;
 		private int speed;
 		private int blood;
-		private Location location;
+		//private Location location;
 
-		public Character(string name, int attackPower, int speed, int blood, Location location)
+		/*public Character(string name, int attackPower, int speed, int blood, Location location)
 		{
 			this.Name = name;
 			this.AttackPower = attackPower;
 			this.Speed = speed;
 			this.Blood = blood;
 			this.Location = location;
-		}
+		}*/
 
 		public string Name
 		{
@@ -69,7 +69,7 @@ namespace Minions
 			}
 		}
 
-		public Location Location
+		/*public Location Location
 		{
 			get
 			{
@@ -79,6 +79,6 @@ namespace Minions
 			{
 				this.location = value;
 			}
-		}
+		}*/
 	}
 }
