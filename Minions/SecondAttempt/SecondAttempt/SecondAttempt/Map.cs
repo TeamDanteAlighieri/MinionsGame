@@ -22,7 +22,8 @@ namespace SecondAttempt
         public Map()
         {
             Layer = new List<Layer>();
-            TileDimensions = Vector2.One * 32;
+            //TileDimensions = Vector2.Zero 
+            TileDimensions = Vector2.One * 32; //tuk se "otklonqvame" ot videata inache ne ni risuva kartata
         }
 
         public void LoadContent()

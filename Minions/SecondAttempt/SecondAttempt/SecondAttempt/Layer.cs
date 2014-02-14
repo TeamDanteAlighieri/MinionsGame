@@ -43,7 +43,7 @@ namespace SecondAttempt
 
             foreach (var row in Tile.Row)
             {
-                string[] split = row.Split(']'); //splitva ot xml faila na kartata po ]
+                string[] split = row.Split(']');
                 position.X = -tileDimensions.X; // we are going to resset the x position every time we increase the y poss
                 position.Y += tileDimensions.Y;
                 foreach (string s in split)
