@@ -27,25 +27,25 @@ namespace SecondAttempt
 
         public void LoadContent()
         {
-            foreach (var l in Layer)
+            foreach (Layer l in Layer)
                 l.LoadContent(TileDimensions);
         }
 
         public void UnloadContent()
         {
-            foreach (var l in Layer)
+            foreach (Layer l in Layer)
                 l.UnloadContent();
         }
 
         public void Update(GameTime gameTime)
         {
-            foreach (var l in Layer)
+            foreach (Layer l in Layer)
                 l.Update(gameTime);
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            foreach (var l in Layer)
+            foreach (Layer l in Layer)
                 l.Draw(spriteBatch);
         }
     }

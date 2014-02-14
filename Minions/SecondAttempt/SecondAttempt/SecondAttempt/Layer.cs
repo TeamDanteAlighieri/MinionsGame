@@ -40,6 +40,7 @@ namespace SecondAttempt
         {
             Image.LoadContent();
             Vector2 position = -tileDimensions;
+
             foreach (var row in Tile.Row)
             {
                 string[] split = row.Split(']'); //splitva ot xml faila na kartata po ]
@@ -51,16 +52,19 @@ namespace SecondAttempt
                     if (s != String.Empty)
                     {
                         position.X += tileDimensions.X;
-                        tiles.Add(new Tile());
+                        if (!s.Contains("x"))
+                        {
+                            tiles.Add(new Tile());
 
 
-                        string str = s.Replace("[", String.Empty);//after this the string should look like 0:0
-                        int value1 = int.Parse(str.Substring(0, str.IndexOf(':')));
-                        int value2 = int.Parse(str.Substring(str.IndexOf(':') + 1));
+                            string str = s.Replace("[", String.Empty);//after this the string should look like 0:0
+                            int value1 = int.Parse(str.Substring(0, str.IndexOf(':')));
+                            int value2 = int.Parse(str.Substring(str.IndexOf(':') + 1));
 
-                        tiles[tiles.Count - 1].LoadContent(position, new Rectangle(
-                            value1 * (int)tileDimensions.X, value2 * (int)tileDimensions.Y,
-                            (int)tileDimensions.X, (int)tileDimensions.Y));//we store the position of the current tile  
+                            tiles[tiles.Count - 1].LoadContent(position, new Rectangle(
+                                value1 * (int)tileDimensions.X, value2 * (int)tileDimensions.Y,
+                                (int)tileDimensions.X, (int)tileDimensions.Y));//we store the position of the current tile  
+                        }
                     }
                 }
             }
