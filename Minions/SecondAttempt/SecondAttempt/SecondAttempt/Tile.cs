@@ -7,7 +7,36 @@ namespace SecondAttempt
     using System.Linq;
     using System.Text;
 
+    using Microsoft.Xna.Framework;
+    using Microsoft.Xna.Framework.Graphics;
     public class Tile
     {
+        Vector2 position;
+        Rectangle sourceRect;
+
+        public Rectangle SourceRect
+        {
+            get { return sourceRect; }
+        }
+
+        public Vector2 Position
+        {
+            get { return position; }
+        }
+
+        public void LoadContent()
+        {
+            this.position = position;
+            this.sourceRect = sourceRect;
+        }
+
+        public void UnloadContent()
+        { }
+
+        public void Update(GameTime gameTime)
+        { }
+
+        public void Draw(SpriteBatch spriteBatch)
+        { }
     }
 }
