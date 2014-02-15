@@ -39,8 +39,8 @@ namespace SecondAttempt
         { 
             if(state == "Solid")
             {
-                Rectangle tileRect = new Rectangle((int)Position.X, (int)Position.Y,
-                    sourceRect.Width, sourceRect.Height);
+                Rectangle tileRect = new Rectangle((int)Position.X + 4, (int)Position.Y + 4,
+                    sourceRect.Width - 8, sourceRect.Height - 8);
                 Rectangle playerRect = new Rectangle((int)player.Image.Position.X,
                     (int)player.Image.Position.Y, player.Image.SourceRect.Width, player.Image.SourceRect.Height);
                 //here we implement the collision
@@ -56,7 +56,7 @@ namespace SecondAttempt
                     else
                         player.Image.Position.Y = tileRect.Top - player.Image.SourceRect.Height;
 
-                    player.Velocity = Vector2.Zero;//???
+                    player.Velocity = Vector2.Zero;//??? 
                 }
             }
         }

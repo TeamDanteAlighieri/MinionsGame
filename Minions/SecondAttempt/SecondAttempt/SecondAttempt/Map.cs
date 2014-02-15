@@ -44,10 +44,10 @@ namespace SecondAttempt
                 l.Update(gameTime, ref player);
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch, string drawType)
         {
             foreach (Layer l in Layer)
-                l.Draw(spriteBatch);
+                l.Draw(spriteBatch, drawType);
         }
     }
 }

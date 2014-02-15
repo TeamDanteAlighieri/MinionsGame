@@ -28,16 +28,20 @@ namespace SecondAttempt
         public TileMap Tile;
         public Image Image;// give image to our sprite sheet
         //[XmlElement("SolidTiles")]
-        public string SolidTiles;
-        List<Tile> tiles;
+        public string SolidTiles, OverlayTiles;
+        //List<Tile> tiles;
+        List<Tile> underlayTiles, overlayTiles;
         string state;
 
 
         public Layer()
         {
             Image = new Image();
-            tiles = new List<Tile>();
-            SolidTiles = String.Empty;
+            //tiles = new List<Tile>();
+            underlayTiles = new List<Tile>();
+            overlayTiles = new List<Tile>();
+
+            SolidTiles = OverlayTiles = String.Empty;
         }
 
         public void LoadContent(Vector2 tileDimensions)
@@ -59,7 +63,8 @@ namespace SecondAttempt
                         if (!s.Contains("x"))
                         {
                             state = "Passive";
-                            tiles.Add(new Tile());
+                            //tiles.Add(new Tile());
+                            Tile tile = new Tile();
 
 
                             string str = s.Replace("[", String.Empty);//after this the string should look like 0:0
@@ -69,9 +74,18 @@ namespace SecondAttempt
                             if(SolidTiles.Contains("[" + value1.ToString() + ":" + value2.ToString() + "]"))
                                 state = "Solid";
 
-                            tiles[tiles.Count - 1].LoadContent(position, new Rectangle(
+                            //tiles[tiles.Count - 1].LoadContent(position, new Rectangle(
+                            //    value1 * (int)tileDimensions.X, value2 * (int)tileDimensions.Y,
+                            //    (int)tileDimensions.X, (int)tileDimensions.Y), state);//we store the position of the current tile 
+                            tile.LoadContent(position, new Rectangle(
                                 value1 * (int)tileDimensions.X, value2 * (int)tileDimensions.Y,
                                 (int)tileDimensions.X, (int)tileDimensions.Y), state);//we store the position of the current tile  
+                            if (OverlayTiles.Contains("[" + value1.ToString() + ":" + value2.ToString() + "]"))
+                                overlayTiles.Add(tile);
+                            else
+                                underlayTiles.Add(tile);
+
+                            
                         }
                     }
                 }
@@ -85,11 +99,20 @@ namespace SecondAttempt
 
         public void Update(GameTime gameTime, ref Player player)
         {
-            foreach (Tile tile in tiles)
+            foreach (Tile tile in underlayTiles)
+                tile.Update(gameTime, ref player);
+
+            foreach (Tile tile in overlayTiles)
                 tile.Update(gameTime, ref player);
         }
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch, string drawType)
         {
+            List<Tile> tiles;
+            if (drawType == "Underlay")
+                tiles = underlayTiles;
+            else
+                tiles = overlayTiles;
+
             foreach(Tile tile in tiles)
             {
                 Image.Position = tile.Position;
