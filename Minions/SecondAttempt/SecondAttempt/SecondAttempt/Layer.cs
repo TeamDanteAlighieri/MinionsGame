@@ -27,13 +27,17 @@ namespace SecondAttempt
         [XmlElement("TileMap")]
         public TileMap Tile;
         public Image Image;// give image to our sprite sheet
+        //[XmlElement("SolidTiles")]
+        public string SolidTiles;
         List<Tile> tiles;
+        string state;
 
 
         public Layer()
         {
             Image = new Image();
             tiles = new List<Tile>();
+            SolidTiles = String.Empty;
         }
 
         public void LoadContent(Vector2 tileDimensions)
@@ -54,17 +58,20 @@ namespace SecondAttempt
                         position.X += tileDimensions.X;
                         if (!s.Contains("x"))
                         {
+                            state = "Passive";
                             tiles.Add(new Tile());
 
 
                             string str = s.Replace("[", String.Empty);//after this the string should look like 0:0
                             int value1 = int.Parse(str.Substring(0, str.IndexOf(':')));
                             int value2 = int.Parse(str.Substring(str.IndexOf(':') + 1));
+                            //?
+                            if(SolidTiles.Contains("[" + value1.ToString() + ":" + value2.ToString() + "]"))
+                                state = "Solid";
 
-                            //tiles[tiles.Count - 1].LoadContent(position, new Rectangle())
                             tiles[tiles.Count - 1].LoadContent(position, new Rectangle(
                                 value1 * (int)tileDimensions.X, value2 * (int)tileDimensions.Y,
-                                (int)tileDimensions.X, (int)tileDimensions.Y));//we store the position of the current tile  
+                                (int)tileDimensions.X, (int)tileDimensions.Y), state);//we store the position of the current tile  
                         }
                     }
                 }
@@ -76,9 +83,10 @@ namespace SecondAttempt
             Image.UnloadContent();
         }
 
-        public void Update(GameTime gameTime)
+        public void Update(GameTime gameTime, ref Player player)
         {
-
+            foreach (Tile tile in tiles)
+                tile.Update(gameTime, ref player);
         }
         public void Draw(SpriteBatch spriteBatch)
         {
