@@ -56,7 +56,7 @@ namespace SecondAttempt
                     else
                         player.Image.Position.Y = tileRect.Top - player.Image.SourceRect.Height;
 
-                    player.Velocity = Vector2.Zero;//??? 
+                    player.Velocity = Vector2.Zero;//???
                 }
             }
         }
