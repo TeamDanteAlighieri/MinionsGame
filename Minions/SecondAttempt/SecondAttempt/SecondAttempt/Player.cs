@@ -56,12 +56,12 @@
                 if (InputManager.Instance.KeyDown(Keys.Right))
                 {
                     Velocity.X = MoveSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds;
-                    Image.SpriteSheetEffect.CurrentFrame.Y = 2;
+                    Image.SpriteSheetEffect.CurrentFrame.Y = 1;
                 }
                 else if (InputManager.Instance.KeyDown(Keys.Left))
                 {
                     Velocity.X = -MoveSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds;
-                    Image.SpriteSheetEffect.CurrentFrame.Y = 1;
+                    Image.SpriteSheetEffect.CurrentFrame.Y = 2;
                 }
                 else
                     Velocity.X = 0;

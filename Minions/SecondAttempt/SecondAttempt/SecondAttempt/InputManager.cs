@@ -11,6 +11,7 @@
     {
         KeyboardState currentKeyState, prevKeyState;
 
+        ////Singleton class (design pattern)
         private static InputManager instance;
 
         public static InputManager Instance

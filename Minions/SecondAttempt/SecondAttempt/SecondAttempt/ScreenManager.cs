@@ -13,6 +13,7 @@
 
     public class ScreenManager
     {
+        //Singleton class (design pattern)
         private static ScreenManager instance;
         [XmlIgnore]
         public Vector2 Dimensions { private set; get; }
