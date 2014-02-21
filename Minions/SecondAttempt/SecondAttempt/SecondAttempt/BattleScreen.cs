@@ -36,8 +36,8 @@ namespace SecondAttempt
             BackgroundMusicPlayer.Stop();
             backgroundMusic.Dispose();
             /*
-            if(character != null)character.UnloadContent() ;
-            if (enemies != null ) foreach (var enemy in enemies)
+            if ( character != null ) character.UnloadContent() ;
+            if ( enemies != null ) foreach (var enemy in enemies)
             {
                 enemy.UnloadContent();                
             }*/

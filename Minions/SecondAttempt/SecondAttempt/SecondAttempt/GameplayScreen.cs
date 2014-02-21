@@ -16,6 +16,9 @@
         public override void LoadContent()
         {
             base.LoadContent();
+            XmlManager<Minion> playerLoader = new XmlManager<Minion>();
+            //player = playerLoader.Load("Gameplay/Player/Info.xml");
+            //player.LoadContent();
             //Logic for player load goes here;
         }
 
