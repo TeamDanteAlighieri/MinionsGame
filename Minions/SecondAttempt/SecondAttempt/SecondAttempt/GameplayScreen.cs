@@ -11,7 +11,7 @@
 
     public class GameplayScreen : GameScreen
     {
-        Minion player;
+        public static Minion player;
 
         public override void LoadContent()
         {
