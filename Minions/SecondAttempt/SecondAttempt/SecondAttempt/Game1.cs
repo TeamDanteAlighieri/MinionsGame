@@ -36,6 +36,7 @@ namespace SecondAttempt
             graphics.PreferredBackBufferWidth = (int)ScreenManager.Instance.Dimensions.X;
             graphics.PreferredBackBufferHeight = (int)ScreenManager.Instance.Dimensions.Y;
             graphics.ApplyChanges();
+            BackgroundMusicPlayer.Initialize();
 
             base.Initialize();
         }

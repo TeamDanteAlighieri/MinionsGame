@@ -21,7 +21,7 @@
         public ContentManager Content { private set; get; }
         XmlManager<GameScreen> xmlGameScreenManager;
 
-        GameScreen currentScreen, newScreen;
+        GameScreen currentScreen, newScreen, overworldScreen;
         [XmlIgnore]
         public GraphicsDevice GraphicsDevice;
         [XmlIgnore]
@@ -58,10 +58,17 @@
         public void ChangeIngameScreens(string screenName)
         {
             newScreen = (GameScreen)Activator.CreateInstance(Type.GetType("SecondAttempt." + screenName));
-            Image.IsActive = true;
-            Image.FadeEffect.Increase = true;
-            Image.Alpha = 0.0f;
-            IsTransitioning = true;
+            if (currentScreen is MapScreen)
+            {
+                overworldScreen = currentScreen;
+                currentScreen = newScreen;
+                currentScreen.LoadContent();
+            }
+            else 
+            {
+                currentScreen.UnloadContent();
+                currentScreen = overworldScreen;
+            }
         }
 
         void Transition(GameTime gameTime)

@@ -25,13 +25,7 @@ namespace SecondAttempt
             background = backgroundLoader.Load("Load/Battle/Background.xml");
             background.LoadContent();
             backgroundMusic = content.Load<Song>("Music/BattleTheme");
-            MediaPlayer.Play(backgroundMusic);
-            /*this.background = new Image();
-            background.Path = "Gameplay/Battle/background";
-            background.SourceRect = new Rectangle(0, 0, 640, 320);
-            background.LoadContent();
-            this.character = null;
-            this.enemies = null;*/
+            BackgroundMusicPlayer.Play(backgroundMusic);            
         }
 
 
@@ -39,7 +33,7 @@ namespace SecondAttempt
         {
             base.UnloadContent();
             background.UnloadContent();
-            MediaPlayer.Stop();
+            BackgroundMusicPlayer.Stop();
             backgroundMusic.Dispose();
             /*
             if(character != null)character.UnloadContent() ;

@@ -75,6 +75,7 @@
     <Reference Include="System.Net" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BackgroundMusicPlayer.cs" />
     <Compile Include="BattleScreen.cs" />
     <Compile Include="Character.cs" />
     <Compile Include="Enemy.cs" />

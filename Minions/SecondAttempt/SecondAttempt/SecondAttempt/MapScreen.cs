@@ -29,9 +29,7 @@ namespace SecondAttempt
             playerSprite.LoadContent();
             map.LoadContent();
             backgroundMusic = content.Load<Song>("Music/mainSong");
-            MediaPlayer.Volume = 1.0f;
-            MediaPlayer.Play(backgroundMusic);
-            MediaPlayer.IsRepeating = true;
+            BackgroundMusicPlayer.Play(backgroundMusic);
             nextBattle = generator.Next(9999, 10000);
         }
 
@@ -40,7 +38,7 @@ namespace SecondAttempt
             base.UnloadContent();
             playerSprite.UnloadContent();
             map.UnloadContent();
-            MediaPlayer.Stop();
+            BackgroundMusicPlayer.Stop();
             backgroundMusic.Dispose();
         }
 
