@@ -11,28 +11,12 @@ namespace SecondAttempt
     using Microsoft.Xna.Framework.Graphics;
     using Microsoft.Xna.Framework.Media;
 
-    public class BattleScreen : GameScreen
+    public class BattleScreen : GameplayScreen
     {
         private Image background;
         private Minion character;
         private List<Enemy> enemies;
         Song backgroundMusic;
-
-        /*
-        public BattleScreen()
-        {
-            this.background = new Image();
-            this.character = new Minion();
-            this.enemies = new List<Enemy>();
-        }
-        /*
-        public override void LoadContent(List<Enemy> enemies, Minion character, Image background)
-        {
-            base.LoadContent();
-            this.background = background;
-            this.character = character;
-            this.enemies = enemies;
-        }*/
 
         public override void LoadContent()
         {

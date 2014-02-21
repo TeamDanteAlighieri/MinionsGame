@@ -55,6 +55,15 @@
             IsTransitioning = true;
         }
 
+        public void ChangeIngameScreens(string screenName)
+        {
+            newScreen = (GameScreen)Activator.CreateInstance(Type.GetType("SecondAttempt." + screenName));
+            Image.IsActive = true;
+            Image.FadeEffect.Increase = true;
+            Image.Alpha = 0.0f;
+            IsTransitioning = true;
+        }
+
         void Transition(GameTime gameTime)
         {
             if(IsTransitioning)
@@ -80,8 +89,7 @@
         public ScreenManager()
         {
             Dimensions = new Vector2(640, 480);
-            currentScreen = new SplashScreen();
-            //currentScreen = new GameplayScreen();
+            currentScreen = new SplashScreen();            
             xmlGameScreenManager = new XmlManager<GameScreen>();
             xmlGameScreenManager.Type = currentScreen.Type;
             currentScreen = xmlGameScreenManager.Load("Load/SplashScreen.xml");

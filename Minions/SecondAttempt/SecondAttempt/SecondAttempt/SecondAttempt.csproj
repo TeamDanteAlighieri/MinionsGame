@@ -80,6 +80,7 @@
     <Compile Include="Enemy.cs" />
     <Compile Include="FadeEffect.cs" />
     <Compile Include="GameplayScreen.cs" />
+    <Compile Include="MapScreen.cs" />
     <Compile Include="GameScreen.cs" />
     <Compile Include="Image.cs" />
     <Compile Include="ImageEffect.cs" />
