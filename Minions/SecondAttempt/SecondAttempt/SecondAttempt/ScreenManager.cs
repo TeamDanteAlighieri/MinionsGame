@@ -80,11 +80,11 @@
         public ScreenManager()
         {
             Dimensions = new Vector2(640, 480);
-            //currentScreen = new SplashScreen();
-            currentScreen = new GameplayScreen();
+            currentScreen = new SplashScreen();
+            //currentScreen = new GameplayScreen();
             xmlGameScreenManager = new XmlManager<GameScreen>();
             xmlGameScreenManager.Type = currentScreen.Type;
-            //currentScreen = xmlGameScreenManager.Load("Load/SplashScreen.xml");
+            currentScreen = xmlGameScreenManager.Load("Load/SplashScreen.xml");
         }
 
         //methods

@@ -9,11 +9,13 @@ namespace SecondAttempt
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Content;
     using Microsoft.Xna.Framework.Graphics;
+    using Microsoft.Xna.Framework.Media;
 
     public class GameplayScreen : GameScreen
     {
         Player player;
         Map map;
+        Song backgroundMusic;
 
         public override void LoadContent()
         {
@@ -24,6 +26,10 @@ namespace SecondAttempt
             map = mapLoader.Load("Load/Gameplay/Maps/Map1.xml");
             player.LoadContent();
             map.LoadContent();
+            backgroundMusic = content.Load<Song>("Music/mainSong");
+            MediaPlayer.Volume = 1.0f;
+            MediaPlayer.Play(backgroundMusic);
+            MediaPlayer.IsRepeating = true;
         }
 
         public override void UnloadContent()
@@ -31,6 +37,8 @@ namespace SecondAttempt
             base.UnloadContent();
             player.UnloadContent();
             map.UnloadContent();
+            MediaPlayer.Stop();
+            backgroundMusic.Dispose();
         }
 
         public override void Update(GameTime gameTime)

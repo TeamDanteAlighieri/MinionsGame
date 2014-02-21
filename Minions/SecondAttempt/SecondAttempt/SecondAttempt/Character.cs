@@ -4,7 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Minions
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.Graphics;
+namespace SecondAttempt
 {
 	public abstract class Character
 	{
@@ -12,7 +15,17 @@ namespace Minions
 		private int attackPower;
 		private int speed;
 		private int blood;
-		//private Location location;
+
+        public Character()
+        {
+            this.Name = string.Empty;
+            this.attackPower = 0;
+            this.speed = 0;
+            this.blood = 0;
+        }
+
+        //public List<Skill> Skills { get; set; }
+		//private Vector2 location;
 
 		/*public Character(string name, int attackPower, int speed, int blood, Location location)
 		{

@@ -13,13 +13,15 @@
 
     public class SplashScreen : GameScreen
     {
-        public Image Image; 
+        public Image Image;        
+        private bool transitionStarted;
 
         
         public override void LoadContent()
         {
             base.LoadContent();
             Image.LoadContent();
+            transitionStarted = false;
             //Image.FadeEffect.FadeSpeed = 0.5f;
         }
 
@@ -34,9 +36,11 @@
             base.Update(gameTime);
             Image.Update(gameTime);
 
-            if (InputManager.Instance.KeyPressed(Keys.Enter, Keys.Z))
-                ScreenManager.Instance.ChangeScreens("TitleScreen");// this have to be the same name as the class
-
+            if ((gameTime.TotalGameTime.Seconds >= 1 && transitionStarted == false) || InputManager.Instance.KeyPressed(Keys.Enter, Keys.Z))
+            {
+                transitionStarted = true;
+                ScreenManager.Instance.ChangeScreens("BattleScreen");// this have to be the same name as the class
+            }
         }
         public override void Draw(SpriteBatch spriteBatch)
         {

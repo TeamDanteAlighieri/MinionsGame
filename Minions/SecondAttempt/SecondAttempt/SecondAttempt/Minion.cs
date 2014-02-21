@@ -4,13 +4,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Minions
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.Graphics;
+namespace SecondAttempt
 {
 	public class Minion : Character
 	{
 		private int experience;
 		private int money;
 		private int mana;
+
+        public Minion() : base()
+        {
+            this.experience = 0;
+            this.money = 0;
+            this.mana = 0;
+        }
 
 		/*public Minion(string name, int attackPower, int speed, int blood, Location location, int experience, int money, int mana)
 			: base(name, attackPower, speed, blood, location)
@@ -53,5 +63,12 @@ namespace Minions
 				this.mana = value;
 			}
 		}
+
+        public void UnloadContent() { }
+
+        public void Update(GameTime gameTime) { }
+        public void LoadContent() { }
+
+        public void Draw(SpriteBatch spriteBatch) { }
 	}
 }

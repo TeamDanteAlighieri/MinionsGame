@@ -28,7 +28,7 @@
     <Image>
       <Path>Gameplay/TileSheets/Ground</Path>
     </Image>
-    <SolidTiles>[1:1][2:1][6:1][7:1][8:1][4:0][0:2]</SolidTiles>
+    <SolidTiles>[1:1][2:1][6:1][7:1][8:1][4:0][0:2][8:0]</SolidTiles>
     <OverlayTiles>[1:1][6:0][7:0][1:2][2:1][6:1][7:1][8:0][8:1][0:2]</OverlayTiles>
     <TileMap>
       <Row>[x:x][x:x][x:x][1:1][1:1][x:x][x:x][x:x][x:x][1:1][x:x][x:x][8:1]</Row>
