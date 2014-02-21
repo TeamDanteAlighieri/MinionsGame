@@ -39,7 +39,7 @@
             if ((gameTime.TotalGameTime.Seconds >= 1 && transitionStarted == false) || InputManager.Instance.KeyPressed(Keys.Enter, Keys.Z))
             {
                 transitionStarted = true;
-                ScreenManager.Instance.ChangeScreens("BattleScreen");// this have to be the same name as the class
+                ScreenManager.Instance.ChangeScreens("TitleScreen");// this have to be the same name as the class
             }
         }
         public override void Draw(SpriteBatch spriteBatch)
