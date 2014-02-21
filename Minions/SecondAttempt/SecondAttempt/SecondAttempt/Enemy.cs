@@ -11,14 +11,14 @@ namespace SecondAttempt
 {
 	public class Enemy : Character
 	{
+        public LootTable Drops;
+        //public EnemyType Type;
+
         public Enemy() : base() { }
 
-		/*public Enemy(string name, int attackPower, int speed, int blood, Location location)
-			: base(name, attackPower, speed, blood, location)
-		{
-		}*/
+        public void LoadContent() { }
 
-        public void UnloadContent() {}
+        public void UnloadContent() { }
 
         public void Update(GameTime gameTime) { }
 

@@ -11,28 +11,12 @@ namespace SecondAttempt
     using Microsoft.Xna.Framework.Graphics;
     using Microsoft.Xna.Framework.Media;
 
-    public class BattleScreen : GameScreen
+    public class BattleScreen : GameplayScreen
     {
         private Image background;
         private Minion character;
         private List<Enemy> enemies;
         Song backgroundMusic;
-
-        /*
-        public BattleScreen()
-        {
-            this.background = new Image();
-            this.character = new Minion();
-            this.enemies = new List<Enemy>();
-        }
-        /*
-        public override void LoadContent(List<Enemy> enemies, Minion character, Image background)
-        {
-            base.LoadContent();
-            this.background = background;
-            this.character = character;
-            this.enemies = enemies;
-        }*/
 
         public override void LoadContent()
         {
@@ -41,13 +25,7 @@ namespace SecondAttempt
             background = backgroundLoader.Load("Load/Battle/Background.xml");
             background.LoadContent();
             backgroundMusic = content.Load<Song>("Music/BattleTheme");
-            MediaPlayer.Play(backgroundMusic);
-            /*this.background = new Image();
-            background.Path = "Gameplay/Battle/background";
-            background.SourceRect = new Rectangle(0, 0, 640, 320);
-            background.LoadContent();
-            this.character = null;
-            this.enemies = null;*/
+            BackgroundMusicPlayer.Play(backgroundMusic);            
         }
 
 
@@ -55,11 +33,11 @@ namespace SecondAttempt
         {
             base.UnloadContent();
             background.UnloadContent();
-            MediaPlayer.Stop();
+            BackgroundMusicPlayer.Stop();
             backgroundMusic.Dispose();
             /*
-            if(character != null)character.UnloadContent() ;
-            if (enemies != null ) foreach (var enemy in enemies)
+            if ( character != null ) character.UnloadContent() ;
+            if ( enemies != null ) foreach (var enemy in enemies)
             {
                 enemy.UnloadContent();                
             }*/

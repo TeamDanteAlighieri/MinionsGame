@@ -24,16 +24,14 @@
             base.LoadContent();
             menuManager.LoadContent("Load/Menus/TitleMenu.xml");
             backgroundMusic = content.Load<Song>("Music/song");
-            MediaPlayer.Volume = 1.0f;
-            MediaPlayer.Play(backgroundMusic);
-            MediaPlayer.IsRepeating = true;
+            BackgroundMusicPlayer.Play(backgroundMusic);
         }
 
         public override void UnloadContent()
         {
             base.UnloadContent();
             menuManager.UnloadContent();
-            MediaPlayer.Stop();
+            BackgroundMusicPlayer.Stop();
             backgroundMusic.Dispose();
         }
 

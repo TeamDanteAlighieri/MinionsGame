@@ -11,16 +11,9 @@ namespace SecondAttempt
 {
 	public class Minion : Character
 	{
-		private int experience;
-		private int money;
-		private int mana;
-
-        public Minion() : base()
-        {
-            this.experience = 0;
-            this.money = 0;
-            this.mana = 0;
-        }
+		public int Money;
+		public int Mana;
+        //public List<Item> items;        
 
 		/*public Minion(string name, int attackPower, int speed, int blood, Location location, int experience, int money, int mana)
 			: base(name, attackPower, speed, blood, location)
@@ -30,44 +23,16 @@ namespace SecondAttempt
 			this.Mana = mana;
 		}*/
 
-		public int Experience
-		{
-			get
-			{
-				return this.experience;
-			}
-			set
-			{
-				this.experience = value;
-			}
-		}
-		public int Money
-		{
-			get
-			{
-				return this.money;
-			}
-			set
-			{
-				this.money = value;
-			}
-		}
-		public int Mana
-		{
-			get
-			{
-				return this.mana;
-			}
-			set
-			{
-				this.mana = value;
-			}
-		}
+        public void LoadContent() 
+        {
+            //content = new ContentManager(ScreenManager.Instance.Content.ServiceProvider, "Content");
+
+
+        }
 
         public void UnloadContent() { }
 
-        public void Update(GameTime gameTime) { }
-        public void LoadContent() { }
+        public void Update(GameTime gameTime) { }        
 
         public void Draw(SpriteBatch spriteBatch) { }
 	}

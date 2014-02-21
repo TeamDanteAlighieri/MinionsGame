@@ -1,5 +1,4 @@
-﻿
-namespace SecondAttempt
+﻿namespace SecondAttempt
 {
     using System;
     using System.Collections.Generic;
@@ -9,51 +8,34 @@ namespace SecondAttempt
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Content;
     using Microsoft.Xna.Framework.Graphics;
-    using Microsoft.Xna.Framework.Media;
 
     public class GameplayScreen : GameScreen
     {
-        Player player;
-        Map map;
-        Song backgroundMusic;
+        Minion player;
 
         public override void LoadContent()
         {
             base.LoadContent();
-            XmlManager<Player> playerLoader = new XmlManager<Player>();
-            XmlManager<Map> mapLoader = new XmlManager<Map>();
-            player = playerLoader.Load("Load/Gameplay/Player.xml");
-            map = mapLoader.Load("Load/Gameplay/Maps/Map1.xml");
-            player.LoadContent();
-            map.LoadContent();
-            backgroundMusic = content.Load<Song>("Music/mainSong");
-            MediaPlayer.Volume = 1.0f;
-            MediaPlayer.Play(backgroundMusic);
-            MediaPlayer.IsRepeating = true;
+            XmlManager<Minion> playerLoader = new XmlManager<Minion>();
+            //player = playerLoader.Load("Gameplay/Player/Info.xml");
+            //player.LoadContent();
+            //Logic for player load goes here;
         }
 
         public override void UnloadContent()
         {
             base.UnloadContent();
-            player.UnloadContent();
-            map.UnloadContent();
-            MediaPlayer.Stop();
-            backgroundMusic.Dispose();
+            //Logic for player clear goes here.
         }
 
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
-            player.Update(gameTime);
-            map.Update(gameTime, ref player);
+            //Player update logic goes here (if necessary)
         }
 
         public override void Draw(SpriteBatch spriteBatch)
-        {
-            base.Draw(spriteBatch);
-            map.Draw(spriteBatch, "Underlay");
-            player.Draw(spriteBatch);
-            map.Draw(spriteBatch, "Overlay");
+        {            
         }
     }
 }

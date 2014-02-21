@@ -21,7 +21,7 @@
         public ContentManager Content { private set; get; }
         XmlManager<GameScreen> xmlGameScreenManager;
 
-        GameScreen currentScreen, newScreen;
+        GameScreen currentScreen, newScreen, overworldScreen;
         [XmlIgnore]
         public GraphicsDevice GraphicsDevice;
         [XmlIgnore]
@@ -55,6 +55,22 @@
             IsTransitioning = true;
         }
 
+        public void ChangeIngameScreens(string screenName)
+        {
+            newScreen = (GameScreen)Activator.CreateInstance(Type.GetType("SecondAttempt." + screenName));
+            if (currentScreen is MapScreen)
+            {
+                overworldScreen = currentScreen;
+                currentScreen = newScreen;
+                currentScreen.LoadContent();
+            }
+            else 
+            {
+                currentScreen.UnloadContent();
+                currentScreen = overworldScreen;
+            }
+        }
+
         void Transition(GameTime gameTime)
         {
             if(IsTransitioning)
@@ -80,8 +96,7 @@
         public ScreenManager()
         {
             Dimensions = new Vector2(640, 480);
-            currentScreen = new SplashScreen();
-            //currentScreen = new GameplayScreen();
+            currentScreen = new SplashScreen();            
             xmlGameScreenManager = new XmlManager<GameScreen>();
             xmlGameScreenManager.Type = currentScreen.Type;
             currentScreen = xmlGameScreenManager.Load("Load/SplashScreen.xml");
