@@ -17,6 +17,8 @@
   </Item>
 
   <Item>
+    <LinkType>Screen</LinkType>
+    <LinkID>OptionsScreen</LinkID>
     <Image>
       <Text>Options</Text>
     </Image>
