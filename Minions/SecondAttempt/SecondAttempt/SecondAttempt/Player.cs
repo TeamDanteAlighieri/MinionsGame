@@ -13,10 +13,8 @@
 
     public class Player
     {
-        [XmlElement("Image")]
         public Image Image;
         public Vector2 Velocity;
-        [XmlElement("MoveSpeed")]
         public float MoveSpeed;
 
         public Player()

@@ -7,12 +7,15 @@ using System.Runtime.Serialization.Formatters.Binary;
 namespace SecondAttempt
 {
     [Serializable()]
-    public class SaveGameContent
+    public class SaveGameContent : Player
     {
         //private XmlManager<Minion> minionSaver;
         //private Minion currentInstanceOfTheCharacter;
-        [XmlElement("Player")]
+        
+        private string name = "sasho";
+        [XmlIgnore]
         private Player playerToSave;
+
         
         public SaveGameContent()
         { }
@@ -20,20 +23,36 @@ namespace SecondAttempt
         public SaveGameContent( Player playerToSave)
         {
             //this.currentInstanceOfTheCharacter = currentInstanceOfTheCharacter;
-            this.playerToSave = playerToSave;
+            this.PlayerToSave = playerToSave;
             //this.playerSaver = new XmlManager<Player>();
             //this.minionSaver = new XmlManager<Minion>();
         }
-
-        public void Save(object TestObj)
+        //[XmlElement("Player")]
+        public Player PlayerToSave
         {
+            get { return this.playerToSave; }
+            set { this.playerToSave = value; }
+        }
 
+        [XmlElement("Name")]
+        public string Name
+        {
+            get { return this.name; }
+        }
+
+        public void Save()
+        {
+            List<float> coordinates = new List<float>
+            {
+                playerToSave.Image.Position.X,
+                playerToSave.Image.Position.Y
+            };
             // Create a new XmlSerializer instance with the type of the test class
-            XmlSerializer SerializerObj = new XmlSerializer(typeof(SaveGameContent));
+            XmlSerializer SerializerObj = new XmlSerializer(typeof(Player));
 
             // Create a new file stream to write the serialized object to a file
-            TextWriter WriteFileStream = new StreamWriter("Load/Gameplay/SavedGames/Player2.xml");
-            SerializerObj.Serialize(WriteFileStream, TestObj);
+            TextWriter WriteFileStream = new StreamWriter("Load/Gameplay/SavedGames/Player4.xml");
+            SerializerObj.Serialize(WriteFileStream, this.playerToSave);
 
             // Cleanup
             WriteFileStream.Close();

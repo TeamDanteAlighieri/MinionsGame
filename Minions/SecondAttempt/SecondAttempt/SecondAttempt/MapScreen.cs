@@ -32,8 +32,9 @@ namespace SecondAttempt
             backgroundMusic = content.Load<Song>("Music/mainSong");
             BackgroundMusicPlayer.Play(backgroundMusic);
             nextBattle = generator.Next(9999, 10000);
+            //Testing the save method of saveGameContent here
             SaveGameContent saveLoadGenerator = new SaveGameContent(playerSprite);
-            saveLoadGenerator.Save(saveLoadGenerator);
+            saveLoadGenerator.Save();
         }
 
         public override void UnloadContent()

@@ -10,6 +10,7 @@
     using Microsoft.Xna.Framework.Content;
     using Microsoft.Xna.Framework.Graphics;
 
+    //[Serializable()]
     public class Image
     {
         public float Alpha;
@@ -18,6 +19,7 @@
         public Rectangle SourceRect;
         public bool IsActive;
 
+        [XmlIgnore]
         public Texture2D Texture;
         Vector2 origin;
         ContentManager content;
