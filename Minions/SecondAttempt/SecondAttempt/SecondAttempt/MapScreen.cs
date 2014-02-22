@@ -18,6 +18,7 @@ namespace SecondAttempt
         Song backgroundMusic;
         float nextBattle;
         static Random generator = new Random();
+        
 
         public override void LoadContent()
         {
@@ -31,6 +32,8 @@ namespace SecondAttempt
             backgroundMusic = content.Load<Song>("Music/mainSong");
             BackgroundMusicPlayer.Play(backgroundMusic);
             nextBattle = generator.Next(9999, 10000);
+            SaveGameContent saveLoadGenerator = new SaveGameContent(playerSprite);
+            saveLoadGenerator.Save(saveLoadGenerator);
         }
 
         public override void UnloadContent()
