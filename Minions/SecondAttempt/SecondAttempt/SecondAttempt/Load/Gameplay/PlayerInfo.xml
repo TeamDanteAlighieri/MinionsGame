@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Minion>
+  <Name>Minion</Name>
+  <AttackPower>15</AttackPower>
+  <Accuracy>90</Accuracy>
+  <Defence>8</Defence>
+  <Speed>10</Speed>
+  <MaxHealth>150</MaxHealth>
+  <CurrentHealth>150</CurrentHealth>
+  <Experience>38</Experience>
+  <SpriteImage>
+    <Path>Gameplay/player</Path>
+    <Scale>
+      <X>1.5</X>
+      <Y>1.5</Y>
+    </Scale>
+    <Effects>SpriteSheetEffect</Effects>
+  </SpriteImage>
+  <Money>300</Money>
+  <MaxMana>15</MaxMana>
+  <CurrentMana>15</CurrentMana>
+  <Level>2</Level>
+</Minion>

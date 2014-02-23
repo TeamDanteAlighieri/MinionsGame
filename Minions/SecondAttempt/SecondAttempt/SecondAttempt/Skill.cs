@@ -9,15 +9,8 @@ namespace SecondAttempt
     {
         public string Name { get; protected set; }
         public string Description { get; protected set; }
-        public uint Duration { get; protected set; }
-        public uint Power { get; protected set; }
-
-        public Skill(string name, string description, uint duration, uint power)
-        {
-            this.Name = name;
-            this.Description = description;
-            this.Duration = duration;
-            this.Power = power;
-        }        
+        public int Duration { get; protected set; }
+        public int Power { get; protected set; }
+        public int Accuracy { get; protected set; }
     }
 }

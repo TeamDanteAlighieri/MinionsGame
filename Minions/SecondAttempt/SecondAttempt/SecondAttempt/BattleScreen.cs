@@ -14,9 +14,9 @@ namespace SecondAttempt
     public class BattleScreen : GameplayScreen
     {
         private Image background;
-        private Minion character;
         private List<Enemy> enemies;
-        Song backgroundMusic;
+        private Song backgroundMusic;
+        private Vector2 startingPosition;
 
         public override void LoadContent()
         {
@@ -24,6 +24,8 @@ namespace SecondAttempt
             XmlManager<Image> backgroundLoader = new XmlManager<Image>();
             background = backgroundLoader.Load("Load/Battle/Background.xml");
             background.LoadContent();
+            startingPosition = PlayerChar.SpriteImage.Position;
+            PlayerChar.SpriteImage.Position = StaticProperties.PlayerPosition1;
             backgroundMusic = content.Load<Song>("Music/BattleTheme");
             BackgroundMusicPlayer.Play(backgroundMusic);            
         }
@@ -35,8 +37,9 @@ namespace SecondAttempt
             background.UnloadContent();
             BackgroundMusicPlayer.Stop();
             backgroundMusic.Dispose();
+            PlayerChar.SpriteImage.Position = startingPosition;
             /*
-            if ( character != null ) character.UnloadContent() ;
+            if ( character != null ) character.UnloadContent();
             if ( enemies != null ) foreach (var enemy in enemies)
             {
                 enemy.UnloadContent();                
@@ -46,7 +49,10 @@ namespace SecondAttempt
         
         public override void Update(GameTime gameTime)
         {
-            base.Update(gameTime);/*
+            base.Update(gameTime);
+            PlayerChar.Update(gameTime);
+            PlayerChar.SpriteImage.SpriteSheetEffect.CurrentFrame.Y = 2;
+            /*
             if (character != null) character.Update(gameTime);
             if (enemies != null) foreach (var enemy in enemies)
             {
@@ -57,7 +63,9 @@ namespace SecondAttempt
         public override void Draw(SpriteBatch spriteBatch)
         {
             base.Draw(spriteBatch);
-            background.Draw(spriteBatch);/*
+            background.Draw(spriteBatch);
+            PlayerChar.Draw(spriteBatch);            
+            /*
             if (character != null) character.Draw(spriteBatch);
             if (enemies != null) foreach (var enemy in enemies)
             {

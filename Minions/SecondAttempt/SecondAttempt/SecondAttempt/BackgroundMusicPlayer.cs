@@ -11,11 +11,11 @@
 
     public static class BackgroundMusicPlayer
     {
-        public static float Volume { get; set; }
+        public static float Volume;
 
         public static void Initialize()
         {
-            Volume = 0.5f;
+            Volume = 0.1f;
             MediaPlayer.Volume = Volume;
             MediaPlayer.IsRepeating = true;
         }

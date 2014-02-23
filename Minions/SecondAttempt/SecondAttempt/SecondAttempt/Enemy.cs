@@ -11,10 +11,8 @@ namespace SecondAttempt
 {
 	public class Enemy : Character
 	{
-        public LootTable Drops;
-        //public EnemyType Type;
-
-        public Enemy() : base() { }
+        //public LootTable Drops;
+        public EnemyType Type;
 
         public void LoadContent() { }
 

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SecondAttempt
 {
-    enum EnemyType
+    public enum EnemyType
     {
         Regular,
         Boss

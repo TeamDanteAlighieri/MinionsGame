@@ -11,8 +11,8 @@
 
     public class TitleScreen : GameScreen
     {
-        MenuManager menuManager;
-        Song backgroundMusic;
+        private MenuManager menuManager;
+        private Song backgroundMusic;
 
         public TitleScreen()
         {

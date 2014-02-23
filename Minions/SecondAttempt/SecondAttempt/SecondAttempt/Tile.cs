@@ -11,9 +11,9 @@ namespace SecondAttempt
 
     public class Tile
     {
-        Vector2 position;
-        Rectangle sourceRect;
-        string state;
+        private Vector2 position;
+        private Rectangle sourceRect;
+        private string state;
 
         public Rectangle SourceRect
         {
@@ -35,7 +35,7 @@ namespace SecondAttempt
         public void UnloadContent()
         { }
 
-        public void Update(GameTime gameTime, ref Player player)
+        public void Update(GameTime gameTime, Player player)
         { 
             if(state == "Solid")
             {

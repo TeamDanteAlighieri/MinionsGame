@@ -38,10 +38,10 @@ namespace SecondAttempt
                 l.UnloadContent();
         }
 
-        public void Update(GameTime gameTime, ref Player player)
+        public void Update(GameTime gameTime, Player player)
         {
             foreach (Layer l in Layer)
-                l.Update(gameTime, ref player);
+                l.Update(gameTime, player);
         }
 
         public void Draw(SpriteBatch spriteBatch, string drawType)

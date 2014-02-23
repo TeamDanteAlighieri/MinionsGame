@@ -11,8 +11,8 @@
 
     public class MenuManager
     {
-        Menu menu;
-        bool isTransitioning;
+        private Menu menu;
+        private bool isTransitioning;
 
         void Transition(GameTime gameTime)
         {

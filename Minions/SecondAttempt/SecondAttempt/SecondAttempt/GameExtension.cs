@@ -16,8 +16,8 @@ namespace SecondAttempt
     /// </summary>
     public class GameExtension : Microsoft.Xna.Framework.Game
     {
-        GraphicsDeviceManager graphics;
-        SpriteBatch spriteBatch;
+        private GraphicsDeviceManager graphics;
+        private SpriteBatch spriteBatch;
 
         public GameExtension()
         {

@@ -16,7 +16,7 @@
             IsActive = false;
         }
 
-        public virtual void LoadContent(ref Image Image)
+        public virtual void LoadContent(Image Image)
         {
             this.image = Image;
         }

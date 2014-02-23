@@ -11,15 +11,21 @@
     using Microsoft.Xna.Framework.Content;
     using Microsoft.Xna.Framework.Graphics;
 
-	public abstract class Character
+	public abstract class Character : IStats
 	{
 		public string Name;
-		public int AttackPower;
-		public int Speed;
-		public int Health;
-        public long Experience;
-        [XmlElement("Skill")]
+        public int AttackPower { get; set; }
+        public int Accuracy { get; set; }
+        public int Defence { get; set; }
+        public int Speed { get; set; }
+        public int MaxHealth { get; set; }
+        public int CurrentHealth { get; set; }
+        public int MaxMana { get; set; }
+        public int CurrentMana { get; set; }
+        public long Experience { get; set; }
+        //[XmlElement("Skill")]
         //public List<Skill> Skills;        
         public Image SpriteImage;
+        public int Money;
 	}
 }

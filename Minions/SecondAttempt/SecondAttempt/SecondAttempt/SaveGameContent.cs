@@ -12,11 +12,9 @@ namespace SecondAttempt
         //private XmlManager<Minion> minionSaver;
         //private Minion currentInstanceOfTheCharacter;
         
-        private string name = "sasho";
         [XmlIgnore]
         private Player playerToSave;
 
-        
         public SaveGameContent()
         { }
 
@@ -32,13 +30,7 @@ namespace SecondAttempt
         {
             get { return this.playerToSave; }
             set { this.playerToSave = value; }
-        }
-
-        [XmlElement("Name")]
-        public string Name
-        {
-            get { return this.name; }
-        }
+        }       
 
         public void Save()
         {

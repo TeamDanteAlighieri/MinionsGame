@@ -13,11 +13,11 @@ namespace SecondAttempt
 
     public class MapScreen : GameplayScreen
     {
-        Player playerSprite;
-        Map map;
-        Song backgroundMusic;
-        float nextBattle;
-        static Random generator = new Random();
+        private Player playerSprite;
+        private Map map;
+        private Song backgroundMusic;
+        private float nextBattle;
+        //static Random generator = new Random();
         
 
         public override void LoadContent()
@@ -31,7 +31,7 @@ namespace SecondAttempt
             map.LoadContent();
             backgroundMusic = content.Load<Song>("Music/mainSong");
             BackgroundMusicPlayer.Play(backgroundMusic);
-            nextBattle = generator.Next(9999, 10000);
+            nextBattle = (float) StaticProperties.Random.Next(3, 5);
             //Testing the save method of saveGameContent here
             SaveGameContent saveLoadGenerator = new SaveGameContent(playerSprite);
             saveLoadGenerator.Save();
@@ -50,12 +50,12 @@ namespace SecondAttempt
         {
             base.Update(gameTime);
             playerSprite.Update(gameTime);
-            map.Update(gameTime, ref playerSprite);
+            map.Update(gameTime, playerSprite);
             nextBattle -= (float) gameTime.ElapsedGameTime.TotalMilliseconds / 1000;
             if (nextBattle <= 0)
             {
                 ScreenManager.Instance.ChangeIngameScreens("BattleScreen");
-                nextBattle = generator.Next(9999, 10000);
+                nextBattle = StaticProperties.Random.Next(3, 5);
             }
         }
 

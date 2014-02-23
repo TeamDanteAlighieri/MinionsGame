@@ -18,9 +18,9 @@
             Increase = false;
         }
 
-        public override void LoadContent(ref Image Image)
+        public override void LoadContent(Image Image)
         {
-            base.LoadContent(ref Image);
+            base.LoadContent(Image);
         }
 
         public override void UnloadContent()

@@ -39,7 +39,7 @@
             {
                 (effect as ImageEffect).IsActive = true;
                 var obj = this;
-                (effect as ImageEffect).LoadContent(ref obj);
+                (effect as ImageEffect).LoadContent(obj);
             }
 
             effectList.Add(effect.GetType().ToString().Replace("SecondAttempt.", ""), (effect as ImageEffect));
@@ -52,7 +52,7 @@
             {
                 effectList[effect].IsActive = true;
                 var obj = this;
-                effectList[effect].LoadContent(ref obj);
+                effectList[effect].LoadContent(obj);
             }
         }
 

@@ -9,10 +9,9 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 namespace SecondAttempt
 {
-	public class Minion : Character
+	public class Minion : Character 
 	{
-		public int Money;
-		public int Mana;
+        public byte Level;
         //public List<Item> items;        
 
 		/*public Minion(string name, int attackPower, int speed, int blood, Location location, int experience, int money, int mana)
@@ -25,15 +24,22 @@ namespace SecondAttempt
 
         public void LoadContent() 
         {
-            //content = new ContentManager(ScreenManager.Instance.Content.ServiceProvider, "Content");
-
-
+            SpriteImage.LoadContent();
         }
 
-        public void UnloadContent() { }
+        public void UnloadContent() 
+        {
+            SpriteImage.UnloadContent();
+        }
 
-        public void Update(GameTime gameTime) { }        
+        public void Update(GameTime gameTime) 
+        {
+            SpriteImage.Update(gameTime);
+        }        
 
-        public void Draw(SpriteBatch spriteBatch) { }
+        public void Draw(SpriteBatch spriteBatch) 
+        {
+            SpriteImage.Draw(spriteBatch);
+        }
 	}
 }

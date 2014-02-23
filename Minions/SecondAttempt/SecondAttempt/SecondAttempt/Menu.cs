@@ -18,8 +18,8 @@
         public string Effects;
         [XmlElement("Item")]
         public List<MenuItem> Items;
-        int itemNumber;
-        string id;
+        private int itemNumber;
+        private string id;
 
         public int ItemNumber
         {

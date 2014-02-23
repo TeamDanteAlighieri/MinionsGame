@@ -1,6 +1,6 @@
 namespace SecondAttempt
 {
-    static class Program
+    static class GameStart
     {
         /// <summary>
         /// The main entry point for the application.

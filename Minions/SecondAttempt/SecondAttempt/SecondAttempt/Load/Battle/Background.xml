@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Image>
-  <Path>Gameplay/Battle/background</Path>
+  <Path>Gameplay/Battle/background2</Path>
   <Position>
     <X>0</X>
-    <Y>50</Y>
+    <Y>80</Y>
   </Position>
   <Scale>
     <X>1</X>
-    <Y>1.3125</Y>
+    <Y>1.5</Y>
   </Scale>
 </Image>

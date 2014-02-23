@@ -11,15 +11,17 @@
 
     public class GameplayScreen : GameScreen
     {
-        public static Minion player;
+        public static Minion PlayerChar;
 
         public override void LoadContent()
         {
             base.LoadContent();
-            XmlManager<Minion> playerLoader = new XmlManager<Minion>();
-            //player = playerLoader.Load("Gameplay/Player/Info.xml");
-            //player.LoadContent();
-            //Logic for player load goes here;
+            if (PlayerChar == null)
+            {
+                XmlManager<Minion> playerLoad = new XmlManager<Minion>();
+                PlayerChar = playerLoad.Load("Load/Gameplay/PlayerInfo.xml");
+                PlayerChar.LoadContent();
+            }
         }
 
         public override void UnloadContent()

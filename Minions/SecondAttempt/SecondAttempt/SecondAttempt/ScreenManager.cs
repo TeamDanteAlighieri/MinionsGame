@@ -19,9 +19,9 @@
         public Vector2 Dimensions { private set; get; }
         [XmlIgnore]
         public ContentManager Content { private set; get; }
-        XmlManager<GameScreen> xmlGameScreenManager;
+        private XmlManager<GameScreen> xmlGameScreenManager;
 
-        GameScreen currentScreen, newScreen, overworldScreen;
+        private GameScreen currentScreen, newScreen, overworldScreen;
         [XmlIgnore]
         public GraphicsDevice GraphicsDevice;
         [XmlIgnore]

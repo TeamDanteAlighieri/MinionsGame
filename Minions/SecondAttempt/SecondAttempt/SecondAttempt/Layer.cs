@@ -30,7 +30,7 @@ namespace SecondAttempt
         //[XmlElement("SolidTiles")]
         public string SolidTiles, OverlayTiles;
         //List<Tile> tiles;
-        List<Tile> underlayTiles, overlayTiles;
+        private List<Tile> underlayTiles, overlayTiles;
         string state;
 
 
@@ -97,13 +97,13 @@ namespace SecondAttempt
             Image.UnloadContent();
         }
 
-        public void Update(GameTime gameTime, ref Player player)
+        public void Update(GameTime gameTime, Player player)
         {
             foreach (Tile tile in underlayTiles)
-                tile.Update(gameTime, ref player);
+                tile.Update(gameTime, player);
 
             foreach (Tile tile in overlayTiles)
-                tile.Update(gameTime, ref player);
+                tile.Update(gameTime, player);
         }
         public void Draw(SpriteBatch spriteBatch, string drawType)
         {
