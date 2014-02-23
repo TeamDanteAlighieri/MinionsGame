@@ -126,6 +126,7 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Load\Gameplay\PlayerInfo.xml" />
+    <Content Include="Load\Gameplay\SavedGames\Player4.xml" />
     <Content Include="Load\Menus\TestMenu.xml" />
     <Content Include="Load\Menus\TitleMenu.xml" />
     <Content Include="Load\ScreenManager.xml">
@@ -163,9 +164,7 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Load\Gameplay\SavedGames\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\Microsoft.Xna.GameStudio.targets" />
   <!--
