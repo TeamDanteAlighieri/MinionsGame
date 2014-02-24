@@ -13,6 +13,7 @@
 
     public class Player
     {
+        //[XmlIgnore]
         public Image Image;
         public Vector2 Velocity;
         public float MoveSpeed;

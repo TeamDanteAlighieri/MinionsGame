@@ -12,7 +12,7 @@ namespace SecondAttempt
         //private XmlManager<Minion> minionSaver;
         //private Minion currentInstanceOfTheCharacter;
         
-        [XmlIgnore]
+        //[XmlIgnore]
         private Player playerToSave;
 
         public SaveGameContent()
@@ -25,7 +25,6 @@ namespace SecondAttempt
             //this.playerSaver = new XmlManager<Player>();
             //this.minionSaver = new XmlManager<Minion>();
         }
-        //[XmlElement("Player")]
         public Player PlayerToSave
         {
             get { return this.playerToSave; }
@@ -34,32 +33,29 @@ namespace SecondAttempt
 
         public void Save()
         {
-            List<float> coordinates = new List<float>
+            /*List<float> coordinates = new List<float>
             {
                 playerToSave.Image.Position.X,
                 playerToSave.Image.Position.Y
-            };
+            };*/
             // Create a new XmlSerializer instance with the type of the test class
             XmlSerializer SerializerObj = new XmlSerializer(typeof(Player));
 
             // Create a new file stream to write the serialized object to a file
-            TextWriter WriteFileStream = new StreamWriter("Load/Gameplay/SavedGames/Player4.xml");
+            TextWriter WriteFileStream = new StreamWriter("Load/Gameplay/SavedGames/Player2.xml");
             SerializerObj.Serialize(WriteFileStream, this.playerToSave);
 
             // Cleanup
             WriteFileStream.Close();
         }
-
-
-        /*public void Save()
+        public Player Load()
         {
-            XmlManager<Player> playerSaver = new XmlManager<Player>();
-            playerSaver.Save("Load/Gameplay/SavedGames/positionsSaved.xml", playerToSave);
-            //minionSaver.Save("Load/Gameplay/SavedGames/minionSaved.xml", minionSaver);
-        }*/
-        /*public void Load()
-        {
-        }*/
+            Player playerToBeLoaded = new Player();
+            XmlManager<Player> playerLoader = new XmlManager<Player>();
+            playerToBeLoaded = playerLoader.Load("Load/Gameplay/SavedGames/Player4.xml");
+            //playerToBeLoaded.Image = playerToSave.Image;
+            return playerToBeLoaded;
+        }
         
     }
 }

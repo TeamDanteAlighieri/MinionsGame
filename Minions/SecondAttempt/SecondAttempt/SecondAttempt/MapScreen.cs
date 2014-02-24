@@ -39,8 +39,8 @@ namespace SecondAttempt
             nextBattle = (float) StaticProperties.Random.Next(3, 5);
 
             //Testing the save method of saveGameContent here
-            SaveGameContent saveLoadGenerator = new SaveGameContent(playerSprite);
-            saveLoadGenerator.Save();
+            //SaveGameContent saveLoadGenerator = new SaveGameContent(playerSprite);
+            //saveLoadGenerator.Save();
         }
 
         public override void UnloadContent()
