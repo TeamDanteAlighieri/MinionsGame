@@ -31,7 +31,7 @@ namespace SecondAttempt
             map.LoadContent();
             backgroundMusic = content.Load<Song>("Music/mainSong");
             BackgroundMusicPlayer.Play(backgroundMusic);
-            nextBattle = (float) StaticProperties.Random.Next(3, 5);
+            nextBattle = (float) StaticProperties.Random.Next(900, 999);
             //Testing the save method of saveGameContent here
             SaveGameContent saveLoadGenerator = new SaveGameContent(playerSprite);
             saveLoadGenerator.Save();
