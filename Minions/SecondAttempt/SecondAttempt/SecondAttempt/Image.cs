@@ -97,6 +97,8 @@
             SourceRect = Rectangle.Empty;
             effectList = new Dictionary<string, ImageEffect>();
         }
+
+
         public void LoadContent()
         {
             content = new ContentManager( ScreenManager.Instance.Content.ServiceProvider, "Content");
@@ -157,7 +159,7 @@
             {
                 if (effect.Value.IsActive)
                     effect.Value.Update(gameTime);
-            }
+            }            
         }
 
         public void Draw(SpriteBatch spriteBatch)

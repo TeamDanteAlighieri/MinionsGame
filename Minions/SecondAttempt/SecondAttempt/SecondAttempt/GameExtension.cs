@@ -18,11 +18,13 @@ namespace SecondAttempt
     {
         private GraphicsDeviceManager graphics;
         private SpriteBatch spriteBatch;
+        public static bool ExitFlag;
 
         public GameExtension()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+            ExitFlag = false;
         }
 
         /// <summary>
@@ -35,6 +37,7 @@ namespace SecondAttempt
         {
             graphics.PreferredBackBufferWidth = (int)ScreenManager.Instance.Dimensions.X;
             graphics.PreferredBackBufferHeight = (int)ScreenManager.Instance.Dimensions.Y;
+            //graphics.IsFullScreen = true;
             graphics.ApplyChanges();
             BackgroundMusicPlayer.Initialize();
 
@@ -71,7 +74,7 @@ namespace SecondAttempt
         protected override void Update(GameTime gameTime)
         {
             // Allows the game to exit
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape) || ExitFlag)
                 this.Exit();
 
             ScreenManager.Instance.Update(gameTime);

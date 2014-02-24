@@ -5,6 +5,8 @@
     using System.Linq;
     using System.Text;
 
+    using System.Xml.Serialization;
+
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Content;
     using Microsoft.Xna.Framework.Graphics;
@@ -12,6 +14,7 @@
     public class GameplayScreen : GameScreen
     {
         public static Minion PlayerChar;
+        public static NormalEnemies RegEnemies;
 
         public override void LoadContent()
         {
@@ -21,6 +24,8 @@
                 XmlManager<Minion> playerLoad = new XmlManager<Minion>();
                 PlayerChar = playerLoad.Load("Load/Gameplay/PlayerInfo.xml");
                 PlayerChar.LoadContent();
+                XmlManager<NormalEnemies> enemies = new XmlManager<NormalEnemies>();
+                RegEnemies = enemies.Load("Load/Gameplay/RegularEnemies.xml");
             }
         }
 

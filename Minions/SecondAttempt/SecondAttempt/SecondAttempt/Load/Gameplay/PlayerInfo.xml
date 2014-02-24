@@ -9,12 +9,16 @@
   <CurrentHealth>150</CurrentHealth>
   <Experience>38</Experience>
   <SpriteImage>
-    <Path>Gameplay/player</Path>
+    <Path>Gameplay/battle</Path>
     <Scale>
       <X>1.5</X>
       <Y>1.5</Y>
     </Scale>
-    <Effects>SpriteSheetEffect</Effects>
+    <Effects>FadeEffect</Effects>
+    <FadeEffect>
+      <FadeMax>1</FadeMax>
+      <FadeMin>0.5</FadeMin>
+    </FadeEffect>
   </SpriteImage>
   <Money>300</Money>
   <MaxMana>15</MaxMana>

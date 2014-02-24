@@ -16,22 +16,28 @@ namespace SecondAttempt
         private Player playerSprite;
         private Map map;
         private Song backgroundMusic;
-        private float nextBattle;
-        //static Random generator = new Random();
+        private float nextBattle;        
         
 
         public override void LoadContent()
         {
             base.LoadContent();
+
+            //Load the player sprite;
             XmlManager<Player> playerLoader = new XmlManager<Player>();
-            XmlManager<Map> mapLoader = new XmlManager<Map>();
             playerSprite = playerLoader.Load("Load/Gameplay/Player.xml");
-            map = mapLoader.Load("Load/Gameplay/Maps/Map1.xml");
             playerSprite.LoadContent();
+
+            //Load the map.
+            XmlManager<Map> mapLoader = new XmlManager<Map>();
+            map = mapLoader.Load("Load/Gameplay/Maps/Map1.xml");
             map.LoadContent();
+
+            //Start the bgm.
             backgroundMusic = content.Load<Song>("Music/mainSong");
             BackgroundMusicPlayer.Play(backgroundMusic);
             nextBattle = (float) StaticProperties.Random.Next(3, 5);
+
             //Testing the save method of saveGameContent here
             SaveGameContent saveLoadGenerator = new SaveGameContent(playerSprite);
             saveLoadGenerator.Save();
@@ -51,10 +57,17 @@ namespace SecondAttempt
             base.Update(gameTime);
             playerSprite.Update(gameTime);
             map.Update(gameTime, playerSprite);
-            nextBattle -= (float) gameTime.ElapsedGameTime.TotalMilliseconds / 1000;
+            if (playerSprite.Velocity != Vector2.Zero) nextBattle -= (float) gameTime.ElapsedGameTime.TotalMilliseconds / 1000;
             if (nextBattle <= 0)
             {
-                ScreenManager.Instance.ChangeIngameScreens("BattleScreen");
+                int enemiesCount = StaticProperties.Random.Next(1, 4);
+                int enemyType = StaticProperties.Random.Next(0, RegEnemies.Collection.Count);
+                List<Enemy> enemies = new List<Enemy>();
+                for (int i = 0; i < enemiesCount; i++)
+                {
+                    enemies.Add((Enemy)RegEnemies.Collection[enemyType].Clone());
+                }            
+                ScreenManager.Instance.ChangeToRandomBattle(enemies);
                 nextBattle = StaticProperties.Random.Next(3, 5);
             }
         }

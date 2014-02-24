@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<NormalEnemies>  
+  <RegularEnemy>
+    <Name>FrenchFries</Name>
+    <AttackPower>8</AttackPower>
+    <Accuracy>70</Accuracy>
+    <Defence>3</Defence>
+    <Speed>8</Speed>
+    <MaxHealth>50</MaxHealth>
+    <CurrentHealth>50</CurrentHealth>
+    <Experience>32</Experience>
+    <Money>300</Money>
+    <MaxMana>15</MaxMana>
+    <CurrentMana>15</CurrentMana>
+    <EnemyType>Regular</EnemyType>
+    <ImageLoadPath>Load/Gameplay/EnemyImages/frenchfries.xml</ImageLoadPath>
+  </RegularEnemy>
+
+  <RegularEnemy>
+    <Name>Cheeseburger</Name>
+    <AttackPower>10</AttackPower>
+    <Accuracy>75</Accuracy>
+    <Defence>5</Defence>
+    <Speed>7</Speed>
+    <MaxHealth>75</MaxHealth>
+    <CurrentHealth>75</CurrentHealth>
+    <Experience>43</Experience>
+    <Money>400</Money>
+    <MaxMana>15</MaxMana>
+    <CurrentMana>15</CurrentMana>
+    <EnemyType>Regular</EnemyType>
+    <ImageLoadPath>Load/Gameplay/EnemyImages/cburger.xml</ImageLoadPath>
+  </RegularEnemy>
+
+  <RegularEnemy>
+    <Name>BigMac</Name>
+    <AttackPower>15</AttackPower>
+    <Accuracy>70</Accuracy>
+    <Defence>10</Defence>
+    <Speed>8</Speed>
+    <MaxHealth>100</MaxHealth>
+    <CurrentHealth>100</CurrentHealth>
+    <Experience>64</Experience>
+    <Money>500</Money>
+    <MaxMana>15</MaxMana>
+    <CurrentMana>15</CurrentMana>
+    <EnemyType>Regular</EnemyType>
+    <ImageLoadPath>Load/Gameplay/EnemyImages/bigmac.xml</ImageLoadPath>
+  </RegularEnemy>
+</NormalEnemies>

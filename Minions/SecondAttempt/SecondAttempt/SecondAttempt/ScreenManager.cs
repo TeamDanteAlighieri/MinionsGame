@@ -71,6 +71,22 @@
             }
         }
 
+        public void ChangeToRandomBattle(List<Enemy> enemies)
+        {
+            newScreen = (GameScreen)new BattleScreen(enemies);
+            if (currentScreen is MapScreen)
+            {
+                overworldScreen = currentScreen;
+                currentScreen = newScreen;
+                currentScreen.LoadContent();
+            }
+            else
+            {
+                currentScreen.UnloadContent();
+                currentScreen = overworldScreen;
+            }
+        }
+
         void Transition(GameTime gameTime)
         {
             if(IsTransitioning)

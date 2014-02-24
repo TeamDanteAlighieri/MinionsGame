@@ -12,15 +12,13 @@ namespace SecondAttempt
 	public class Minion : Character 
 	{
         public byte Level;
-        //public List<Item> items;        
-
-		/*public Minion(string name, int attackPower, int speed, int blood, Location location, int experience, int money, int mana)
-			: base(name, attackPower, speed, blood, location)
-		{
-			this.Experience = experience;
-			this.Money = money;
-			this.Mana = mana;
-		}*/
+        public Item[] Items;        
+		
+        public Minion()
+        {
+            Items = new Item[16];
+            ActionTimer = 0;
+        }
 
         public void LoadContent() 
         {
@@ -35,6 +33,11 @@ namespace SecondAttempt
         public void Update(GameTime gameTime) 
         {
             SpriteImage.Update(gameTime);
+            if (this.CurrentHealth <= 0)
+            {
+                CurrentHealth = 0;
+                ScreenManager.Instance.ChangeScreens("TitleScreen");
+            }
         }        
 
         public void Draw(SpriteBatch spriteBatch) 

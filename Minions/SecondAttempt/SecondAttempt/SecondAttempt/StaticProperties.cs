@@ -8,13 +8,16 @@ using Microsoft.Xna.Framework;
 
 namespace SecondAttempt
 {
-    class StaticProperties
+    public class StaticProperties
     {
+        [XmlIgnore]
         public static Random Random = new Random();
-        public static readonly Vector2 EnemyPosition1 = new Vector2(120f, 120f);
-        public static readonly Vector2 EnemyPosition2 = new Vector2(160f, 220f);
-        public static readonly Vector2 EnemyPosition3 = new Vector2(120f, 320f);
+        [XmlIgnore]
+        public static readonly Vector2[] EnemyPositions = new Vector2[] { new Vector2(120f, 120f), new Vector2(160f, 220f), new Vector2(120f, 320f) };
+        [XmlIgnore]
         public static readonly Vector2 PlayerPosition1 = new Vector2(480f, 220f);
+        [XmlIgnore]
+        public const float maxActionTimer = 25.0f;
         //public static List<Item>();
         /*
         [XmlElement("Item")]        

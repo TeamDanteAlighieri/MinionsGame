@@ -25,7 +25,10 @@
         public long Experience { get; set; }
         //[XmlElement("Skill")]
         //public List<Skill> Skills;        
-        public Image SpriteImage;
-        public int Money;
+        public Image SpriteImage {get; set;}
+        public int Money { get; set; }
+        public float ActionTimer { get; set; }
+
+
 	}
 }

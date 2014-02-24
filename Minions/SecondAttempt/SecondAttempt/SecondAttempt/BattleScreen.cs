@@ -13,21 +13,49 @@ namespace SecondAttempt
 
     public class BattleScreen : GameplayScreen
     {
-        private Image background;
+        //Sprites
         private List<Enemy> enemies;
+        private Image background;
         private Song backgroundMusic;
         private Vector2 startingPosition;
+
+        private bool playerAction;
+        private Skill selectedSkill;
+        private Item selectedItem;
+
+        public BattleScreen(List<Enemy> enemies)
+        {
+            this.enemies = enemies;
+            playerAction = false;
+        }
 
         public override void LoadContent()
         {
             base.LoadContent();
+
+            //Load enemies images.
+            for (int i = 0; i < enemies.Count; i++)
+            {
+                enemies[i].LoadContent();
+                enemies[i].SpriteImage.Position = StaticProperties.EnemyPositions[i];
+            }
+
+            //Load background.
             XmlManager<Image> backgroundLoader = new XmlManager<Image>();
             background = backgroundLoader.Load("Load/Battle/Background.xml");
             background.LoadContent();
+
+            //Load player.
             startingPosition = PlayerChar.SpriteImage.Position;
             PlayerChar.SpriteImage.Position = StaticProperties.PlayerPosition1;
+
+            //Start music
             backgroundMusic = content.Load<Song>("Music/BattleTheme");
             BackgroundMusicPlayer.Play(backgroundMusic);            
+
+            //Seed both enemies and player with a random action slice
+
+            //PlayerChar.ActionTimer = StaticProperties.Random.NextDouble()
         }
 
 
@@ -38,12 +66,10 @@ namespace SecondAttempt
             BackgroundMusicPlayer.Stop();
             backgroundMusic.Dispose();
             PlayerChar.SpriteImage.Position = startingPosition;
-            /*
-            if ( character != null ) character.UnloadContent();
             if ( enemies != null ) foreach (var enemy in enemies)
             {
                 enemy.UnloadContent();                
-            }*/
+            }
         }
 
         
@@ -51,26 +77,22 @@ namespace SecondAttempt
         {
             base.Update(gameTime);
             PlayerChar.Update(gameTime);
-            PlayerChar.SpriteImage.SpriteSheetEffect.CurrentFrame.Y = 2;
-            /*
-            if (character != null) character.Update(gameTime);
-            if (enemies != null) foreach (var enemy in enemies)
+            foreach (var enemy in enemies)
             {
-                enemy.Update(gameTime);   
-            }            */
+                enemy.Update(gameTime);
+            }
+           
         }
 
         public override void Draw(SpriteBatch spriteBatch)
         {
             base.Draw(spriteBatch);
             background.Draw(spriteBatch);
-            PlayerChar.Draw(spriteBatch);            
-            /*
-            if (character != null) character.Draw(spriteBatch);
-            if (enemies != null) foreach (var enemy in enemies)
+            PlayerChar.Draw(spriteBatch);
+            foreach (var enemy in enemies)
             {
                 enemy.Draw(spriteBatch);
-            }            */
+            }           
         }
     }
 }

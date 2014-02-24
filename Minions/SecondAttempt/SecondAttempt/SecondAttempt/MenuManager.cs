@@ -76,11 +76,12 @@
             {
                 if (menu.Items[menu.ItemNumber].LinkType == "Screen")
                     ScreenManager.Instance.ChangeScreens(menu.Items[menu.ItemNumber].LinkID);
+                else if (menu.Items[menu.ItemNumber].LinkType == "Terminate") GameExtension.ExitFlag = true;
                 else
                 {
                     isTransitioning = true;
                     menu.Transition(1.0f);
-                    foreach(MenuItem item in menu.Items)
+                    foreach (MenuItem item in menu.Items)
                     {
                         item.Image.StoreEffects();
                         item.Image.ActivateEffect("FadeEffect");

@@ -11,11 +11,15 @@
     {
         public float FadeSpeed;
         public bool Increase;
+        public float FadeMax;
+        public float FadeMin;
 
         public FadeEffect()
         {
             FadeSpeed = 1;
             Increase = false;
+            FadeMax = 1;
+            FadeMin = 0;
         }
 
         public override void LoadContent(Image Image)
@@ -38,19 +42,19 @@
                 else
                     image.Alpha += FadeSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds;
 
-                if (image.Alpha < 0.0f)
+                if (image.Alpha < FadeMin)
                 {
                     Increase = true;
-                    image.Alpha = 0.0f;
+                    image.Alpha = FadeMin;
                 }
-                else if (image.Alpha > 1.0f)
+                else if (image.Alpha > FadeMax)
                 {
                     Increase = false;
-                    image.Alpha = 1.0f;
+                    image.Alpha = FadeMax;
                 }
             }
             else
-                image.Alpha = 1.0f;
+                image.Alpha = FadeMax;
         }
     }
 }
