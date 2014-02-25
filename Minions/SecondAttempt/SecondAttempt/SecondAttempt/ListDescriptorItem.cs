@@ -19,7 +19,7 @@
             this.Name = new InternalText();
             this.Number = new InternalText();
         }
-
+        /*
         public ListDescriptorItem(string name, string number, Vector2 namePosition, Vector2 numberPosition) : this()
         {
             this.Name.Text = name;
@@ -31,16 +31,8 @@
             this.Number.TextColor = Color.Gray;
 
             this.IsActive = false;
-        }
-
-        public event EventHandler<EventArgs> Selected;
-
-        protected internal virtual void OnSelectEntry()
-        {
-            if (Selected != null)
-                Selected(this, new EventArgs());
-        }
-
+        }*/        
+        
         public virtual void UnloadContent()
         {
             Name.UnloadContent();
