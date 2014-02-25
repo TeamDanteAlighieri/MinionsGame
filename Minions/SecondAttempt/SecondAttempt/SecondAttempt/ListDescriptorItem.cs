@@ -6,8 +6,9 @@
     using System.Text;
 
     using Microsoft.Xna.Framework;
+    using Microsoft.Xna.Framework.Graphics;
 
-    class ListDescriptorItem
+    public class ListDescriptorItem
     {
         public InternalText Name;
         public InternalText Number;
@@ -30,6 +31,40 @@
             this.Number.TextColor = Color.Gray;
 
             this.IsActive = false;
+        }
+
+        public event EventHandler<EventArgs> Selected;
+
+        protected internal virtual void OnSelectEntry()
+        {
+            if (Selected != null)
+                Selected(this, new EventArgs());
+        }
+
+        public virtual void UnloadContent()
+        {
+            Name.UnloadContent();
+            Number.UnloadContent();
+        }
+
+        public virtual void Update(GameTime gameTime)
+        {
+            if (IsActive)
+            {
+                Name.TextColor = Color.White;
+                Number.TextColor = Color.White;
+            }
+            else
+            {
+                Name.TextColor = Color.Gray;
+                Number.TextColor = Color.Gray;
+            }
+        }
+
+        public virtual void Draw(SpriteBatch spriteBatch)
+        {
+            Name.Draw(spriteBatch);
+            Number.Draw(spriteBatch);
         }
     }
 }

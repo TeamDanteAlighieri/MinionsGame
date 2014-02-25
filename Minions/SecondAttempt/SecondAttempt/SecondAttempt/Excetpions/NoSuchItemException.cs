@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace SecondAttempt
+﻿namespace SecondAttempt
 {
-    class NoSuchItemException : ApplicationException
+    using System;
+
+    public class NoSuchItemException : ApplicationException
     {
         public NoSuchItemException(string message, Item item = null)
             : base(message)

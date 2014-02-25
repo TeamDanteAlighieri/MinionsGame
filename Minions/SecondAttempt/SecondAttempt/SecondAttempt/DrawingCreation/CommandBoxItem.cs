@@ -7,7 +7,7 @@
     
     using Microsoft.Xna.Framework;
 
-    class CommandBoxItem : InternalText
+    public class CommandBoxItem : InternalText
     {
         public bool IsActive { get; set; }        
 

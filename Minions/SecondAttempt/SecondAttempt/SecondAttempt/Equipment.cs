@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace SecondAttempt
+﻿namespace SecondAttempt
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+
     public class Equipment : Item, IEquipable, IComparable<Equipment>
     {        
         public virtual void Equip(Minion target)

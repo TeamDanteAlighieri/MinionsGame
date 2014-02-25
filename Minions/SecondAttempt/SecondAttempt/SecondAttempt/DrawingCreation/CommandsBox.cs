@@ -13,7 +13,7 @@
     /// <summary>
     /// Used to store a players battle command menu.
     /// </summary>
-    class CommandsBox
+    public class CommandsBox
     {        
         /// <summary>
         /// The visual box frame.

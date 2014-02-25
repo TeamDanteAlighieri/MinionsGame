@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace SecondAttempt
+﻿namespace SecondAttempt
 {
-    interface IStats
+    public interface IStats
     {
         int AttackPower { get; set; }
         int Accuracy { get; set; }

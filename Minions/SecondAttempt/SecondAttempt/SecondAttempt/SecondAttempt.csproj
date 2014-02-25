@@ -78,6 +78,7 @@
   <ItemGroup>
     <Compile Include="GameBasics\BackgroundMusicPlayer.cs" />
     <Compile Include="BattleScreen\BattleScreen.cs" />
+    <Compile Include="ListBox.cs" />
     <Compile Include="WorkInProgress\BossEnemies.cs" />
     <Compile Include="Characters\Character.cs" />
     <Compile Include="DrawingCreation\CommandBoxItem.cs" />

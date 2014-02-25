@@ -7,7 +7,7 @@
 
     using Microsoft.Xna.Framework;
 
-    class MinionCommandBox : CommandsBox
+    public class MinionCommandBox : CommandsBox
     {
         private BattleScreen screenInstance;
         private Minion minion;

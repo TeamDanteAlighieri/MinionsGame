@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using System.Xml.Serialization;
-using Microsoft.Xna.Framework;
-
-namespace SecondAttempt
+﻿namespace SecondAttempt
 {
+    using System;
+    using System.Xml.Serialization;
+
+    using Microsoft.Xna.Framework;
+
+
     public class StaticConstants
     {        
         /// <summary>

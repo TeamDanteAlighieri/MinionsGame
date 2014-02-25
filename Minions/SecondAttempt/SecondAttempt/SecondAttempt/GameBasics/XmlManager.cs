@@ -1,5 +1,4 @@
-﻿
-namespace SecondAttempt
+﻿namespace SecondAttempt
 {
 	using System;
 	using System.Collections.Generic;
