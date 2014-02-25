@@ -14,6 +14,7 @@ namespace SecondAttempt
         private Vector2 position;
         private Rectangle sourceRect;
         private string state;
+        private bool isShopkeeper;
 
         public Rectangle SourceRect
         {
@@ -25,11 +26,12 @@ namespace SecondAttempt
             get { return position; }
         }
 
-        public void LoadContent(Vector2 position, Rectangle sourceRect, string state)
+        public void LoadContent(Vector2 position, Rectangle sourceRect, string state, bool isShopkeeper)
         {
             this.position = position;
             this.sourceRect = sourceRect;
             this.state = state;
+            this.isShopkeeper = isShopkeeper;
         }
 
         public void UnloadContent()
@@ -44,19 +46,26 @@ namespace SecondAttempt
                 Rectangle playerRect = new Rectangle((int)player.Image.Position.X,
                     (int)player.Image.Position.Y, player.Image.SourceRect.Width, player.Image.SourceRect.Height);
                 //here we implement the collision
-                if(playerRect.Intersects(tileRect))
+                if (playerRect.Intersects(tileRect))
                 {
-                    //if the solid tile and the player's rectancgles collide we tell where to put the player in the next frame
-                    if (player.Velocity.X < 0)//moving left
-                        player.Image.Position.X = tileRect.Right;
-                    else if (player.Velocity.X > 0)
-                        player.Image.Position.X = tileRect.Left - player.Image.SourceRect.Width;
-                    else if (player.Velocity.Y < 0)
-                        player.Image.Position.Y = tileRect.Bottom;
+                    if (isShopkeeper)
+                    {
+                        //trigger the event/open the trading screen
+                    }
                     else
-                        player.Image.Position.Y = tileRect.Top - player.Image.SourceRect.Height;
+                    {
+                        //if the solid tile and the player's rectancgles collide we tell where to put the player in the next frame
+                        if (player.Velocity.X < 0)//moving left
+                            player.Image.Position.X = tileRect.Right;
+                        else if (player.Velocity.X > 0)
+                            player.Image.Position.X = tileRect.Left - player.Image.SourceRect.Width;
+                        else if (player.Velocity.Y < 0)
+                            player.Image.Position.Y = tileRect.Bottom;
+                        else
+                            player.Image.Position.Y = tileRect.Top - player.Image.SourceRect.Height;
 
-                    player.Velocity = Vector2.Zero;//???
+                        player.Velocity = Vector2.Zero;//??the player stops?
+                    }
                 }
             }
         }
