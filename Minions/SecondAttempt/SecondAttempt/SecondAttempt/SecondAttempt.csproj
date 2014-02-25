@@ -81,6 +81,7 @@
     <Compile Include="BossEnemies.cs" />
     <Compile Include="Character.cs" />
     <Compile Include="CommandBoxItem.cs" />
+    <Compile Include="Consumable.cs" />
     <Compile Include="Enemy.cs" />
     <Compile Include="EnemyType.cs" />
     <Compile Include="FadeEffect.cs" />
@@ -88,6 +89,7 @@
     <Compile Include="InternalText.cs" />
     <Compile Include="IStats.cs" />
     <Compile Include="Item.cs" />
+    <Compile Include="IUsable.cs" />
     <Compile Include="LootTable.cs" />
     <Compile Include="MapScreen.cs" />
     <Compile Include="GameScreen.cs" />

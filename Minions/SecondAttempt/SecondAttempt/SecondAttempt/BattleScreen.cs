@@ -28,7 +28,7 @@ namespace SecondAttempt
         private int delayCount;
         private bool delay;
         private bool playerIsTarget;        
-        public bool RestartActionTime;
+        
         public bool SelectTarget;
         public bool SelectItem;
         public bool SelectSkill;
@@ -39,8 +39,7 @@ namespace SecondAttempt
         public BattleScreen(List<Enemy> enemies)
         {
             this.enemies = enemies;
-
-            RestartActionTime = false;
+            
             playerIsTarget = false;
             delay = false;
             delayCount = 0;
@@ -104,6 +103,10 @@ namespace SecondAttempt
             }
         }
 
+        /// <summary>
+        /// Highlights current target (blinking sprite) and returns it when prompted.
+        /// </summary>
+        /// <returns></returns>
         public Character SelectTargetLogic()
         {
             if (!enemies[currentSelection].IsAlive) currentSelection = currentSelectionMin;
@@ -145,6 +148,14 @@ namespace SecondAttempt
                 return PlayerChar;
             }
 
+
+            else if (InputManager.Instance.CancelKeyPressed())
+            {
+                PlayerChar.SpriteImage.IsActive = false;
+                enemies[currentSelection].SpriteImage.IsActive = false;
+                SelectTarget = false;
+                commandBox.IsVisible = true;
+            }
             else
             {
                 if (!playerIsTarget) enemies[currentSelection].SpriteImage.IsActive = true;
@@ -173,8 +184,7 @@ namespace SecondAttempt
 
             if (PlayerChar.ActionTimeCurrent >= PlayerChar.ActionTimeGoal || commandBox.IsVisible)
             {
-                PlayerChar.ActionTimeCurrent = 0;
-                RestartActionTime = true;
+                PlayerChar.ActionTimeCurrent = 0;                
                 commandBox.IsVisible = true;
                 commandBox.Update(gameTime);
                 if (SelectTarget)
@@ -184,6 +194,7 @@ namespace SecondAttempt
                 }
                 
             }
+            //Necessary to avoid instantaneous target selection.
             else if (delay)
             {
                 if (++delayCount > 10)
@@ -203,11 +214,11 @@ namespace SecondAttempt
             else
             {
                 PlayerChar.ActionTimeCurrent += (float)gameTime.ElapsedGameTime.Milliseconds / 1000;
-                /*
+                
                 foreach (var enemy in enemies)
                 {
                     enemy.ActionTimeCurrent += (float)gameTime.ElapsedGameTime.Milliseconds / 1000;
-                }*/
+                }
             }         
 
             currentSelectionMin = enemies.FindIndex(x => x.IsAlive);

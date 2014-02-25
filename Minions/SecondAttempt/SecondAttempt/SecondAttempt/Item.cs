@@ -8,8 +8,7 @@ namespace SecondAttempt
    public abstract class Item : IStats
     {
        //TODO: Methodfor show in the menu. 
-       public int Quantity { get; set; }
-       public int Duration { get; set; }
+       public int Quantity { get; set; }       
        public int AttackPower { get; set; }
        public int Accuracy { get; set; }
        public int Defence { get; set; }

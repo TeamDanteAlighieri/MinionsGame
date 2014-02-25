@@ -37,7 +37,7 @@
             SpriteImage.LoadContent();
         }
 
-        public void UnloadContent() 
+        public override void UnloadContent() 
         {            
             SpriteImage.UnloadContent();
             HPText.UnloadContent();

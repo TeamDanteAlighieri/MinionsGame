@@ -2,10 +2,10 @@
 <NormalEnemies>  
   <RegularEnemy>
     <Name>FrenchFries</Name>
-    <AttackPower>8</AttackPower>
+    <AttackPower>12</AttackPower>
     <Accuracy>70</Accuracy>
     <Defence>3</Defence>
-    <Speed>8</Speed>
+    <Speed>11</Speed>
     <MaxHealth>50</MaxHealth>
     <CurrentHealth>50</CurrentHealth>
     <Experience>32</Experience>
@@ -13,15 +13,16 @@
     <MaxMana>15</MaxMana>
     <CurrentMana>15</CurrentMana>
     <EnemyType>Regular</EnemyType>
+    <SpecialMoveChance>0</SpecialMoveChance>
     <ImageLoadPath>Load/Gameplay/EnemyImages/frenchfries.xml</ImageLoadPath>
   </RegularEnemy>
 
   <RegularEnemy>
     <Name>Cheeseburger</Name>
-    <AttackPower>10</AttackPower>
+    <AttackPower>14</AttackPower>
     <Accuracy>75</Accuracy>
     <Defence>5</Defence>
-    <Speed>7</Speed>
+    <Speed>10</Speed>
     <MaxHealth>75</MaxHealth>
     <CurrentHealth>75</CurrentHealth>
     <Experience>43</Experience>
@@ -29,15 +30,16 @@
     <MaxMana>15</MaxMana>
     <CurrentMana>15</CurrentMana>
     <EnemyType>Regular</EnemyType>
+    <SpecialMoveChance>0</SpecialMoveChance>
     <ImageLoadPath>Load/Gameplay/EnemyImages/cburger.xml</ImageLoadPath>
   </RegularEnemy>
 
   <RegularEnemy>
     <Name>BigMac</Name>
-    <AttackPower>15</AttackPower>
+    <AttackPower>16</AttackPower>
     <Accuracy>70</Accuracy>
     <Defence>10</Defence>
-    <Speed>8</Speed>
+    <Speed>9</Speed>
     <MaxHealth>100</MaxHealth>
     <CurrentHealth>100</CurrentHealth>
     <Experience>64</Experience>
@@ -45,6 +47,7 @@
     <MaxMana>15</MaxMana>
     <CurrentMana>15</CurrentMana>
     <EnemyType>Regular</EnemyType>
+    <SpecialMoveChance>0</SpecialMoveChance>
     <ImageLoadPath>Load/Gameplay/EnemyImages/bigmac.xml</ImageLoadPath>
   </RegularEnemy>
 </NormalEnemies>

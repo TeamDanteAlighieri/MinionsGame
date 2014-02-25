@@ -32,7 +32,7 @@ namespace SecondAttempt
             SpriteImage.LoadContent();
         }
 
-        public void UnloadContent() 
+        public override void UnloadContent() 
         {
             SpriteImage.UnloadContent();
         }
@@ -41,7 +41,35 @@ namespace SecondAttempt
         {
             base.Update(gameTime);
             SpriteImage.Update(gameTime);
+            if (IsAlive && ActionTimeCurrent >= ActionTimeGoal)
+            {
+                BattleLogic();
+                ActionTimeCurrent = 0;
+            }
             if (CurrentHealth <= 0) IsAlive = false;
+        }
+
+        /// <summary>
+        /// Using virtual to allow future implementations of Enemy subtypes (Probably useful to create specific boss battle logics)
+        /// </summary>
+        public virtual void BattleLogic()
+        {
+            ActionTimeCurrent = 0;
+            int actionSeed = StaticConstants.Random.Next(1, 101);
+            //Normal attack logic.
+            if (actionSeed > this.SpecialMoveChance)
+            {
+                if (StaticConstants.Random.Next(1, 101) <= Accuracy)
+                {
+                    int damage = this.AttackPower - GameplayScreen.PlayerChar.Defence;
+                    if (damage <= 0) damage = 1;
+                    GameplayScreen.PlayerChar.CurrentHealth -= damage;
+                }
+            }
+            else
+            {
+                //Special move logic goes here.
+            }
         }
 
         public override void Draw(SpriteBatch spriteBatch) 
