@@ -97,7 +97,7 @@ namespace SecondAttempt
             Image.UnloadContent();
         }
 
-        public void Update(GameTime gameTime, Player player)
+        public void Update(GameTime gameTime, OverworldSprite player)
         {
             foreach (Tile tile in underlayTiles)
                 tile.Update(gameTime, player);

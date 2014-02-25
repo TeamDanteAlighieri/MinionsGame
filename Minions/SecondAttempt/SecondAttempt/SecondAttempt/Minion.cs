@@ -16,31 +16,42 @@
         public bool UsedDefend;
         public bool IsActive;
         public bool IsAlive;
+        private InternalText HPText;
 		
-        public Minion()
-        {
+        public Minion() : base()
+        {            
             Items = new Item[16];
             ActionTimeCurrent = 0;
             UsedDefend = false;
             IsActive = false;
             IsAlive = true;
+            HPText = new InternalText();
         }
 
         public override void LoadContent() 
         {
             base.LoadContent();
+            HPText.Text = string.Format("{0}/{1}", CurrentHealth, MaxHealth);
+            HPText.Position = SpriteImage.Position;
+            HPText.TextColor = Color.White;
             SpriteImage.LoadContent();
         }
 
         public void UnloadContent() 
-        {
+        {            
             SpriteImage.UnloadContent();
+            HPText.UnloadContent();
         }
 
         public override void Update(GameTime gameTime) 
         {
             base.Update(gameTime);
-            SpriteImage.Update(gameTime);
+            UsedDefend = false;
+
+            HPText.Text = string.Format("{0}/{1}", CurrentHealth, MaxHealth);
+            HPText.Position = SpriteImage.Position + new Vector2(-30, 15);
+
+            SpriteImage.Update(gameTime);            
             if (this.CurrentHealth <= 0)
             {
                 CurrentHealth = 0;
@@ -50,6 +61,8 @@
 
         public override void Draw(SpriteBatch spriteBatch) 
         {
+            base.Draw(spriteBatch);
+            HPText.Draw(spriteBatch);
             SpriteImage.Draw(spriteBatch);
         }
 	}

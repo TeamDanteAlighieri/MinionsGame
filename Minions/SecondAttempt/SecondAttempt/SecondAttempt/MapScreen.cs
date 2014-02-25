@@ -13,7 +13,7 @@ namespace SecondAttempt
 
     public class MapScreen : GameplayScreen
     {
-        private Player playerSprite;
+        private OverworldSprite playerSprite;
         private Map map;
         private Song backgroundMusic;
         private float nextBattle;        
@@ -24,8 +24,8 @@ namespace SecondAttempt
             base.LoadContent();
 
             //Load the player sprite;
-            XmlManager<Player> playerLoader = new XmlManager<Player>();
-            playerSprite = playerLoader.Load("Load/Gameplay/Player.xml");
+            XmlManager<OverworldSprite> playerLoader = new XmlManager<OverworldSprite>();
+            playerSprite = playerLoader.Load("Load/Gameplay/OverworldSprite.xml");
             playerSprite.LoadContent();
 
             //Load the map.
@@ -75,7 +75,7 @@ namespace SecondAttempt
                 }            
                 ScreenManager.Instance.ChangeToRandomBattle(enemies);
                 nextBattle = StaticConstants.Random.Next(20, 30);
-            }
+            }            
         }
 
         public override void Draw(SpriteBatch spriteBatch)

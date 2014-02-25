@@ -164,6 +164,13 @@ namespace SecondAttempt
             }
             
             base.Update(gameTime);
+
+            PlayerChar.Update(gameTime);
+            foreach (var enemy in enemies)
+            {
+                enemy.Update(gameTime);
+            }
+
             if (PlayerChar.ActionTimeCurrent >= PlayerChar.ActionTimeGoal || commandBox.IsVisible)
             {
                 PlayerChar.ActionTimeCurrent = 0;
@@ -201,13 +208,7 @@ namespace SecondAttempt
                 {
                     enemy.ActionTimeCurrent += (float)gameTime.ElapsedGameTime.Milliseconds / 1000;
                 }*/
-            }
-
-            PlayerChar.Update(gameTime);
-            foreach (var enemy in enemies)
-            {
-                enemy.Update(gameTime);
-            }
+            }         
 
             currentSelectionMin = enemies.FindIndex(x => x.IsAlive);
             currentSelectionMax = enemies.FindLastIndex(x => x.IsAlive);            

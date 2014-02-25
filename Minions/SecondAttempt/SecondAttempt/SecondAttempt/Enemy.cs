@@ -17,7 +17,7 @@ namespace SecondAttempt
         public bool IsAlive { get; set; }
         public string ImageLoadPath { get; set; }
 
-        public Enemy()
+        public Enemy() : base()
         {
             IsAlive = true;
             ActionTimeCurrent = 0;
@@ -39,13 +39,15 @@ namespace SecondAttempt
 
         public override void Update(GameTime gameTime) 
         {
+            base.Update(gameTime);
             SpriteImage.Update(gameTime);
             if (CurrentHealth <= 0) IsAlive = false;
         }
 
         public override void Draw(SpriteBatch spriteBatch) 
         {
-            SpriteImage.Draw(spriteBatch);
+            base.Draw(spriteBatch);
+            SpriteImage.Draw(spriteBatch);            
         }
 
         public object Clone()
@@ -65,7 +67,7 @@ namespace SecondAttempt
             result.SpecialMoveChance = this.SpecialMoveChance;
             result.Speed = this.Speed;
             result.Type = this.Type;
-            result.ImageLoadPath = this.ImageLoadPath;
+            result.ImageLoadPath = this.ImageLoadPath;            
 
             return result;
         }

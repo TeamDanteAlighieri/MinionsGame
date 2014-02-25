@@ -14,7 +14,7 @@ namespace SecondAttempt
     using Microsoft.Xna.Framework.Content;
     using Microsoft.Xna.Framework.Graphics;
 
-    class InternalText
+    public class InternalText
     {
         public string Text { get; set; }
         public Vector2 Position { get; set; }

@@ -38,7 +38,7 @@ namespace SecondAttempt
                 l.UnloadContent();
         }
 
-        public void Update(GameTime gameTime, Player player)
+        public void Update(GameTime gameTime, OverworldSprite player)
         {
             foreach (Layer l in Layer)
                 l.Update(gameTime, player);

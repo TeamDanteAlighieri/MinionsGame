@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Minion>
   <Name>Minion</Name>
-  <AttackPower>200</AttackPower>
+  <AttackPower>60</AttackPower>
   <Accuracy>90</Accuracy>
   <Defence>8</Defence>
   <Speed>10</Speed>

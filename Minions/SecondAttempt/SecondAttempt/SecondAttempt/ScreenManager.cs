@@ -67,6 +67,7 @@
             else if (newScreen is TitleScreen)
             {
                 currentScreen.UnloadContent();
+                GameplayScreen.PlayerChar.UnloadContent();
                 currentScreen = newScreen;
                 newScreen.LoadContent();
             }

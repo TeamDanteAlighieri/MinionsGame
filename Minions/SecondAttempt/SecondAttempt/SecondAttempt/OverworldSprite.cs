@@ -11,14 +11,14 @@
     using Microsoft.Xna.Framework.Input;
     using System.Xml.Serialization;
 
-    public class Player
+    public class OverworldSprite
     {
         //[XmlIgnore]
         public Image Image;
         public Vector2 Velocity;
         public float MoveSpeed;
 
-        public Player()
+        public OverworldSprite()
         {
             Velocity = Vector2.Zero;
         }

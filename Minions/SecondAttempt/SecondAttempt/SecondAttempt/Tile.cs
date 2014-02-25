@@ -35,7 +35,7 @@ namespace SecondAttempt
         public void UnloadContent()
         { }
 
-        public void Update(GameTime gameTime, Player player)
+        public void Update(GameTime gameTime, OverworldSprite player)
         { 
             if(state == "Solid")
             {

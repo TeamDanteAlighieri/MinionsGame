@@ -7,25 +7,25 @@ using System.Runtime.Serialization.Formatters.Binary;
 namespace SecondAttempt
 {
     [Serializable()]
-    public class SaveGameContent : Player
+    public class SaveGameContent : OverworldSprite
     {
         //private XmlManager<Minion> minionSaver;
         //private Minion currentInstanceOfTheCharacter;
         
         //[XmlIgnore]
-        private Player playerToSave;
+        private OverworldSprite playerToSave;
 
         public SaveGameContent()
         { }
 
-        public SaveGameContent( Player playerToSave)
+        public SaveGameContent( OverworldSprite playerToSave)
         {
             //this.currentInstanceOfTheCharacter = currentInstanceOfTheCharacter;
             this.PlayerToSave = playerToSave;
             //this.playerSaver = new XmlManager<Player>();
             //this.minionSaver = new XmlManager<Minion>();
         }
-        public Player PlayerToSave
+        public OverworldSprite PlayerToSave
         {
             get { return this.playerToSave; }
             set { this.playerToSave = value; }
@@ -39,7 +39,7 @@ namespace SecondAttempt
                 playerToSave.Image.Position.Y
             };*/
             // Create a new XmlSerializer instance with the type of the test class
-            XmlSerializer SerializerObj = new XmlSerializer(typeof(Player));
+            XmlSerializer SerializerObj = new XmlSerializer(typeof(OverworldSprite));
 
             // Create a new file stream to write the serialized object to a file
             TextWriter WriteFileStream = new StreamWriter("Load/Gameplay/SavedGames/Player2.xml");
@@ -48,10 +48,10 @@ namespace SecondAttempt
             // Cleanup
             WriteFileStream.Close();
         }
-        public Player Load()
+        public OverworldSprite Load()
         {
-            Player playerToBeLoaded = new Player();
-            XmlManager<Player> playerLoader = new XmlManager<Player>();
+            OverworldSprite playerToBeLoaded = new OverworldSprite();
+            XmlManager<OverworldSprite> playerLoader = new XmlManager<OverworldSprite>();
             playerToBeLoaded = playerLoader.Load("Load/Gameplay/SavedGames/Player4.xml");
             //playerToBeLoaded.Image = playerToSave.Image;
             return playerToBeLoaded;
