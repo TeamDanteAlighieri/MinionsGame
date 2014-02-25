@@ -88,6 +88,7 @@
     <Compile Include="InternalText.cs" />
     <Compile Include="IStats.cs" />
     <Compile Include="Item.cs" />
+    <Compile Include="LoadGameException.cs" />
     <Compile Include="LootTable.cs" />
     <Compile Include="MapScreen.cs" />
     <Compile Include="GameScreen.cs" />
