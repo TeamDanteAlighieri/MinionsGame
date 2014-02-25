@@ -80,7 +80,11 @@
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
-            UsedDefend = false;
+            if (UsedDefend && ActionTimeCurrent >= ActionTimeGoal)
+            {
+                UsedDefend = false;
+                this.Defence -= 10;
+            }
 
             hpText.Text = string.Format("{0}/{1}", CurrentHealth, MaxHealth);
             hpText.Position = SpriteImage.Position + new Vector2(-30, 15);

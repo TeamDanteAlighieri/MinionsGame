@@ -18,19 +18,23 @@
 
         public ListBox()
         {
-            this.Frame = new FrameBox();           
+            this.Frame = new FrameBox(StaticConstants.BordeWidth, StaticConstants.ListBoxDimensions, Color.DarkBlue);           
             this.IsVisible = false;
             this.activeElement = 0;
         }
 
         public ListBox(List<Item> content) : this()
-        {            
-            foreach (var item in content)
+        {
+            for (int i = 0; i < content.Count; i++)
             {
                 ListDescriptorItem toAdd = new ListDescriptorItem();
-                toAdd.Name.Text = item.Name;
-                toAdd.Number.Text = item.Quantity.ToString();
-            }
+                toAdd.Name.Text = content[i].Name;                
+                toAdd.Number.Text = content[i].Quantity.ToString();
+                if (i != 0)
+                {
+                    toAdd.Name.Position = Items[i - 1].Name.Position + new Vector2(0, Items[i - 1].Name.StringSize().Y + 5);
+                }
+            }            
         }
 
         public virtual void LoadContent()
