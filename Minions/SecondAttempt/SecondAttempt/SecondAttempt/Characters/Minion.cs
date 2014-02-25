@@ -29,6 +29,7 @@
             IsActive = false;
             IsAlive = true;
             hpText = new InternalText();
+            equipedWeapon = null;
         }
 
         public void AddExperience(int experience)

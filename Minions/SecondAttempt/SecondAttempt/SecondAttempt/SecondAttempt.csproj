@@ -87,7 +87,7 @@
     <Compile Include="Characters\EnemyType.cs" />
     <Compile Include="Equipment.cs" />
     <Compile Include="DrawingCreation\Effects\FadeEffect.cs" />
-    <Compile Include="GameplayScreen.cs" />
+    <Compile Include="GameBasics\GameplayScreen.cs" />
     <Compile Include="Interfaces\IEquipable.cs" />
     <Compile Include="Inventory.cs" />
     <Compile Include="Interfaces\IStringSize.cs" />
@@ -123,7 +123,7 @@
     <Compile Include="WorkInProgress\Skill.cs" />
     <Compile Include="NonGameplayScreens\SplashScreen.cs" />
     <Compile Include="DrawingCreation\Effects\SpriteSheetEffect.cs" />
-    <Compile Include="GameBasics\StaticProperties.cs" />
+    <Compile Include="GameBasics\StaticConstants.cs" />
     <Compile Include="DrawingCreation\FrameBox.cs" />
     <Compile Include="MapScreens\Tile.cs" />
     <Compile Include="NonGameplayScreens\TitleScreen.cs" />

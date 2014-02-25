@@ -18,20 +18,10 @@
         {
             this.Name = new InternalText();
             this.Number = new InternalText();
-        }
-        /*
-        public ListDescriptorItem(string name, string number, Vector2 namePosition, Vector2 numberPosition) : this()
-        {
-            this.Name.Text = name;
-            this.Name.Position = namePosition;
             this.Name.TextColor = Color.Gray;
-
-            this.Number.Text = number;
-            this.Number.Position = namePosition;
             this.Number.TextColor = Color.Gray;
-
-            this.IsActive = false;
-        }*/        
+            IsActive = false;
+        }       
         
         public virtual void UnloadContent()
         {

@@ -6,7 +6,12 @@
   <Defence>8</Defence>
   <Speed>10</Speed>
   <MaxHealth>150</MaxHealth>
-  <CurrentHealth>150</CurrentHealth>
+  <CurrentHealth>150</CurrentHealth>  
+  <MaxMana>15</MaxMana>
+  <CurrentMana>15</CurrentMana>
+  <Money>300</Money>
+  <Level>2</Level>
+  <NextLevel>150</NextLevel>
   <Experience>38</Experience>
   <SpriteImage>
     <Path>Gameplay/battle</Path>
@@ -20,9 +25,36 @@
       <FadeMin>0.5</FadeMin>
     </FadeEffect>
   </SpriteImage>
-  <Money>300</Money>
-  <MaxMana>15</MaxMana>
-  <CurrentMana>15</CurrentMana>
-  <Level>2</Level>
-  <NextLevel>150</NextLevel>
+  <Inventory>
+    <Equip>
+      <Name>Gun</Name>
+      <Description>Well... its a gun</Description>
+      <Price>200</Price>
+      <Quantity>1</Quantity>      
+      <AttackPower>8</AttackPower>
+      <Accuracy>0</Accuracy>
+      <Defence>0</Defence>
+      <Speed>2</Speed>
+      <MaxHealth>0</MaxHealth>
+      <CurrentHealth>0</CurrentHealth>
+      <MaxMana>0</MaxMana>
+      <CurrentMana>0</CurrentMana>
+    </Equip>
+    <Usable>
+      <Name>Bannana</Name>
+      <Description>Restores a small amount of hp</Description>
+      <Price>20</Price>
+      <Quantity>5</Quantity>
+      <AttackPower>0</AttackPower>
+      <Accuracy>0</Accuracy>
+      <Defence>0</Defence>
+      <Speed>0</Speed>
+      <MaxHealth>0</MaxHealth>
+      <CurrentHealth>50</CurrentHealth>
+      <MaxMana>0</MaxMana>
+      <CurrentMana>0</CurrentMana>
+      <EffectType>Instant</EffectType>
+      <Duration>0</Duration>
+    </Usable>
+  </Inventory>
 </Minion>

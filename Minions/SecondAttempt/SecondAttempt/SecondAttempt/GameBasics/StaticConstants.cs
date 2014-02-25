@@ -37,6 +37,9 @@
         /// </summary>
         public static readonly Rectangle CommandBoxDimensions = new Rectangle(20, (int)ScreenManager.Instance.Dimensions.Y - 170, 120, 150);
         public static readonly Rectangle ListBoxDimensions = new Rectangle(20, 100, 300, 340);
+        public const int ListBoxLeft = 20;
+        public const int ListBoxRight = 320;
+        public const int ListBoxTop = 100;
         
     }
 }

@@ -6,7 +6,14 @@
     using System.Text;
 
     public class Equipment : Item, IEquipable, IComparable<Equipment>
-    {        
+    {
+
+        public Equipment() 
+            : base() 
+        { 
+
+        }
+
         public virtual void Equip(Minion target)
         {          
             //Apply effects
