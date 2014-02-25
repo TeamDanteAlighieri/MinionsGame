@@ -40,7 +40,7 @@ namespace SecondAttempt
             internalText[2].Text = "Save";
             internalText[3].Text = "Exit";
             
-            internalText[0].Position += new Vector2(rect.Left + 10, rect.Top + 5);            
+            internalText[0].Position = new Vector2(rect.Left + 10, rect.Top + 5);            
            
             for (int i = 1; i < 4; i++)
             {                

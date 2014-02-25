@@ -17,7 +17,7 @@
         /// </summary>
         /// <param name="screenInstance"></param>
         /// <param name="minion"></param>
-        public MinionCommandBox(BattleScreen screenInstance, Minion minion) : base()
+        public MinionCommandBox(BattleScreen screenInstance, Minion minion) : base('y')
         {
             this.minion = minion;
             this.screenInstance = screenInstance;

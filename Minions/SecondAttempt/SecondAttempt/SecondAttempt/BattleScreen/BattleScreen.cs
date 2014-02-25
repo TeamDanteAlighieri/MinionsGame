@@ -16,7 +16,7 @@ namespace SecondAttempt
     public class BattleScreen : GameplayScreen
     {
         //Sprites
-        private List<Enemy> enemies;
+        private List<Enemy> enemies;        
         private Image background;
         private Song backgroundMusic;
         private Vector2 startingPosition;
@@ -27,7 +27,7 @@ namespace SecondAttempt
         private int currentSelectionMax;
         private int delayCount;
         private bool delay;
-        private bool playerIsTarget;        
+        private bool playerIsTarget;            
         
         public bool SelectTarget;
         public bool SelectItem;
@@ -38,7 +38,7 @@ namespace SecondAttempt
 
         public BattleScreen(List<Enemy> enemies)
         {
-            this.enemies = enemies;
+            this.enemies = enemies;            
             
             playerIsTarget = false;
             delay = false;
@@ -114,7 +114,7 @@ namespace SecondAttempt
             {
                 enemies[currentSelection].SpriteImage.IsActive = false;
                 currentSelection++;
-                if (currentSelection > currentSelectionMax) currentSelection = currentSelectionMin;
+                if (currentSelection > currentSelectionMax) currentSelection = currentSelectionMin;                
                 enemies[currentSelection].SpriteImage.IsActive = true;
             }
 
