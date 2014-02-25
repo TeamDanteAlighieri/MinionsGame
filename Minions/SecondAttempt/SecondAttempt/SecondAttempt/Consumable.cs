@@ -12,19 +12,18 @@ namespace SecondAttempt
         public EffectType EffectType;
         public int Duration;
 
-        public void UseItem(Character target)
+        public Consumable() : base()
+        {
+            this.Duration = 0;
+            this.EffectType = EffectType.Instant;            
+        }
+
+        public virtual void UseItem(Character target)
         {
             if (this.EffectType == EffectType.Instant)
             {
                 //Apply effects
-                target.Accuracy += this.Accuracy;
-                target.AttackPower += this.AttackPower;
-                target.CurrentHealth += this.CurrentHealth;                
-                target.CurrentMana += this.CurrentMana;
-                target.Defence += this.Defence;
-                target.MaxHealth += this.MaxHealth;
-                target.MaxMana += this.MaxMana;
-                target.Speed += this.Speed;
+                ApplyTo(target);                
 
                 //Reset max mana and health if they overflowed.
                 if (target.CurrentMana > target.MaxMana) target.CurrentMana = target.MaxMana;

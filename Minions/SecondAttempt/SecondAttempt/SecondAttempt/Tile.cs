@@ -52,20 +52,18 @@ namespace SecondAttempt
                     {
                         //trigger the event/open the trading screen
                     }
+                    
+                    //if the solid tile and the player's rectancgles collide we tell where to put the player in the next frame
+                    if (player.Velocity.X < 0)//moving left
+                        player.Image.Position.X = tileRect.Right;
+                    else if (player.Velocity.X > 0)
+                        player.Image.Position.X = tileRect.Left - player.Image.SourceRect.Width;
+                    else if (player.Velocity.Y < 0)
+                        player.Image.Position.Y = tileRect.Bottom;
                     else
-                    {
-                        //if the solid tile and the player's rectancgles collide we tell where to put the player in the next frame
-                        if (player.Velocity.X < 0)//moving left
-                            player.Image.Position.X = tileRect.Right;
-                        else if (player.Velocity.X > 0)
-                            player.Image.Position.X = tileRect.Left - player.Image.SourceRect.Width;
-                        else if (player.Velocity.Y < 0)
-                            player.Image.Position.Y = tileRect.Bottom;
-                        else
-                            player.Image.Position.Y = tileRect.Top - player.Image.SourceRect.Height;
+                        player.Image.Position.Y = tileRect.Top - player.Image.SourceRect.Height;
 
-                        player.Velocity = Vector2.Zero;//??the player stops?
-                    }
+                    player.Velocity = Vector2.Zero;//??the player stops?
                 }
             }
         }

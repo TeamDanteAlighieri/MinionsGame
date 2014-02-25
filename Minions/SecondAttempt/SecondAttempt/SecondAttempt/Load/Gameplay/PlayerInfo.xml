@@ -24,4 +24,5 @@
   <MaxMana>15</MaxMana>
   <CurrentMana>15</CurrentMana>
   <Level>2</Level>
+  <NextLevel>150</NextLevel>
 </Minion>

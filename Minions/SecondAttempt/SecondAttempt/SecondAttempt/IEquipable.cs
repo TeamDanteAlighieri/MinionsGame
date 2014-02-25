@@ -7,6 +7,8 @@ namespace SecondAttempt
 {
     public interface IEquipable
     {
-        void Equip(Character target);
+        void Equip(Minion target);
+
+        void Unequip(Minion target);
     }
 }
