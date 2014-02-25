@@ -21,25 +21,32 @@ namespace SecondAttempt
         {
             base.LoadContent();
             activeOption = 0;
-            rect = new Rectangle(20, (int) ScreenManager.Instance.Dimensions.Y - 170, 120, 150);
-            boxFrame = new FrameBox();
+            rect = new Rectangle(20, 20, 200, 30);
+            boxFrame = new FrameBox(5, rect, Color.DarkBlue);
             boxFrame.InternalRect = rect;
             boxFrame.BorderWidth = 5;
             boxFrame.InternalColor = Color.DarkBlue;
             boxFrame.LoadContent();
 
             internalText = new InternalText[4];
+
             for (int i = 0; i < 4; i++)
-            {
-                internalText[i] = new InternalText();
-                internalText[i].Position = new Vector2(rect.Left + 15, rect.Top + 5 + 25 * i);
+			{
+			    internalText[i] = new InternalText();
+			}
+
+            internalText[0].Text = "Equip";
+            internalText[1].Text = "Use";
+            internalText[2].Text = "Save";
+            internalText[3].Text = "Exit";
+            
+            internalText[0].Position += new Vector2(rect.Left + 10, rect.Top + 5);            
+           
+            for (int i = 1; i < 4; i++)
+            {                
+                internalText[i].Position = internalText[i-1].Position + new Vector2(internalText[i-1].StringSize().X + 10, 0);
             }
-
-            internalText[0].Text = "Attack";
-            internalText[1].Text = "Ability";
-            internalText[2].Text = "Item";
-            internalText[3].Text = "Defend";
-
+                       
             internalText[0].TextColor = Color.White;
             internalText[1].TextColor = Color.Gray;
             internalText[2].TextColor = Color.Gray;
@@ -59,8 +66,8 @@ namespace SecondAttempt
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
-            if (InputManager.Instance.KeyPressed(Keys.Up) && --activeOption < 0) activeOption = 0;
-            if (InputManager.Instance.KeyPressed(Keys.Down) && ++activeOption >= 4) activeOption = 3;
+            if (InputManager.Instance.KeyPressed(Keys.Left) && --activeOption < 0) activeOption = 0;
+            if (InputManager.Instance.KeyPressed(Keys.Right) && ++activeOption >= 4) activeOption = 3;
             for (int i = 0; i < 4; i++)
             {
                 internalText[i].TextColor = Color.Gray;

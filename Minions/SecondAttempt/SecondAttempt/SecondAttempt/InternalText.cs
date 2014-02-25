@@ -45,6 +45,11 @@ namespace SecondAttempt
 
         }
 
+        public Vector2 StringSize()
+        {
+            return font.MeasureString(Text);
+        }
+
         public virtual void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.DrawString(font, Text, Position, TextColor);

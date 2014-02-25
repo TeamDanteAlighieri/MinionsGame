@@ -86,6 +86,7 @@
     <Compile Include="EnemyType.cs" />
     <Compile Include="FadeEffect.cs" />
     <Compile Include="GameplayScreen.cs" />
+    <Compile Include="IEquipable.cs" />
     <Compile Include="InternalText.cs" />
     <Compile Include="IStats.cs" />
     <Compile Include="Item.cs" />
