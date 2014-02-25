@@ -38,8 +38,8 @@ namespace SecondAttempt
         { }
 
         public void Update(GameTime gameTime, OverworldSprite player)
-        {
-            if (state == "Solid")
+        { 
+            if(state == "Solid")
             {
                 Rectangle tileRect = new Rectangle((int)Position.X + 6, (int)Position.Y + 13,
                     sourceRect.Width - 12, sourceRect.Height - 12);
@@ -51,9 +51,8 @@ namespace SecondAttempt
                     if (isShopkeeper)
                     {
                         //trigger the event/open the trading screen
-
                     }
-
+                    
                     //if the solid tile and the player's rectancgles collide we tell where to put the player in the next frame
                     if (player.Velocity.X < 0)//moving left
                         player.Image.Position.X = tileRect.Right;
@@ -65,7 +64,6 @@ namespace SecondAttempt
                         player.Image.Position.Y = tileRect.Top - player.Image.SourceRect.Height;
 
                     player.Velocity = Vector2.Zero;//??the player stops?
-
                 }
             }
         }

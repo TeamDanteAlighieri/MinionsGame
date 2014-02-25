@@ -12,57 +12,91 @@
 	public class Minion : Character 
 	{
         public byte Level;
-        public Item[] Items;
+        public int NextLevel;              
         public bool UsedDefend;
         public bool IsActive;
         public bool IsAlive;
-        private InternalText HPText;
+        public Inventory Inventory;
+
+        private InternalText hpText;
+        private Weapon equipedWeapon;
 		
         public Minion() : base()
-        {            
-            Items = new Item[16];
+        {
+            Inventory = new Inventory();
             ActionTimeCurrent = 0;
             UsedDefend = false;
             IsActive = false;
             IsAlive = true;
-            HPText = new InternalText();
+            hpText = new InternalText();
         }
 
-        public override void LoadContent() 
+        public void AddExperience(int experience)
+        {
+            this.Experience += experience;
+            while (this.Experience > this.NextLevel) IncreaseLevel();
+        }
+
+        public void Equip(Equipment item)
+        {
+            if (item is Weapon)
+            {
+                Weapon toEquip = (Weapon)((Weapon)item).Clone();
+                if (this.equipedWeapon == null) toEquip.Equip(this);
+                else
+                {
+                    equipedWeapon.Unequip(this);
+                    toEquip.Equip(this);
+                }
+            }
+        }
+
+        private void IncreaseLevel()
+        {
+            this.Level++;
+            this.AttackPower += StaticConstants.Random.Next(1, 6);
+            this.MaxHealth += StaticConstants.Random.Next(50, 100);
+            this.MaxMana += StaticConstants.Random.Next(10, 20);
+            this.Defence += StaticConstants.Random.Next(1, 6);
+            if (this.Level%5 == 0) this.Speed += 1;
+            this.NextLevel = (int)(this.NextLevel * 1.30);
+        }
+
+        public override void LoadContent()
         {
             base.LoadContent();
-            HPText.Text = string.Format("{0}/{1}", CurrentHealth, MaxHealth);
-            HPText.Position = SpriteImage.Position;
-            HPText.TextColor = Color.White;
+            hpText.Text = string.Format("{0}/{1}", CurrentHealth, MaxHealth);
+            hpText.Position = SpriteImage.Position;
+            hpText.TextColor = Color.White;
             SpriteImage.LoadContent();
         }
 
-        public override void UnloadContent() 
-        {            
+        public override void UnloadContent()
+        {
             SpriteImage.UnloadContent();
-            HPText.UnloadContent();
+            hpText.UnloadContent();
         }
 
-        public override void Update(GameTime gameTime) 
+        public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
             UsedDefend = false;
 
-            HPText.Text = string.Format("{0}/{1}", CurrentHealth, MaxHealth);
-            HPText.Position = SpriteImage.Position + new Vector2(-30, 15);
+            hpText.Text = string.Format("{0}/{1}", CurrentHealth, MaxHealth);
+            hpText.Position = SpriteImage.Position + new Vector2(-30, 15);
 
-            SpriteImage.Update(gameTime);            
+            SpriteImage.Update(gameTime);
             if (this.CurrentHealth <= 0)
             {
                 CurrentHealth = 0;
                 IsAlive = false;
             }
-        }        
+        }
 
         public override void Draw(SpriteBatch spriteBatch) 
         {
             base.Draw(spriteBatch);
-            HPText.Draw(spriteBatch);
+            hpText.Draw(spriteBatch);
             SpriteImage.Draw(spriteBatch);
         }
 	}

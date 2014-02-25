@@ -88,6 +88,8 @@
     <Compile Include="FadeEffect.cs" />
     <Compile Include="GameplayScreen.cs" />
     <Compile Include="IEquipable.cs" />
+    <Compile Include="Inventory.cs" />
+    <Compile Include="IStringSize.cs" />
     <Compile Include="InternalText.cs" />
     <Compile Include="IStats.cs" />
     <Compile Include="Item.cs" />
@@ -107,6 +109,7 @@
     <Compile Include="Minion.cs" />
     <Compile Include="CommandsBox.cs" />
     <Compile Include="MinionCommandBox.cs" />
+    <Compile Include="NoSuchItemException.cs" />
     <Compile Include="OptionsScreen.cs" />
     <Compile Include="OverworldSprite.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -122,6 +125,7 @@
     <Compile Include="FrameBox.cs" />
     <Compile Include="Tile.cs" />
     <Compile Include="TitleScreen.cs" />
+    <Compile Include="Weapon.cs" />
     <Compile Include="XmlManager.cs" />
   </ItemGroup>
   <ItemGroup>

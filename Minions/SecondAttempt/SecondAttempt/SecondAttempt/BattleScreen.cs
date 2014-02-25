@@ -12,7 +12,7 @@ namespace SecondAttempt
     using Microsoft.Xna.Framework.Graphics;
     using Microsoft.Xna.Framework.Media;
     using Microsoft.Xna.Framework.Input;
-
+    
     public class BattleScreen : GameplayScreen
     {
         //Sprites
@@ -52,7 +52,7 @@ namespace SecondAttempt
             currentSelectionMax = enemies.Count() - 1;          
             
             CommandSequence = new string[2];
-            this.commandBox = new MinionCommandBox(this, PlayerChar);
+            this.commandBox = new MinionCommandBox(this, Player);
         }
 
         public override void LoadContent()
@@ -72,8 +72,8 @@ namespace SecondAttempt
             background.LoadContent();
 
             //Load player.
-            startingPosition = PlayerChar.SpriteImage.Position;
-            PlayerChar.SpriteImage.Position = StaticConstants.PlayerPosition1;
+            startingPosition = Player.SpriteImage.Position;
+            Player.SpriteImage.Position = StaticConstants.PlayerPosition1;
 
             //Start music
             backgroundMusic = content.Load<Song>("Music/BattleTheme");
@@ -81,7 +81,7 @@ namespace SecondAttempt
 
             //Seed both enemies and player with a random action slice
 
-            PlayerChar.ActionTimeCurrent = (StaticConstants.Random.Next(0, ((StaticConstants.maxActionTimer*10)/PlayerChar.Speed))/10f);
+            Player.ActionTimeCurrent = (StaticConstants.Random.Next(0, ((StaticConstants.maxActionTimer*10)/Player.Speed))/10f);
             foreach (var enemy in enemies)
             {
                 enemy.ActionTimeCurrent = (StaticConstants.Random.Next(0, ((StaticConstants.maxActionTimer*10)/enemy.Speed))/10f);
@@ -130,7 +130,7 @@ namespace SecondAttempt
             {
                 enemies[currentSelection].SpriteImage.IsActive = false;
                 playerIsTarget = !playerIsTarget;
-                PlayerChar.SpriteImage.IsActive = playerIsTarget;
+                Player.SpriteImage.IsActive = playerIsTarget;
                 enemies[currentSelection].SpriteImage.IsActive = !playerIsTarget;
             }
 
@@ -144,14 +144,14 @@ namespace SecondAttempt
                         return enemy;
                     }
                 }
-                PlayerChar.SpriteImage.IsActive = false;
-                return PlayerChar;
+                Player.SpriteImage.IsActive = false;
+                return Player;
             }
 
 
             else if (InputManager.Instance.CancelKeyPressed())
             {
-                PlayerChar.SpriteImage.IsActive = false;
+                Player.SpriteImage.IsActive = false;
                 enemies[currentSelection].SpriteImage.IsActive = false;
                 SelectTarget = false;
                 commandBox.IsVisible = true;
@@ -159,7 +159,7 @@ namespace SecondAttempt
             else
             {
                 if (!playerIsTarget) enemies[currentSelection].SpriteImage.IsActive = true;
-                else PlayerChar.IsActive = true;
+                else Player.IsActive = true;
             }
             return null;
         }
@@ -168,7 +168,7 @@ namespace SecondAttempt
         {
             //Battle victory condition.
             if (currentSelectionMin == -1) ScreenManager.Instance.ChangeIngameScreens("MapScreen");
-            else if (!PlayerChar.IsAlive)
+            else if (!Player.IsAlive)
             {
                 ScreenManager.Instance.ChangeIngameScreens("TitleScreen");
                 return;
@@ -176,15 +176,15 @@ namespace SecondAttempt
             
             base.Update(gameTime);
 
-            PlayerChar.Update(gameTime);
+            Player.Update(gameTime);
             foreach (var enemy in enemies)
             {
                 enemy.Update(gameTime);
             }
 
-            if (PlayerChar.ActionTimeCurrent >= PlayerChar.ActionTimeGoal || commandBox.IsVisible)
+            if (Player.ActionTimeCurrent >= Player.ActionTimeGoal || commandBox.IsVisible)
             {
-                PlayerChar.ActionTimeCurrent = 0;                
+                Player.ActionTimeCurrent = 0;                
                 commandBox.IsVisible = true;
                 commandBox.Update(gameTime);
                 if (SelectTarget)
@@ -213,7 +213,7 @@ namespace SecondAttempt
             }
             else
             {
-                PlayerChar.ActionTimeCurrent += (float)gameTime.ElapsedGameTime.Milliseconds / 1000;
+                Player.ActionTimeCurrent += (float)gameTime.ElapsedGameTime.Milliseconds / 1000;
                 
                 foreach (var enemy in enemies)
                 {
@@ -230,7 +230,7 @@ namespace SecondAttempt
             base.Draw(spriteBatch);
 
             background.Draw(spriteBatch);
-            PlayerChar.Draw(spriteBatch);
+            Player.Draw(spriteBatch);
 
             foreach (var enemy in enemies)
             {

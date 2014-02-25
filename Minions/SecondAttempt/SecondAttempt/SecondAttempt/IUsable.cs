@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SecondAttempt
 {
-    interface IUsable
+    public interface IUsable
     {
         void UseItem(Character target);
     }

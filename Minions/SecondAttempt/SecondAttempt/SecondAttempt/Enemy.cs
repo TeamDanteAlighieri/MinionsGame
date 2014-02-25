@@ -61,9 +61,9 @@ namespace SecondAttempt
             {
                 if (StaticConstants.Random.Next(1, 101) <= Accuracy)
                 {
-                    int damage = this.AttackPower - GameplayScreen.PlayerChar.Defence;
+                    int damage = this.AttackPower - GameplayScreen.Player.Defence;
                     if (damage <= 0) damage = 1;
-                    GameplayScreen.PlayerChar.CurrentHealth -= damage;
+                    GameplayScreen.Player.CurrentHealth -= damage;
                 }
             }
             else

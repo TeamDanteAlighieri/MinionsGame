@@ -13,17 +13,18 @@
 
     public class GameplayScreen : GameScreen
     {
-        public static Minion PlayerChar;
+        //Both are defined as static so that only on instance will be created.
+        public static Minion Player;
         public static NormalEnemies RegEnemies;
 
         public override void LoadContent()
         {
             base.LoadContent();
-            if (PlayerChar == null)
+            if (Player == null)
             {
                 XmlManager<Minion> playerLoad = new XmlManager<Minion>();
-                PlayerChar = playerLoad.Load("Load/Gameplay/PlayerInfo.xml");
-                PlayerChar.LoadContent();
+                Player = playerLoad.Load("Load/Gameplay/PlayerInfo.xml");
+                Player.LoadContent();
                 XmlManager<NormalEnemies> enemies = new XmlManager<NormalEnemies>();
                 RegEnemies = enemies.Load("Load/Gameplay/RegularEnemies.xml");
             }
