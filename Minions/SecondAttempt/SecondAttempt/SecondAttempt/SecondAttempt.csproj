@@ -84,6 +84,7 @@
     <Compile Include="Consumable.cs" />
     <Compile Include="Enemy.cs" />
     <Compile Include="EnemyType.cs" />
+    <Compile Include="Equipment.cs" />
     <Compile Include="FadeEffect.cs" />
     <Compile Include="GameplayScreen.cs" />
     <Compile Include="IEquipable.cs" />
