@@ -32,7 +32,7 @@ namespace SecondAttempt
         //List<Tile> tiles;
         private List<Tile> underlayTiles, overlayTiles;
         string state;
-
+        bool isShopkeeper = false;
 
         public Layer()
         {
@@ -72,14 +72,25 @@ namespace SecondAttempt
                             int value2 = int.Parse(str.Substring(str.IndexOf(':') + 1));
                             //?
                             if(SolidTiles.Contains("[" + value1.ToString() + ":" + value2.ToString() + "]"))
-                                state = "Solid";
+                            {
+                                //hack
+                                if (value1 == 9 && value2 == 1)
+                                {
+                                    state = "Solid";
+                                    isShopkeeper = true;
+                                }
+                                else
+                                {
+                                    state = "Solid";
+                                }
+                            }
 
                             //tiles[tiles.Count - 1].LoadContent(position, new Rectangle(
                             //    value1 * (int)tileDimensions.X, value2 * (int)tileDimensions.Y,
                             //    (int)tileDimensions.X, (int)tileDimensions.Y), state);//we store the position of the current tile 
                             tile.LoadContent(position, new Rectangle(
                                 value1 * (int)tileDimensions.X, value2 * (int)tileDimensions.Y,
-                                (int)tileDimensions.X, (int)tileDimensions.Y), state);//we store the position of the current tile  
+                                (int)tileDimensions.X, (int)tileDimensions.Y), state, isShopkeeper);//we store the position of the current tile  
                             if (OverlayTiles.Contains("[" + value1.ToString() + ":" + value2.ToString() + "]"))
                                 overlayTiles.Add(tile);
                             else

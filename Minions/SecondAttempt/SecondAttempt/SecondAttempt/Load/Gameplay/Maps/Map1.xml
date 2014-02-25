@@ -42,8 +42,8 @@
       <Row>[1:1][x:x][x:x][1:1][1:1][4:2][x:x][x:x][x:x][x:x][x:x][x:x][x:x][8:1][8:0][x:x][x:x][8:0][6:1][7:1][1:1]</Row>
       <Row>[1:1][x:x][x:x][1:1][1:1][1:2][1:2][1:2][1:2][1:2][1:2][2:2][4:3][8:0][8:1][x:x][x:x][8:1][6:0][7:0][1:1]</Row>
       <Row>[1:1][x:x][x:x][1:1][1:1][4:0][4:0][4:0][4:0][4:0][4:0][2:3][4:3][8:1][8:0][x:x][x:x][8:0][6:1][7:1][1:1]</Row>
-      <Row>[1:1][x:x][x:x][1:1][1:1][2:1][9:0][2:1][6:0][7:0][6:0][7:0][6:0][7:0][8:1][x:x][x:x][8:1][6:0][7:0][1:1]</Row>
-      <Row>[1:1][x:x][x:x][2:1][2:1][5:1][9:1][5:1][6:1][7:1][6:1][7:1][6:1][7:1][3:1][x:x][x:x][8:0][6:1][7:1][1:1]</Row>
+      <Row>[1:1][x:x][x:x][1:1][1:1][2:1][x:x][2:1][6:0][7:0][6:0][7:0][6:0][7:0][8:1][x:x][x:x][8:1][6:0][7:0][1:1]</Row>
+      <Row>[1:1][x:x][x:x][2:1][2:1][5:1][x:x][5:1][6:1][7:1][6:1][7:1][6:1][7:1][3:1][x:x][x:x][8:0][6:1][7:1][1:1]</Row>
       <Row>[1:1][4:2][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][8:1][6:0][7:0][1:1]</Row>
       <Row>[1:1][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][1:1][6:1][7:1][1:1]</Row>
       <Row>[1:1][x:x][6:0][7:0][6:0][7:0][6:0][7:0][6:0][7:0][6:0][7:0][6:0][7:0][6:0][7:0][6:0][7:0][6:0][7:0][1:1]</Row>
@@ -58,8 +58,8 @@
     <Image>
       <Path>Gameplay/TileSheets/Ground</Path>
     </Image>
-    <SolidTiles>[2:3][7:1][6:1][3:1]</SolidTiles>
-    <OverlayTiles>[7:0][6:0]</OverlayTiles>
+    <SolidTiles>[2:3][7:1][6:1][3:1][9:1]</SolidTiles>
+    <OverlayTiles>[7:0][6:0][9:1][9:0]</OverlayTiles>
     <TileMap>
       <Row>[x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x]</Row>
       <Row>[x:x][x:x][x:x][x:x][x:x][x:x][x:x][2:3][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x]</Row>
@@ -67,8 +67,8 @@
       <Row>[x:x][x:x][x:x][x:x][x:x][x:x][x:x][2:3][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][6:1]</Row>
       <Row>[x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][3:1][x:x][x:x][x:x][x:x][6:0]</Row>
       <Row>[x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][3:1][x:x][x:x][x:x][x:x][x:x][6:1]</Row>
-      <Row>[x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][3:1][x:x][x:x][x:x][x:x][6:0]</Row>
-      <Row>[x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][2:3][4:3][3:1][x:x][x:x][x:x][x:x][x:x][6:1]</Row>
+      <Row>[x:x][x:x][x:x][x:x][x:x][x:x][9:0][x:x][x:x][x:x][x:x][x:x][x:x][x:x][3:1][x:x][x:x][x:x][x:x][6:0]</Row>
+      <Row>[x:x][x:x][x:x][x:x][x:x][x:x][9:1][x:x][x:x][x:x][x:x][2:3][4:3][3:1][x:x][x:x][x:x][x:x][x:x][6:1]</Row>
       <Row>[x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][6:0]</Row>
       <Row>[x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][6:1]</Row>
       <Row>[x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][x:x][6:0]</Row>
