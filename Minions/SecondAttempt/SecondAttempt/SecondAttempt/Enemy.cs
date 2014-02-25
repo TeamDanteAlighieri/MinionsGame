@@ -20,11 +20,12 @@ namespace SecondAttempt
         public Enemy()
         {
             IsAlive = true;
-            ActionTimer = 0;
+            ActionTimeCurrent = 0;
         }
 
-        public void LoadContent() 
+        public override void LoadContent() 
         {
+            base.LoadContent();
             SpriteImage = new Image();
             XmlManager<Image> spriteLoader = new XmlManager<Image>();
             SpriteImage = spriteLoader.Load(this.ImageLoadPath);
@@ -36,13 +37,13 @@ namespace SecondAttempt
             SpriteImage.UnloadContent();
         }
 
-        public void Update(GameTime gameTime) 
+        public override void Update(GameTime gameTime) 
         {
             SpriteImage.Update(gameTime);
             if (CurrentHealth <= 0) IsAlive = false;
         }
 
-        public void Draw(SpriteBatch spriteBatch) 
+        public override void Draw(SpriteBatch spriteBatch) 
         {
             SpriteImage.Draw(spriteBatch);
         }

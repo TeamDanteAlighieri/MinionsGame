@@ -17,7 +17,6 @@ namespace SecondAttempt
     class InternalText
     {
         public string Text { get; set; }
-        public bool IsVisible { get; set; }
         public Vector2 Position { get; set; }
         public Color TextColor { get; set; }
         private string fontName;
@@ -25,30 +24,30 @@ namespace SecondAttempt
         private SpriteFont font; 
 
         public InternalText()
-        {
-            IsVisible = true;
+        {            
             fontName = "Fonts/Calibri";
+            this.LoadContent();
         }
 
-        public void LoadContent()
+        public virtual void LoadContent()
         {
             content = new ContentManager(ScreenManager.Instance.Content.ServiceProvider, "Content");
             font = content.Load<SpriteFont>(fontName);
         }
 
-        public void UnloadContent()
+        public virtual void UnloadContent()
         {
             content.Unload();            
         }
 
-        public void Update(GameTime gameTime)
+        public virtual void Update(GameTime gameTime)
         {
 
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public virtual void Draw(SpriteBatch spriteBatch)
         {
-            if (IsVisible) spriteBatch.DrawString(font, Text, Position, TextColor);
+            spriteBatch.DrawString(font, Text, Position, TextColor);
         }
     }
 }

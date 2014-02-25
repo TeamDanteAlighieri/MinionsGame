@@ -80,6 +80,7 @@
     <Compile Include="BattleScreen.cs" />
     <Compile Include="BossEnemies.cs" />
     <Compile Include="Character.cs" />
+    <Compile Include="CommandBoxItem.cs" />
     <Compile Include="Enemy.cs" />
     <Compile Include="EnemyType.cs" />
     <Compile Include="FadeEffect.cs" />
@@ -100,6 +101,7 @@
     <Compile Include="MenuManager.cs" />
     <Compile Include="Minion.cs" />
     <Compile Include="CommandsBox.cs" />
+    <Compile Include="MinionCommandBox.cs" />
     <Compile Include="OptionsScreen.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -112,7 +114,7 @@
     <Compile Include="SplashScreen.cs" />
     <Compile Include="SpriteSheetEffect.cs" />
     <Compile Include="StaticProperties.cs" />
-    <Compile Include="BoxFrame.cs" />
+    <Compile Include="FrameBox.cs" />
     <Compile Include="Tile.cs" />
     <Compile Include="TitleScreen.cs" />
     <Compile Include="XmlManager.cs" />
@@ -134,7 +136,6 @@
     </Content>
     <Content Include="Load\Gameplay\PlayerInfo.xml" />
     <Content Include="Load\Gameplay\RegularEnemies.xml" />
-    <Content Include="Load\Menus\TestMenu.xml" />
     <Content Include="Load\Menus\TitleMenu.xml" />
     <Content Include="Load\ScreenManager.xml">
       <SubType>Designer</SubType>

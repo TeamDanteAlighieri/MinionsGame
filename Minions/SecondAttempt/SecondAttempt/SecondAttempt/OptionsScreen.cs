@@ -12,19 +12,17 @@ namespace SecondAttempt
 {
     public class OptionsScreen : GameScreen
     {
-        private BoxFrame boxFrame;
+        private FrameBox boxFrame;
         private InternalText[] internalText;        
         private Rectangle rect;                
-        private int activeOption; 
-        ContentManager content;
-        float move;
+        private int activeOption;        
 
         public override void LoadContent()
         {
             base.LoadContent();
             activeOption = 0;
-            rect = new Rectangle(30, (int) ScreenManager.Instance.Dimensions.Y - 130, 80, 110);
-            boxFrame = new BoxFrame();
+            rect = new Rectangle(20, (int) ScreenManager.Instance.Dimensions.Y - 170, 120, 150);
+            boxFrame = new FrameBox();
             boxFrame.InternalRect = rect;
             boxFrame.BorderWidth = 5;
             boxFrame.InternalColor = Color.DarkBlue;
@@ -34,7 +32,7 @@ namespace SecondAttempt
             for (int i = 0; i < 4; i++)
             {
                 internalText[i] = new InternalText();
-                internalText[i].Position = new Vector2(rect.Left + 5, rect.Top + 5 + 25 * i);
+                internalText[i].Position = new Vector2(rect.Left + 15, rect.Top + 5 + 25 * i);
             }
 
             internalText[0].Text = "Attack";

@@ -48,7 +48,7 @@
 
         public void ChangeScreens(string screenName)
         {
-            newScreen = (GameScreen)Activator.CreateInstance(Type.GetType("SecondAttempt." + screenName));
+            newScreen = (GameScreen)Activator.CreateInstance(Type.GetType("SecondAttempt." + screenName));            
             Image.IsActive = true;
             Image.FadeEffect.Increase = true;
             Image.Alpha = 0.0f;
@@ -57,34 +57,34 @@
 
         public void ChangeIngameScreens(string screenName)
         {
-            newScreen = (GameScreen)Activator.CreateInstance(Type.GetType("SecondAttempt." + screenName));
+            newScreen = (GameScreen)Activator.CreateInstance(Type.GetType("SecondAttempt." + screenName));            
             if (currentScreen is MapScreen)
             {
                 overworldScreen = currentScreen;
                 currentScreen = newScreen;
                 currentScreen.LoadContent();
             }
+            else if (newScreen is TitleScreen)
+            {
+                currentScreen.UnloadContent();
+                currentScreen = newScreen;
+                newScreen.LoadContent();
+            }
             else 
             {
                 currentScreen.UnloadContent();
                 currentScreen = overworldScreen;
+                ((MapScreen)currentScreen).ReloadMusic();
             }
         }
 
         public void ChangeToRandomBattle(List<Enemy> enemies)
         {
             newScreen = (GameScreen)new BattleScreen(enemies);
-            if (currentScreen is MapScreen)
-            {
-                overworldScreen = currentScreen;
-                currentScreen = newScreen;
-                currentScreen.LoadContent();
-            }
-            else
-            {
-                currentScreen.UnloadContent();
-                currentScreen = overworldScreen;
-            }
+            
+            overworldScreen = currentScreen;
+            currentScreen = newScreen;
+            currentScreen.LoadContent();
         }
 
         void Transition(GameTime gameTime)
@@ -108,6 +108,7 @@
                 }
             }
         }
+
         //constuctor
         public ScreenManager()
         {

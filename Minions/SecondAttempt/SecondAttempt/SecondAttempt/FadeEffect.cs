@@ -12,7 +12,7 @@
         public float FadeSpeed;
         public bool Increase;
         public float FadeMax;
-        public float FadeMin;
+        public float FadeMin;        
 
         public FadeEffect()
         {

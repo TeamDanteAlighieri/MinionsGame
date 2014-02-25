@@ -9,25 +9,23 @@
     using Microsoft.Xna.Framework.Content;
     using Microsoft.Xna.Framework.Graphics;
 
-    public class BoxFrame
+    public struct FrameBox
     {
-        public int BorderWidth { get; set; }
-        public Rectangle InternalRect { get; set; }
+        public int BorderWidth;
+        public Rectangle InternalRect;
         private Rectangle upperBorder;
         private Rectangle rightBorder;
         private Rectangle lowerBorder;
         private Rectangle leftBorder;
-        public Color InternalColor { get; set; }
-        public bool IsVisible { get; set; }
+        public Color InternalColor;
         private Texture2D texture;
 
-        public BoxFrame()
+        public FrameBox(int borderWidth, Rectangle internalRect, Color internalColor)
         {
-            IsVisible = true;
-        }
+            this.BorderWidth = borderWidth;
+            this.InternalRect = internalRect;
+            this.InternalColor = internalColor;
 
-        public void LoadContent()
-        {
             texture = new Texture2D(ScreenManager.Instance.GraphicsDevice, 1, 1);
             texture.SetData(new Color[] { Color.White });
             upperBorder = new Rectangle(this.InternalRect.Left, this.InternalRect.Top - BorderWidth, this.InternalRect.Width + BorderWidth, BorderWidth);
@@ -36,26 +34,23 @@
             leftBorder = new Rectangle(this.InternalRect.Left - BorderWidth, this.InternalRect.Top - BorderWidth, BorderWidth, this.InternalRect.Height + BorderWidth);
         }
 
-        public void UnloadContent()
+        public void LoadContent()
         {
-            texture.Dispose();
+           
         }
-
+      
         public void Update(GameTime gameTime)
         {
 
         }
 
         public void Draw(SpriteBatch spriteBatch)
-        {
-            if (IsVisible)
-            {
-                spriteBatch.Draw(texture, InternalRect, null, InternalColor, 0f, Vector2.Zero, SpriteEffects.None, 0f);
-                spriteBatch.Draw(texture, upperBorder, null, Color.WhiteSmoke, 0f, Vector2.Zero, SpriteEffects.None, 0f);
-                spriteBatch.Draw(texture, rightBorder, null, Color.WhiteSmoke, 0f, Vector2.Zero, SpriteEffects.None, 0f);
-                spriteBatch.Draw(texture, lowerBorder, null, Color.WhiteSmoke, 0f, Vector2.Zero, SpriteEffects.None, 0f);
-                spriteBatch.Draw(texture, leftBorder, null, Color.WhiteSmoke, 0f, Vector2.Zero, SpriteEffects.None, 0f);
-            }
+        {            
+            spriteBatch.Draw(texture, InternalRect, null, InternalColor, 0f, Vector2.Zero, SpriteEffects.None, 0f);
+            spriteBatch.Draw(texture, upperBorder, null, Color.WhiteSmoke, 0f, Vector2.Zero, SpriteEffects.None, 0f);
+            spriteBatch.Draw(texture, rightBorder, null, Color.WhiteSmoke, 0f, Vector2.Zero, SpriteEffects.None, 0f);
+            spriteBatch.Draw(texture, lowerBorder, null, Color.WhiteSmoke, 0f, Vector2.Zero, SpriteEffects.None, 0f);
+            spriteBatch.Draw(texture, leftBorder, null, Color.WhiteSmoke, 0f, Vector2.Zero, SpriteEffects.None, 0f);
         }
     }
 }

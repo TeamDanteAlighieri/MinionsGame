@@ -25,12 +25,6 @@
   </Item>
 
   <Item>
-    <Image>
-      <Text>Credits</Text>
-    </Image>
-  </Item>
-
-  <Item>
     <LinkType>Terminate</LinkType>    
     <Image>
       <Text>Exit</Text>

@@ -27,8 +27,21 @@
         //public List<Skill> Skills;        
         public Image SpriteImage {get; set;}
         public int Money { get; set; }
-        public float ActionTimer { get; set; }
+        public float ActionTimeCurrent { get; set; }
+        public float ActionTimeGoal { get; set; }
 
+        public virtual void LoadContent()
+        {
+            this.ActionTimeGoal = StaticConstants.maxActionTimer/(float)this.Speed;
+        }
 
+        public virtual void Update(GameTime gameTime)
+        {            
+        }        
+
+        public virtual void Draw(SpriteBatch spriteBatch)
+        {
+
+        }
 	}
 }

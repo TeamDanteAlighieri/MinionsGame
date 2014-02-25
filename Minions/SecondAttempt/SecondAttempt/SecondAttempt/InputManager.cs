@@ -60,5 +60,17 @@
             }
             return false;
         }
+
+        public bool ActionKeyPressed()
+        {
+            return ((currentKeyState.IsKeyUp(Keys.A) && prevKeyState.IsKeyDown(Keys.A))
+                || (currentKeyState.IsKeyUp(Keys.Enter)) && prevKeyState.IsKeyDown(Keys.Enter));
+        }
+
+        public bool CancelKeyPressed()
+        {
+            return ((currentKeyState.IsKeyUp(Keys.F) && prevKeyState.IsKeyDown(Keys.F))
+                || (currentKeyState.IsKeyUp(Keys.Back)) && prevKeyState.IsKeyDown(Keys.Back));
+        }
     }
 }
