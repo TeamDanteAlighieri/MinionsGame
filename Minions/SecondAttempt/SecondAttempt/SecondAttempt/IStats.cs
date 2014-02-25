@@ -16,7 +16,7 @@ namespace SecondAttempt
         int MaxMana { get; set; }
         int CurrentMana { get; set; }
 
-        public virtual void AddStats(IStats first, IStats second)
+       /* public virtual void AddStats(IStats first, IStats second)
         {
             first.Accuracy += second.Accuracy;
             first.AttackPower += second.AttackPower;
@@ -29,6 +29,6 @@ namespace SecondAttempt
 
             if (first.CurrentHealth > first.MaxHealth) first.CurrentHealth = first.MaxHealth;
             if (first.CurrentMana > first.MaxMana) first.CurrentMana = first.MaxMana;
-        }
+        }*/
     }
 }
