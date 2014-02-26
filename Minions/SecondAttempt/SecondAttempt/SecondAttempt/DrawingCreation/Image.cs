@@ -9,8 +9,11 @@
     using Microsoft.Xna.Framework.Content;
     using Microsoft.Xna.Framework.Graphics;
 
-    //[Serializable()]
-    public class Image
+    /// <summary>
+    /// The gargantuous all purpose image class that is average at everything.
+    /// Should be reworked to at least allow seperate effect activation.
+    /// </summary>
+    public class Image : IStringSize
     {
         public float Alpha;
         public string Text, FontName, Path;
@@ -166,6 +169,11 @@
             origin = new Vector2(SourceRect.Width / 2, SourceRect.Height / 2);
             spriteBatch.Draw(Texture, Position + origin, SourceRect, Color.White * Alpha,
                 0.0f, origin, Scale, SpriteEffects.None, 0.0f);
+        }
+
+        public Vector2 StringSize()
+        {
+            return font.MeasureString(Text);
         }
     }
 }

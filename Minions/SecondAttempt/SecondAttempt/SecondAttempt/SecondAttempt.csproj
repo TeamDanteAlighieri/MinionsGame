@@ -81,6 +81,7 @@
     <Compile Include="IngameMenu\IngameMenuScreen.cs" />
     <Compile Include="IngameMenu\IngameMenuCommands.cs" />
     <Compile Include="DrawingCreation\ListBox.cs" />
+    <Compile Include="Interfaces\IEquip.cs" />
     <Compile Include="MapScreens\TileMap.cs" />
     <Compile Include="WorkInProgress\BossEnemies.cs" />
     <Compile Include="Characters\Character.cs" />

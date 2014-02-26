@@ -3,7 +3,7 @@
     using Microsoft.Xna.Framework;    
     using Microsoft.Xna.Framework.Graphics;
 
-	public class Minion : Character 
+	public class Minion : Character, IEquip 
 	{
         public byte Level;
         public int NextLevelExp;              
