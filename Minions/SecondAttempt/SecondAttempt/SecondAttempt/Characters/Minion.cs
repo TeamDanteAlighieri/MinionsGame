@@ -46,6 +46,7 @@
                 if (this.equipedWeapon == null) toEquip.Equip(this);
                 else
                 {
+                    Inventory.AddItem(equipedWeapon);
                     equipedWeapon.Unequip(this);
                     toEquip.Equip(this);
                 }

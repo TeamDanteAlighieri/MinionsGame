@@ -44,6 +44,20 @@
             this.axis = axis;
         }
 
+        protected virtual void OnSelectEntry()
+        {
+            Items[activeElement].OnSelectEntry();
+        }
+
+        public virtual void OnCancel()
+        {
+
+        }
+
+        public virtual void InterpetCommands(string[] commandArguments, Character target)
+        {
+
+        }
 
         public virtual void LoadContent()
         {
@@ -66,6 +80,14 @@
                 {
                     Items[i].Position = Items[i - 1].Position + new Vector2(Items[i - 1].StringSize().X + 10, 0);
                 }
+            }
+        }
+
+        public virtual void UnloadContent()
+        {
+            foreach (var item in Items)
+            {
+                item.UnloadContent();
             }
         }
 
@@ -98,18 +120,13 @@
                 if (InputManager.Instance.KeyPressed(Keys.Enter) || InputManager.Instance.KeyPressed(Keys.A))
                 {
                     OnSelectEntry();
-                }                
+                }
+
+                if (InputManager.Instance.CancelKeyPressed())
+                {
+                    OnCancel();
+                }
             }
-        }
-
-        protected virtual void OnSelectEntry()
-        {
-            Items[activeElement].OnSelectEntry();
-        }
-
-        public virtual void InterpetCommands(string[] commandArguments, Character target)
-        {
-
         }
 
         public virtual void Draw(SpriteBatch spriteBatch)

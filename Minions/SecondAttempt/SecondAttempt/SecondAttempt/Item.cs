@@ -41,25 +41,25 @@ namespace SecondAttempt
        public virtual void ApplyTo(Character target)
        {
            target.AttackPower += this.AttackPower;
-           target.AttackPower += this.Accuracy;
-           target.AttackPower += this.Defence;
-           target.AttackPower += this.Speed;
-           target.AttackPower += this.MaxHealth;
-           target.AttackPower += this.CurrentHealth;
-           target.AttackPower += this.MaxMana;
-           target.AttackPower += this.CurrentMana;
+           target.Accuracy += this.Accuracy;
+           target.Defence += this.Defence;
+           target.Speed += this.Speed;
+           target.MaxHealth += this.MaxHealth;
+           target.CurrentHealth += this.CurrentHealth;
+           target.MaxMana += this.MaxMana;
+           target.CurrentMana += this.CurrentMana;
        }
 
        public virtual void SubstractFrom(Character target)
        {
            target.AttackPower += this.AttackPower;
-           target.AttackPower += this.Accuracy;
-           target.AttackPower += this.Defence;
-           target.AttackPower += this.Speed;
-           target.AttackPower += this.MaxHealth;
-           target.AttackPower += this.CurrentHealth;
-           target.AttackPower += this.MaxMana;
-           target.AttackPower += this.CurrentMana;
+           target.Accuracy += this.Accuracy;
+           target.Defence += this.Defence;
+           target.Speed += this.Speed;
+           target.MaxHealth += this.MaxHealth;
+           target.CurrentHealth += this.CurrentHealth;
+           target.MaxMana += this.MaxMana;
+           target.CurrentMana += this.CurrentMana;
        }
     }
 }

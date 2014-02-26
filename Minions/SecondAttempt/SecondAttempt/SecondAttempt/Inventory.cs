@@ -70,20 +70,29 @@
             else throw new NoSuchItemException(string.Format("Cannot add item {0}, it is not part of the inventory.", itemName));
         }
 
-        public void DeleteItem(string itemName)                    
-        {
+        public Item GetItem(string itemName)                    
+        {            
             int itemIndex = -1;
+            Item result = null;
             if ((itemIndex = Equipment.FindIndex(x => x.Name == itemName)) >= 0)
-            {
-                Equipment[itemIndex].Quantity--;
-                if (Equipment[itemIndex].Quantity <= 0) Equipment.RemoveAt(itemIndex);
+            {                
+                result = Equipment[itemIndex];                
+                if (Equipment[itemIndex].Quantity <= 0) Equipment.RemoveAt(itemIndex);                
             }
             else if ((itemIndex = Consumables.FindIndex(x => x.Name == itemName)) >= 0)
-            {
-                Consumables[itemIndex].Quantity--;
+            {                
+                result = Consumables[itemIndex];
                 if (Consumables[itemIndex].Quantity <= 0) Consumables.RemoveAt(itemIndex);
             }
-            else throw new NoSuchItemException(string.Format("Cannot remove item {0}, it is not part of the inventory.", itemName));        
+            else throw new NoSuchItemException(string.Format("Cannot remove item {0}, it is not part of the inventory.", itemName));
+            return result;
+        }
+
+        public void CheckConsistency()
+        {
+            Item checker = null;
+            while ((checker = Equipment.Find(x => x.Quantity <= 0)) != null) Equipment.Remove((Equipment)checker);
+            while ((checker = Consumables.Find(x => x.Quantity <= 0)) != null) Consumables.Remove((Consumable)checker);
         }
     }
 }

@@ -44,7 +44,7 @@
       <Name>Bannana</Name>
       <Description>Restores a small amount of hp</Description>
       <Price>20</Price>
-      <Quantity>5</Quantity>
+      <Quantity>1</Quantity>
       <AttackPower>0</AttackPower>
       <Accuracy>0</Accuracy>
       <Defence>0</Defence>

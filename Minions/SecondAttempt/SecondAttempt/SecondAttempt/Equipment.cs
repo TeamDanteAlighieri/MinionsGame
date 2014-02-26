@@ -5,7 +5,7 @@
     using System.Linq;
     using System.Text;
 
-    public class Equipment : Item, IEquipable, IComparable<Equipment>
+    public class Equipment : Item, IEquipable, IComparable<Equipment>, ICloneable
     {
 
         public Equipment() 
@@ -38,6 +38,11 @@
             //Reset max mana and health if they overflowed.
             if (target.CurrentMana > target.MaxMana) target.CurrentMana = target.MaxMana;
             if (target.CurrentHealth > target.MaxHealth) target.CurrentHealth = target.MaxHealth;
+        }
+            
+        public object Clone()
+        {
+            return this.MemberwiseClone();
         }
     }
 }

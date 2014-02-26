@@ -29,11 +29,11 @@ namespace SecondAttempt
         private bool delay;
         private bool playerIsTarget;            
         
-        public bool SelectTarget;
-        public bool SelectItem;
+        public bool SelectTarget;        
         public bool SelectSkill;
 
         public string[] CommandSequence;
+        public ListBox ItemSelectionBox;
 
 
         public BattleScreen(List<Enemy> enemies)
@@ -44,7 +44,7 @@ namespace SecondAttempt
             delay = false;
             delayCount = 0;
             SelectTarget = false;
-            SelectItem = false;
+            //SelectItem = false;
             SelectSkill = false;
 
             currentSelection = 0;
@@ -53,6 +53,66 @@ namespace SecondAttempt
             
             CommandSequence = new string[2];
             this.commandBox = new MinionCommandBox(this, Player);
+            this.ItemSelectionBox = new ListBox(Player.Inventory.Consumables);
+        }
+
+        /// <summary>
+        /// Highlights current target (blinking sprite) and returns it when prompted.
+        /// </summary>
+        /// <returns></returns>
+        public Character SelectTargetLogic()
+        {
+            if (!enemies[currentSelection].IsAlive) currentSelection = currentSelectionMin;
+            if (InputManager.Instance.KeyPressed(Keys.Down) && !playerIsTarget)
+            {
+                enemies[currentSelection].SpriteImage.IsActive = false;
+                currentSelection++;
+                if (currentSelection > currentSelectionMax) currentSelection = currentSelectionMin;
+                enemies[currentSelection].SpriteImage.IsActive = true;
+            }
+
+            else if (InputManager.Instance.KeyPressed(Keys.Up) && !playerIsTarget)
+            {
+                enemies[currentSelection].SpriteImage.IsActive = false;
+                currentSelection--;
+                if (currentSelection < currentSelectionMin) currentSelection = currentSelectionMax;
+                enemies[currentSelection].SpriteImage.IsActive = true;
+            }
+
+            else if (InputManager.Instance.KeyPressed(Keys.Left) || InputManager.Instance.KeyPressed(Keys.Right))
+            {
+                enemies[currentSelection].SpriteImage.IsActive = false;
+                playerIsTarget = !playerIsTarget;
+                Player.SpriteImage.IsActive = playerIsTarget;
+                enemies[currentSelection].SpriteImage.IsActive = !playerIsTarget;
+            }
+
+            else if (InputManager.Instance.ActionKeyPressed())
+            {
+                foreach (var enemy in enemies)
+                {
+                    if (enemy.SpriteImage.IsActive)
+                    {
+                        enemy.SpriteImage.IsActive = false;
+                        return enemy;
+                    }
+                }
+                Player.SpriteImage.IsActive = false;
+                return Player;
+            }
+            else if (InputManager.Instance.CancelKeyPressed())
+            {
+                Player.SpriteImage.IsActive = false;
+                enemies[currentSelection].SpriteImage.IsActive = false;
+                SelectTarget = false;
+                commandBox.IsVisible = true;
+            }
+            else
+            {
+                if (!playerIsTarget) enemies[currentSelection].SpriteImage.IsActive = true;
+                else Player.IsActive = true;
+            }
+            return null;
         }
 
         public override void LoadContent()
@@ -97,71 +157,12 @@ namespace SecondAttempt
             BackgroundMusicPlayer.Stop();
             backgroundMusic.Dispose();
 
-            if ( enemies != null ) foreach (var enemy in enemies)
+            foreach (var enemy in enemies)
             {
                 enemy.UnloadContent();                
             }
-        }
-
-        /// <summary>
-        /// Highlights current target (blinking sprite) and returns it when prompted.
-        /// </summary>
-        /// <returns></returns>
-        public Character SelectTargetLogic()
-        {
-            if (!enemies[currentSelection].IsAlive) currentSelection = currentSelectionMin;
-            if (InputManager.Instance.KeyPressed(Keys.Down) && !playerIsTarget)
-            {
-                enemies[currentSelection].SpriteImage.IsActive = false;
-                currentSelection++;
-                if (currentSelection > currentSelectionMax) currentSelection = currentSelectionMin;                
-                enemies[currentSelection].SpriteImage.IsActive = true;
-            }
-
-            else if (InputManager.Instance.KeyPressed(Keys.Up) && !playerIsTarget)
-            {
-                enemies[currentSelection].SpriteImage.IsActive = false;
-                currentSelection--;
-                if (currentSelection < currentSelectionMin) currentSelection = currentSelectionMax;
-                enemies[currentSelection].SpriteImage.IsActive = true;
-            }
-
-            else if (InputManager.Instance.KeyPressed(Keys.Left) || InputManager.Instance.KeyPressed(Keys.Right))
-            {
-                enemies[currentSelection].SpriteImage.IsActive = false;
-                playerIsTarget = !playerIsTarget;
-                Player.SpriteImage.IsActive = playerIsTarget;
-                enemies[currentSelection].SpriteImage.IsActive = !playerIsTarget;
-            }
-
-            else if (InputManager.Instance.ActionKeyPressed())
-            {
-                foreach (var enemy in enemies)
-                {
-                    if (enemy.SpriteImage.IsActive)
-                    {
-                        enemy.SpriteImage.IsActive = false;
-                        return enemy;
-                    }
-                }
-                Player.SpriteImage.IsActive = false;
-                return Player;
-            }
-
-
-            else if (InputManager.Instance.CancelKeyPressed())
-            {
-                Player.SpriteImage.IsActive = false;
-                enemies[currentSelection].SpriteImage.IsActive = false;
-                SelectTarget = false;
-                commandBox.IsVisible = true;
-            }
-            else
-            {
-                if (!playerIsTarget) enemies[currentSelection].SpriteImage.IsActive = true;
-                else Player.IsActive = true;
-            }
-            return null;
+            commandBox.UnloadContent();
+            ItemSelectionBox.UnloadContent();
         }
 
         public override void Update(GameTime gameTime)
@@ -187,12 +188,11 @@ namespace SecondAttempt
                 Player.ActionTimeCurrent = 0;                
                 commandBox.IsVisible = true;
                 commandBox.Update(gameTime);
-                if (SelectTarget)
-                {
-                    InputManager.Instance.Update();
+                if (CommandSequence[0] != string.Empty)
+                {                    
                     delay = true;
-                }
-                
+                    this.playerIsTarget = false;                    
+                }             
             }
             //Necessary to avoid instantaneous target selection.
             else if (delay)
@@ -201,6 +201,24 @@ namespace SecondAttempt
                 {
                     delayCount = 0;
                     delay = false;
+                }
+            }
+            else if (ItemSelectionBox.IsVisible)
+            {
+                ItemSelectionBox.Update(gameTime);
+
+                if (InputManager.Instance.CancelKeyPressed())
+                {
+                    ItemSelectionBox.IsVisible = false;
+                    commandBox.IsVisible = true;
+                }
+
+                CommandSequence[1] = ItemSelectionBox.CheckSelection();
+                if (CommandSequence[1] != string.Empty)
+                {
+                    ItemSelectionBox.IsVisible = false;
+                    delay = true;
+                    SelectTarget = true;
                 }
             }
             else if (SelectTarget)
@@ -237,6 +255,7 @@ namespace SecondAttempt
                 if (enemy.IsAlive) enemy.Draw(spriteBatch);
             }
             commandBox.Draw(spriteBatch);
+            ItemSelectionBox.Draw(spriteBatch);
         }
     }
 }

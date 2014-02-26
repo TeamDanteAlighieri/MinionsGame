@@ -26,6 +26,7 @@
 
         public ListBox(List<Item> content) : this()
         {
+            this.Items = new List<ListDescriptorItem>(content.Capacity);
             for (int i = 0; i < content.Count; i++)
             {
                 ListDescriptorItem toAdd = new ListDescriptorItem();
@@ -49,14 +50,68 @@
             }            
         }
 
+        public ListBox(List<Consumable> content)
+            : this()
+        {
+            this.Items = new List<ListDescriptorItem>(content.Capacity);
+            for (int i = 0; i < content.Count; i++)
+            {
+                ListDescriptorItem toAdd = new ListDescriptorItem();
+                toAdd.Name.Text = content[i].Name;
+                toAdd.Number.Text = content[i].Quantity.ToString();
+
+                if (i != 0)
+                {
+                    toAdd.Name.Position = Items[i - 1].Name.Position + new Vector2(0, Items[i - 1].Name.StringSize().Y + 5);
+                    toAdd.Number.Position = new Vector2(StaticConstants.ListBoxRight - Items[i - 1].Number.StringSize().X - 5,
+                        Items[i - 1].Number.StringSize().Y + 5 + Items[i - 1].Number.Position.Y);
+                }
+
+                else
+                {
+                    toAdd.Name.Position = new Vector2(StaticConstants.ListBoxLeft + 5, StaticConstants.ListBoxTop + 5);
+                    toAdd.Number.Position = new Vector2(StaticConstants.ListBoxRight - 5 - toAdd.Number.StringSize().X, StaticConstants.ListBoxTop + 5);
+                }
+
+                Items.Add(toAdd);
+            }
+        }
+
+        public ListBox(List<Equipment> content)
+            : this()
+        {
+            this.Items = new List<ListDescriptorItem>(content.Capacity);
+            for (int i = 0; i < content.Count; i++)
+            {
+                ListDescriptorItem toAdd = new ListDescriptorItem();
+                toAdd.Name.Text = content[i].Name;
+                toAdd.Number.Text = content[i].Quantity.ToString();
+
+                if (i != 0)
+                {
+                    toAdd.Name.Position = Items[i - 1].Name.Position + new Vector2(0, Items[i - 1].Name.StringSize().Y + 5);
+                    toAdd.Number.Position = new Vector2(StaticConstants.ListBoxRight - Items[i - 1].Number.StringSize().X - 5,
+                        Items[i - 1].Number.StringSize().Y + 5 + Items[i - 1].Number.Position.Y);
+                }
+
+                else
+                {
+                    toAdd.Name.Position = new Vector2(StaticConstants.ListBoxLeft + 5, StaticConstants.ListBoxTop + 5);
+                    toAdd.Number.Position = new Vector2(StaticConstants.ListBoxRight - 5 - Items[0].Number.StringSize().X, StaticConstants.ListBoxTop + 5);
+                }
+
+                Items.Add(toAdd);
+            }
+        }
+
         public string CheckSelection()
         {
-            if (InputManager.Instance.ActionKeyPressed())
+            if (InputManager.Instance.ActionKeyPressed() && this.Items.Count > 0)
             {
                 return Items[activeElement].Name.Text;
             }
             return string.Empty;
-        }
+        }        
 
         public virtual void UnloadContent()
         {
@@ -70,21 +125,19 @@
         {
             if (IsVisible)
             {
-                Items[activeElement].IsActive = false;
-                if (InputManager.Instance.KeyPressed(Keys.Up) && --activeElement < 0)
-                    activeElement = Items.Count - 1;
-                if (InputManager.Instance.KeyPressed(Keys.Down) && ++activeElement >= Items.Count)
-                    activeElement = 0;
-                Items[activeElement].IsActive = true;
-
-                foreach (var item in Items)
+                if (this.Items.Count > 0)
                 {
-                    item.Update(gameTime);
-                }
+                    Items[activeElement].IsActive = false;
+                    if (InputManager.Instance.KeyPressed(Keys.Up) && --activeElement < 0)
+                        activeElement = Items.Count - 1;
+                    if (InputManager.Instance.KeyPressed(Keys.Down) && ++activeElement >= Items.Count)
+                        activeElement = 0;
+                    Items[activeElement].IsActive = true;
 
-                if (InputManager.Instance.CancelKeyPressed())
-                {
-                    this.IsVisible = false;
+                    foreach (var item in Items)
+                    {
+                        item.Update(gameTime);
+                    }
                 }
             }
         }

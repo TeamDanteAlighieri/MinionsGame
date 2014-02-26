@@ -7,7 +7,7 @@
 
     public enum EffectType { Instant, Timed};
 
-    public class Consumable : Item, IUsable
+    public class Consumable : Item, IUsable, ICloneable
     {
         public EffectType EffectType;
         public int Duration;
@@ -35,6 +35,11 @@
             {
                 //Timed logic goes here.
             }
+        }
+
+        public object Clone()
+        {
+            return this.MemberwiseClone();
         }
     }
 }

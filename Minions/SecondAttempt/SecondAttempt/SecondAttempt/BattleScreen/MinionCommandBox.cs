@@ -53,7 +53,7 @@
         {
             if (commandSequnce[0] == "Attack") OnAttack(target);
             else if (commandSequnce[0] == "Skill") OnSkill(target, commandSequnce[1]) ;
-            else if (commandSequnce[0] == "Item") OnItem(target, commandSequnce[2]) ;
+            else if (commandSequnce[0] == "Item") OnItem(target, commandSequnce[1]) ;
         }
 
         /// <summary>
@@ -116,26 +116,34 @@
         }
 
         /// <summary>
-        /// Not yet implemented
+        /// Instantiates item selection.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         public void ItemCommandSelected(object sender, EventArgs e)
         {
-            //Item event logic here (pop item menu to select item to use)
+            screenInstance.ItemSelectionBox.IsVisible = true;
+            screenInstance.CommandSequence[0] = this.Items[3].Text;
+            this.IsVisible = false;            
         }
 
         /// <summary>
-        /// Not yet implemented
+        /// Applies item effect
         /// </summary>
         /// <param name="target"></param>
         /// <param name="item"></param>
-        public void OnItem(Character target, string item)
+        public void OnItem(Character target, string itemName)
         {
-            //Item effect here.
+            Consumable item = (Consumable) minion.Inventory.GetItem(itemName);
+            item.UseItem(target);
+            minion.Inventory.CheckConsistency();
+            screenInstance.ItemSelectionBox.UnloadContent();
+            screenInstance.ItemSelectionBox = new ListBox(minion.Inventory.Consumables);
+            screenInstance.CommandSequence = new string[screenInstance.CommandSequence.Length];
+            screenInstance.SelectTarget = false;            
         }
 
-        public void OnCancel()
+        public override void OnCancel()
         {
             this.IsVisible = true;
         }
