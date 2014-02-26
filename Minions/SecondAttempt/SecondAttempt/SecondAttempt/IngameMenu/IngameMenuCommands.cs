@@ -96,12 +96,16 @@
 
         protected void ExitCommandSelected(object sender, EventArgs e)
         {
-            ScreenManager.Instance.ChangeIngameScreens("TitleScreen");
+            screen.Delay = true;
+            screen.Caller = "Quit";
+            IsActive = false;
         }
 
         protected override void OnCancel()
         {
-            ScreenManager.Instance.ChangeIngameScreens("MapScreen");
+            screen.Delay = true;
+            screen.Caller = "Cancel";
+            IsActive = false;
         }
     }
 }

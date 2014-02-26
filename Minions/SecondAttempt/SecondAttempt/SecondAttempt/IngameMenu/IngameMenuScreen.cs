@@ -39,7 +39,15 @@
                     delayCounter = 0;
                 }
             }
-            else if (commands.IsActive) commands.Update(gameTime);            
+            else if (Caller == "Quit")
+            {
+                ScreenManager.Instance.ChangeIngameScreens("TitleScreen");
+            }
+            else if (Caller == "Cancel")
+            {
+                ScreenManager.Instance.ChangeIngameScreens("MapScreen");
+            }
+            else if (commands.IsActive) commands.Update(gameTime);
             else if (SelectionBox.IsVisible)
             {
                 SelectionBox.Update(gameTime);
@@ -51,14 +59,14 @@
                     else if (Caller == "Equip") commands.OnEquip(item);
                     SelectionBox.IsVisible = false;
                     commands.IsActive = true;
-                } 
+                }
                 if (InputManager.Instance.CancelKeyPressed())
                 {
                     SelectionBox.IsVisible = false;
                     commands.IsActive = true;
                     Delay = true;
                 }
-            }
+            }         
         }
 
         public override void Draw(SpriteBatch spriteBatch)

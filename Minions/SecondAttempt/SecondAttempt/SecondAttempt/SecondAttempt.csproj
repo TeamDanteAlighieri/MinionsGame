@@ -121,7 +121,7 @@
     <Compile Include="GameStart.cs" />
     <Compile Include="GameBasics\GameExtension.cs" />
     <Compile Include="Characters\NormalEnemies.cs" />
-    <Compile Include="SaveGameContent.cs" />
+    <Compile Include="WorkInProgress\SaveGameContent.cs" />
     <Compile Include="GameBasics\ScreenManager.cs" />
     <Compile Include="WorkInProgress\Skill.cs" />
     <Compile Include="NonGameplayScreens\SplashScreen.cs" />
