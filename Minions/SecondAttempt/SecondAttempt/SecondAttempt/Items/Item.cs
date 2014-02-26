@@ -52,14 +52,14 @@ namespace SecondAttempt
 
        public virtual void SubstractFrom(Character target)
        {
-           target.AttackPower += this.AttackPower;
-           target.Accuracy += this.Accuracy;
-           target.Defence += this.Defence;
-           target.Speed += this.Speed;
-           target.MaxHealth += this.MaxHealth;
-           target.CurrentHealth += this.CurrentHealth;
-           target.MaxMana += this.MaxMana;
-           target.CurrentMana += this.CurrentMana;
+           target.AttackPower -= this.AttackPower;
+           target.Accuracy -= this.Accuracy;
+           target.Defence -= this.Defence;
+           target.Speed -= this.Speed;
+           target.MaxHealth -= this.MaxHealth;
+           target.CurrentHealth -= this.CurrentHealth;
+           target.MaxMana -= this.MaxMana;
+           target.CurrentMana -= this.CurrentMana;
        }
     }
 }

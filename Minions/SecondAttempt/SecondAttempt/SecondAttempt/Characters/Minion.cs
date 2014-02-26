@@ -1,24 +1,21 @@
 ﻿namespace SecondAttempt
-{
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-
-    using Microsoft.Xna.Framework;
-    using Microsoft.Xna.Framework.Content;
+{    
+    using Microsoft.Xna.Framework;    
     using Microsoft.Xna.Framework.Graphics;
 
 	public class Minion : Character 
 	{
         public byte Level;
-        public int NextLevel;              
+        public int NextLevelExp;              
         public bool UsedDefend;
         public bool IsActive;
         public bool IsAlive;
         public Inventory Inventory;
 
-        private InternalText hpText;
+        /// <summary>
+        /// Battle current hp text.
+        /// </summary>
+        private FloatingText hpText;
         private Equipment equipedWeapon;
 		
         public Minion() : base()
@@ -28,16 +25,24 @@
             UsedDefend = false;
             IsActive = false;
             IsAlive = true;
-            hpText = new InternalText();
+            hpText = new FloatingText();
             equipedWeapon = null;
         }
-
+        
+        /// <summary>
+        /// Adds a set amount of experience to the player and triggers level increase if necessary.
+        /// </summary>
+        /// <param name="experience"></param>
         public void AddExperience(int experience)
         {
             this.Experience += experience;
-            while (this.Experience > this.NextLevel) IncreaseLevel();
+            while (this.Experience > this.NextLevelExp) IncreaseLevel();
         }
 
+        /// <summary>
+        /// Equips the specified equipment item.
+        /// </summary>
+        /// <param name="item"></param>
         public void Equip(Equipment item)
         {            
             Equipment toEquip = (Equipment)item.Clone();
@@ -53,15 +58,19 @@
             equipedWeapon = toEquip;
         }
 
+        /// <summary>
+        /// Increases player level and provides a random stat boost. 
+        /// </summary>
         private void IncreaseLevel()
         {
             this.Level++;
-            this.AttackPower += StaticConstants.Random.Next(1, 6);
-            this.MaxHealth += StaticConstants.Random.Next(50, 100);
-            this.MaxMana += StaticConstants.Random.Next(10, 20);
-            this.Defence += StaticConstants.Random.Next(1, 6);
+            this.AttackPower += Constants.Random.Next(1, 6);
+            this.MaxHealth += Constants.Random.Next(50, 100);
+            this.MaxMana += Constants.Random.Next(10, 20);
+            this.Defence += Constants.Random.Next(1, 6);
             if (this.Level%5 == 0) this.Speed += 1;
-            this.NextLevel = (int)(this.NextLevel * 1.30);
+            this.Experience -= NextLevelExp;
+            this.NextLevelExp = (int)(this.NextLevelExp * 1.30);            
         }
 
         public override void LoadContent()
@@ -89,7 +98,7 @@
             }
 
             hpText.Text = string.Format("{0}/{1}", CurrentHealth, MaxHealth);
-            hpText.Position = SpriteImage.Position + new Vector2(-30, 15);
+            hpText.Position = SpriteImage.Position + Constants.MiniongHealthOffset;
 
             SpriteImage.Update(gameTime);
             if (this.CurrentHealth <= 0)

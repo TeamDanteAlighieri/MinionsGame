@@ -1,10 +1,5 @@
 ﻿namespace SecondAttempt
-{
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;    
-
+{   
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Content;
     using Microsoft.Xna.Framework.Graphics;
@@ -16,15 +11,15 @@
     public class CommandsBox
     {        
         /// <summary>
-        /// The visual box frame.
+        /// The rectangular box from.
         /// </summary>
         public FrameBox Frame { get; set; }        
         /// <summary>
-        /// Contains the available commands for a character.
+        /// Contains the available commands to select from.
         /// </summary>
         public CommandBoxItem[] Items { get; set; }        
         /// <summary>
-        /// Indicates if the CommandBos is currently active.
+        /// Indicates if the CommandBos is currently visible. Depending on screen logic can also indicate if its active.
         /// </summary>
         public bool IsVisible { get; set; }
         /// <summary>
@@ -44,6 +39,9 @@
             this.axis = axis;
         }
 
+        /// <summary>
+        /// When a CommandBoxItem is selected, triggers the appropriate selection event for the entry.
+        /// </summary>
         protected virtual void OnSelectEntry()
         {
             Items[activeElement].OnSelectEntry();
@@ -61,26 +59,7 @@
 
         public virtual void LoadContent()
         {
-            foreach (var text in Items)
-            {
-                text.LoadContent();                
-            }
-
-            if (axis == 'y')
-            {
-                for (int i = 0; i < Items.Length; i++)
-                {
-                    Items[i].Position = new Vector2(Frame.InternalRect.Left + 5, Frame.InternalRect.Top + 5 + 20 * i);
-                }
-            }
-            else if (axis == 'x')
-            {
-                Items[0].Position = new Vector2(Frame.InternalRect.Left + 10, this.Frame.InternalRect.Top + 5);
-                for (int i = 1; i < Items.Length; i++)
-                {
-                    Items[i].Position = Items[i - 1].Position + new Vector2(Items[i - 1].StringSize().X + 10, 0);
-                }
-            }
+           
         }
 
         public virtual void UnloadContent()
@@ -91,6 +70,10 @@
             }
         }
 
+        /// <summary>
+        /// Handles player input when object is active.
+        /// </summary>
+        /// <param name="gameTime"></param>
         public virtual void Update(GameTime gameTime)
         {
             if (IsVisible)

@@ -18,20 +18,20 @@
         {
             this.minion = minion;
             this.screen = screen;
-            this.Frame = new FrameBox(StaticConstants.BordeWidth, StaticConstants.IngameMenuDimensions, Color.Blue);
+            this.Frame = new FrameBox(Constants.BordeWidth, Constants.IngameMenuDimensions, Color.Blue);
             this.Items = new CommandBoxItem[4] 
             { 
                 new CommandBoxItem("Use",
-                    new Vector2(StaticConstants.IngameMenuDimensions.Left + 10, StaticConstants.IngameMenuDimensions.Top + 5), 
+                    new Vector2(Constants.IngameMenuDimensions.Left + 10, Constants.IngameMenuDimensions.Top + 5), 
                     Color.Gray),
                 new CommandBoxItem("Equip",
-                    new Vector2(StaticConstants.IngameMenuDimensions.Left + 15, StaticConstants.IngameMenuDimensions.Top + 5 + 25), 
+                    new Vector2(Constants.IngameMenuDimensions.Left + 15, Constants.IngameMenuDimensions.Top + 5 + 25), 
                     Color.Gray),
                 new CommandBoxItem("Save",
-                    new Vector2(StaticConstants.IngameMenuDimensions.Left + 15, StaticConstants.IngameMenuDimensions.Top + 5 + 50), 
+                    new Vector2(Constants.IngameMenuDimensions.Left + 15, Constants.IngameMenuDimensions.Top + 5 + 50), 
                     Color.Gray),
                 new CommandBoxItem("Exit",
-                    new Vector2(StaticConstants.IngameMenuDimensions.Left + 15, StaticConstants.IngameMenuDimensions.Top + 5 + 75), 
+                    new Vector2(Constants.IngameMenuDimensions.Left + 15, Constants.IngameMenuDimensions.Top + 5 + 75), 
                     Color.Gray)
             };
             for (int i = 1; i < Items.Length; i++)

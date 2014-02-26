@@ -18,7 +18,7 @@
         private FrameBox boxFrame;
         private FrameBox secondFrame;
         private FrameBox thirdFrame;
-        private InternalText[] internalText;        
+        private FloatingText[] internalText;        
         private Rectangle rect;        
         private Rectangle rect2;
         private Rectangle rect3;
@@ -45,11 +45,11 @@
             thirdFrame = new FrameBox(5, rect3, Color.DarkBlue);
             thirdFrame.LoadContent();
 
-            internalText = new InternalText[4];
+            internalText = new FloatingText[4];
 
             for (int i = 0; i < 4; i++)
 			{
-			    internalText[i] = new InternalText();
+			    internalText[i] = new FloatingText();
 			}
 
 

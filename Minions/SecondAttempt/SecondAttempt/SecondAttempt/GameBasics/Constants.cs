@@ -6,7 +6,7 @@
     using Microsoft.Xna.Framework;
 
 
-    public class StaticConstants
+    public class Constants
     {        
         /// <summary>
         /// Random number generator.
@@ -50,6 +50,8 @@
         /// Ingame menu command box dimensions.
         /// </summary>
         public static readonly Rectangle IngameMenuDimensions = new Rectangle(20, 20, 200, 30);
-        
+
+
+        public static readonly Vector2 MiniongHealthOffset = new Vector2(-30, 15);
     }
 }

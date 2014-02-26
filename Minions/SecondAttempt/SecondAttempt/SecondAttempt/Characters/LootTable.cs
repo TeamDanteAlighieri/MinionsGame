@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace SecondAttempt
+﻿namespace SecondAttempt
 {
+    //A loot table should contain  
     public class LootTable
     {
         //TO DO: Item initialization and constructors.
-        //Will contain a list of items the enemy can drop as well as their drop chance. So probably a list of type DropableItem that will have two properties - Item and DropChance(a number between 1 and 100).
+        //Will contain a list of loot objects. A loot object should contain the item an enemy can drop as well as their drop chance. Drop chance will probably be in the range 1 - 100.
     }
 }

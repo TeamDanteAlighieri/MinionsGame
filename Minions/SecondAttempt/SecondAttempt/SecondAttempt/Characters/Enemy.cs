@@ -1,13 +1,8 @@
 ﻿namespace SecondAttempt
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
+    using System;    
 
-    using Microsoft.Xna.Framework;
-    using Microsoft.Xna.Framework.Content;
+    using Microsoft.Xna.Framework;    
     using Microsoft.Xna.Framework.Graphics;
 
 	public class Enemy : Character, ICloneable
@@ -22,6 +17,30 @@
         {
             IsAlive = true;
             ActionTimeCurrent = 0;
+        }
+
+        /// <summary>
+        /// Used to trigger appropriate enemy character battle actions.
+        /// </summary>
+        //Using virtual to allow future implementations of Enemy subtypes (Probably useful to create specific boss battle logics)
+        public virtual void BattleLogic()
+        {
+            ActionTimeCurrent = 0;
+            int actionSeed = Constants.Random.Next(1, 101);
+            //Normal attack logic.
+            if (actionSeed > this.SpecialMoveChance)
+            {
+                if (Constants.Random.Next(1, 101) <= Accuracy)
+                {
+                    int damage = this.AttackPower - GameplayScreen.Player.Defence;
+                    if (damage <= 0) damage = 1;
+                    GameplayScreen.Player.CurrentHealth -= damage;
+                }
+            }
+            else
+            {
+                //Special move logic goes here.
+            }
         }
 
         public override void LoadContent() 
@@ -48,30 +67,7 @@
                 ActionTimeCurrent = 0;
             }
             if (CurrentHealth <= 0) IsAlive = false;
-        }
-
-        /// <summary>
-        /// Using virtual to allow future implementations of Enemy subtypes (Probably useful to create specific boss battle logics)
-        /// </summary>
-        public virtual void BattleLogic()
-        {
-            ActionTimeCurrent = 0;
-            int actionSeed = StaticConstants.Random.Next(1, 101);
-            //Normal attack logic.
-            if (actionSeed > this.SpecialMoveChance)
-            {
-                if (StaticConstants.Random.Next(1, 101) <= Accuracy)
-                {
-                    int damage = this.AttackPower - GameplayScreen.Player.Defence;
-                    if (damage <= 0) damage = 1;
-                    GameplayScreen.Player.CurrentHealth -= damage;
-                }
-            }
-            else
-            {
-                //Special move logic goes here.
-            }
-        }
+        }        
 
         public override void Draw(SpriteBatch spriteBatch) 
         {

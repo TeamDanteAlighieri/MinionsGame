@@ -1,15 +1,13 @@
 ﻿namespace SecondAttempt
-{
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-
+{    
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Content;
     using Microsoft.Xna.Framework.Graphics;
 
-    public class InternalText : IStringSize
+    /// <summary>
+    /// Creats a text object at with specified text content, screen position and text color.
+    /// </summary>
+    public class FloatingText : IStringSize
     {
         public string Text { get; set; }
         public Vector2 Position { get; set; }
@@ -18,10 +16,19 @@
         private ContentManager content;
         private SpriteFont font; 
 
-        public InternalText()
+        public FloatingText()
         {            
             fontName = "Fonts/Calibri";
             this.LoadContent();
+        }
+
+        /// <summary>
+        /// Gets the width and height of a string object created using the fontName font.
+        /// </summary>
+        /// <returns></returns>
+        public Vector2 StringSize()
+        {
+            return font.MeasureString(Text);
         }
 
         public virtual void LoadContent()
@@ -38,12 +45,7 @@
         public virtual void Update(GameTime gameTime)
         {
 
-        }
-
-        public Vector2 StringSize()
-        {
-            return font.MeasureString(Text);
-        }
+        }       
 
         public virtual void Draw(SpriteBatch spriteBatch)
         {

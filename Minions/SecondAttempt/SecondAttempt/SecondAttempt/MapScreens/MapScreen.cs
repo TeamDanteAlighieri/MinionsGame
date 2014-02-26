@@ -35,7 +35,7 @@
             //Start the bgm.
             backgroundMusic = content.Load<Song>("Music/mainSong");
             BackgroundMusicPlayer.Play(backgroundMusic);
-            nextBattle = (float) StaticConstants.Random.Next(3, 5);
+            nextBattle = (float) Constants.Random.Next(3, 5);
 
             //Testing the save method of saveGameContent here
             //SaveGameContent saveLoadGenerator = new SaveGameContent(playerSprite);
@@ -66,15 +66,15 @@
             if (InputManager.Instance.CancelKeyPressed()) ScreenManager.Instance.ChangeIngameScreens("IngameMenuScreen");
             if (nextBattle <= 0)
             {
-                int enemiesCount = StaticConstants.Random.Next(1, 4);
-                int enemyType = StaticConstants.Random.Next(0, RegEnemies.Collection.Count);
+                int enemiesCount = Constants.Random.Next(1, 4);
+                int enemyType = Constants.Random.Next(0, RegEnemies.Collection.Count);
                 List<Enemy> enemies = new List<Enemy>();
                 for (int i = 0; i < enemiesCount; i++)
                 {
                     enemies.Add((Enemy)RegEnemies.Collection[enemyType].Clone());
                 }            
                 ScreenManager.Instance.ChangeToRandomBattle(enemies);
-                nextBattle = StaticConstants.Random.Next(20, 30);
+                nextBattle = Constants.Random.Next(20, 30);
             }            
         }
 

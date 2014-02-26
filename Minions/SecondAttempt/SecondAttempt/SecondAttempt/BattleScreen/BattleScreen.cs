@@ -1,11 +1,8 @@
-﻿
-namespace SecondAttempt
+﻿namespace SecondAttempt
 {
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Text;
-    using System.Threading;
 
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Content;
@@ -15,13 +12,14 @@ namespace SecondAttempt
     
     public class BattleScreen : GameplayScreen
     {
-        //Sprites
+        //Drawable and sound resources
         private List<Enemy> enemies;        
         private Image background;
-        private Song backgroundMusic;
-        private Vector2 startingPosition;
+        private Song backgroundMusic;        
         private MinionCommandBox commandBox;
+        public ListBox ItemSelectionBox;
 
+        //Variables used in internal calculations
         private int currentSelection;
         private int currentSelectionMin;
         private int currentSelectionMax;
@@ -29,12 +27,14 @@ namespace SecondAttempt
         private bool delay;
         private bool playerIsTarget;            
         
-        public bool SelectTarget;        
-        public bool SelectSkill;
+        //Used to indicate whether the target selection mode should be enabled.
+        public bool SelectTarget;                
 
+        /// <summary>
+        /// Stores a sequence of player commands - Eg, CommandSequence[0] - "Item", CommandSequence[1] - "Banana".
+        /// The program then cause the appropriate handler method in the caller's command box.
+        /// </summary>
         public string[] CommandSequence;
-        public ListBox ItemSelectionBox;
-
 
         public BattleScreen(List<Enemy> enemies)
         {
@@ -43,9 +43,7 @@ namespace SecondAttempt
             playerIsTarget = false;
             delay = false;
             delayCount = 0;
-            SelectTarget = false;
-            //SelectItem = false;
-            SelectSkill = false;
+            SelectTarget = false;                        
 
             currentSelection = 0;
             currentSelectionMin = 0;
@@ -115,6 +113,9 @@ namespace SecondAttempt
             return null;
         }
 
+        /// <summary>
+        /// Loads relaven screen content.
+        /// </summary>
         public override void LoadContent()
         {
             base.LoadContent();
@@ -123,7 +124,7 @@ namespace SecondAttempt
             for (int i = 0; i < enemies.Count; i++)
             {
                 enemies[i].LoadContent();
-                enemies[i].SpriteImage.Position = StaticConstants.EnemyPositions[i];
+                enemies[i].SpriteImage.Position = Constants.EnemyPositions[i];
             }
 
             //Load background.
@@ -131,9 +132,8 @@ namespace SecondAttempt
             background = backgroundLoader.Load("Load/Battle/Background.xml");
             background.LoadContent();
 
-            //Load player.
-            startingPosition = Player.SpriteImage.Position;
-            Player.SpriteImage.Position = StaticConstants.PlayerPosition1;
+            //Load player.            
+            Player.SpriteImage.Position = Constants.PlayerPosition1;
 
             //Start music
             backgroundMusic = content.Load<Song>("Music/BattleTheme");
@@ -141,10 +141,10 @@ namespace SecondAttempt
 
             //Seed both enemies and player with a random action slice
 
-            Player.ActionTimeCurrent = (StaticConstants.Random.Next(0, ((StaticConstants.maxActionTimer*10)/Player.Speed))/10f);
+            Player.ActionTimeCurrent = (Constants.Random.Next(0, ((Constants.maxActionTimer*10)/Player.Speed))/10f);
             foreach (var enemy in enemies)
             {
-                enemy.ActionTimeCurrent = (StaticConstants.Random.Next(0, ((StaticConstants.maxActionTimer*10)/enemy.Speed))/10f);
+                enemy.ActionTimeCurrent = (Constants.Random.Next(0, ((Constants.maxActionTimer*10)/enemy.Speed))/10f);
             }
         }
 
@@ -165,10 +165,15 @@ namespace SecondAttempt
             ItemSelectionBox.UnloadContent();
         }
 
+        /// <summary>
+        /// Besides item update also handles battle turn logic.
+        /// </summary>
+        /// <param name="gameTime"></param>
         public override void Update(GameTime gameTime)
         {
             //Battle victory condition.
             if (currentSelectionMin == -1) ScreenManager.Instance.ChangeIngameScreens("MapScreen");
+            //Battle loss condition.
             else if (!Player.IsAlive)
             {
                 ScreenManager.Instance.ChangeIngameScreens("TitleScreen");
@@ -183,6 +188,7 @@ namespace SecondAttempt
                 enemy.Update(gameTime);
             }
 
+            //Indicates whether the player can now have his turn and if so allows movement in his command box.
             if (Player.ActionTimeCurrent >= Player.ActionTimeGoal || commandBox.IsVisible)
             {
                 Player.ActionTimeCurrent = 0;                
@@ -194,7 +200,7 @@ namespace SecondAttempt
                     this.playerIsTarget = false;                    
                 }             
             }
-            //Necessary to avoid instantaneous target selection.
+            //Necessary to avoid instantaneous target selection (input manager bug).
             else if (delay)
             {
                 if (++delayCount > 10)
@@ -203,6 +209,7 @@ namespace SecondAttempt
                     delay = false;
                 }
             }
+            //Handles movement in the item selection box.
             else if (ItemSelectionBox.IsVisible)
             {
                 ItemSelectionBox.Update(gameTime);
@@ -221,6 +228,7 @@ namespace SecondAttempt
                     SelectTarget = true;
                 }
             }
+            //Select target for the chosen command.
             else if (SelectTarget)
             {
                 bool temp = InputManager.Instance.ActionKeyPressed();
@@ -229,6 +237,7 @@ namespace SecondAttempt
                 if (target != null)
                     commandBox.InterpetCommands(CommandSequence, target);
             }
+            //Otherwise increase the action timers of the player and the enemies.
             else
             {
                 Player.ActionTimeCurrent += (float)gameTime.ElapsedGameTime.Milliseconds / 1000;
@@ -239,6 +248,7 @@ namespace SecondAttempt
                 }
             }         
 
+            //Updates the target selection logic.
             currentSelectionMin = enemies.FindIndex(x => x.IsAlive);
             currentSelectionMax = enemies.FindLastIndex(x => x.IsAlive);            
         }
