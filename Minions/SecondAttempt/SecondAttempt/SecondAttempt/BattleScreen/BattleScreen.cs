@@ -23,8 +23,6 @@
         private int currentSelection;
         private int currentSelectionMin;
         private int currentSelectionMax;
-        private int delayCount;
-        private bool delay;
         private bool playerIsTarget;            
         
         //Used to indicate whether the target selection mode should be enabled.
@@ -40,9 +38,7 @@
         {
             this.enemies = enemies;            
             
-            playerIsTarget = false;
-            delay = false;
-            delayCount = 0;
+            playerIsTarget = false;     
             SelectTarget = false;                        
 
             currentSelection = 0;
@@ -195,20 +191,8 @@
                 commandBox.IsVisible = true;
                 commandBox.Update(gameTime);
                 if (CommandSequence[0] != string.Empty)
-                {                    
-                    delay = true;
-                    this.playerIsTarget = false;                    
-                }             
-            }
-            //Necessary to avoid instantaneous target selection (input manager bug).
-            else if (delay)
-            {
-                if (++delayCount > 10)
-                {
-                    delayCount = 0;
-                    delay = false;
-                }
-            }
+                    this.playerIsTarget = false;                                              
+            }            
             //Handles movement in the item selection box.
             else if (ItemSelectionBox.IsVisible)
             {
@@ -223,8 +207,7 @@
                 CommandSequence[1] = ItemSelectionBox.CheckSelection();
                 if (CommandSequence[1] != string.Empty)
                 {
-                    ItemSelectionBox.IsVisible = false;
-                    delay = true;
+                    ItemSelectionBox.IsVisible = false;                    
                     SelectTarget = true;
                 }
             }

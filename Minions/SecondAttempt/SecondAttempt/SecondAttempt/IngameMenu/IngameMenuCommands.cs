@@ -55,8 +55,7 @@
         {
             screen.SelectionBox = new ListBox(minion.Inventory.Consumables);
             screen.SelectionBox.IsVisible = true;
-            IsActive = false;
-            screen.Delay = true;
+            IsActive = false;            
             screen.Caller = "Use";
         }
 
@@ -74,8 +73,7 @@
         {
             screen.SelectionBox = new ListBox(minion.Inventory.Equipment);
             screen.SelectionBox.IsVisible = true;
-            IsActive = false;
-            screen.Delay = true;
+            IsActive = false;            
             screen.Caller = "Equip";
         }
 
@@ -96,16 +94,12 @@
 
         protected void ExitCommandSelected(object sender, EventArgs e)
         {
-            screen.Delay = true;
-            screen.Caller = "Quit";
-            IsActive = false;
+            ScreenManager.Instance.ChangeIngameScreens("TitleScreen");         
         }
 
         protected override void OnCancel()
         {
-            screen.Delay = true;
-            screen.Caller = "Cancel";
-            IsActive = false;
+            ScreenManager.Instance.ChangeIngameScreens("MapScreen");
         }
     }
 }

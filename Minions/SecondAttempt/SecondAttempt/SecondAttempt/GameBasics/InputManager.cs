@@ -58,14 +58,14 @@
 
         public bool ActionKeyPressed()
         {
-            return ((currentKeyState.IsKeyUp(Keys.A) && prevKeyState.IsKeyDown(Keys.A))
-                || (currentKeyState.IsKeyUp(Keys.Enter)) && prevKeyState.IsKeyDown(Keys.Enter));
+            return ((currentKeyState.IsKeyDown(Keys.A) && prevKeyState.IsKeyUp(Keys.A))
+                || (currentKeyState.IsKeyDown(Keys.Enter)) && prevKeyState.IsKeyUp(Keys.Enter));
         }
 
         public bool CancelKeyPressed()
         {
-            return ((currentKeyState.IsKeyUp(Keys.F) && prevKeyState.IsKeyDown(Keys.F))
-                || (currentKeyState.IsKeyUp(Keys.Back)) && prevKeyState.IsKeyDown(Keys.Back));
+            return ((currentKeyState.IsKeyDown(Keys.F) && prevKeyState.IsKeyUp(Keys.F))
+                || (currentKeyState.IsKeyDown(Keys.Back)) && prevKeyState.IsKeyUp(Keys.Back));
         }
     }
 }
