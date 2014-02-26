@@ -2,34 +2,23 @@
 namespace SecondAttempt
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
+    using System.Collections.Generic;    
     using System.Xml.Serialization;
 
-    using Microsoft.Xna.Framework;
-    using Microsoft.Xna.Framework.Content;
+    using Microsoft.Xna.Framework;    
     using Microsoft.Xna.Framework.Graphics;
 
+    /// <summary>
+    /// Holds a layer of 32x32 tiles to be drawn on the map.
+    /// </summary>
     public class Layer
-    {
-        public class TileMap
-        {
-            [XmlElement("Row")]
-            public List<string> Row;
-
-            public TileMap()
-            {
-                Row = new List<string>();
-            }
-        }
-
+    {       
         [XmlElement("TileMap")]
         public TileMap Tile;
         public Image Image;// give image to our sprite sheet
-        //[XmlElement("SolidTiles")]
+
         public string SolidTiles, OverlayTiles;
-        //List<Tile> tiles;
+
         private List<Tile> underlayTiles, overlayTiles;
         string state;
         bool isShopkeeper = false;
@@ -37,7 +26,7 @@ namespace SecondAttempt
         public Layer()
         {
             Image = new Image();
-            //tiles = new List<Tile>();
+            
             underlayTiles = new List<Tile>();
             overlayTiles = new List<Tile>();
 
@@ -63,7 +52,7 @@ namespace SecondAttempt
                         if (!s.Contains("x"))
                         {
                             state = "Passive";
-                            //tiles.Add(new Tile());
+                            
                             Tile tile = new Tile();
 
 
@@ -72,8 +61,7 @@ namespace SecondAttempt
                             int value2 = int.Parse(str.Substring(str.IndexOf(':') + 1));
                             //?
                             if(SolidTiles.Contains("[" + value1.ToString() + ":" + value2.ToString() + "]"))
-                            {
-                                //hack
+                            {                                
                                 if (value1 == 9 && value2 == 1)
                                 {
                                     state = "Solid";
@@ -85,9 +73,6 @@ namespace SecondAttempt
                                 }
                             }
 
-                            //tiles[tiles.Count - 1].LoadContent(position, new Rectangle(
-                            //    value1 * (int)tileDimensions.X, value2 * (int)tileDimensions.Y,
-                            //    (int)tileDimensions.X, (int)tileDimensions.Y), state);//we store the position of the current tile 
                             tile.LoadContent(position, new Rectangle(
                                 value1 * (int)tileDimensions.X, value2 * (int)tileDimensions.Y,
                                 (int)tileDimensions.X, (int)tileDimensions.Y), state, isShopkeeper);//we store the position of the current tile  

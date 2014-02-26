@@ -1,12 +1,8 @@
 ﻿namespace SecondAttempt
-{
-    using System;
+{    
     using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-
-    using Microsoft.Xna.Framework;
-    using Microsoft.Xna.Framework.Content;
+    
+    using Microsoft.Xna.Framework;    
     using Microsoft.Xna.Framework.Graphics;
     using Microsoft.Xna.Framework.Media;
 
@@ -35,11 +31,7 @@
             //Start the bgm.
             backgroundMusic = content.Load<Song>("Music/mainSong");
             BackgroundMusicPlayer.Play(backgroundMusic);
-            nextBattle = (float) Constants.Random.Next(3, 5);
-
-            //Testing the save method of saveGameContent here
-            //SaveGameContent saveLoadGenerator = new SaveGameContent(playerSprite);
-            //saveLoadGenerator.Save();
+            nextBattle = (float) Constants.Random.Next(3, 5);            
         }
 
         public void ReloadMusic()
@@ -73,7 +65,7 @@
                 {
                     enemies.Add((Enemy)RegEnemies.Collection[enemyType].Clone());
                 }            
-                ScreenManager.Instance.ChangeToRandomBattle(enemies);
+                ScreenManager.Instance.ChangeToBattleScreen(enemies);
                 nextBattle = Constants.Random.Next(20, 30);
             }            
         }

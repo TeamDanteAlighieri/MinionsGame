@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace SecondAttempt
+﻿namespace SecondAttempt
 {
+
+    /// <summary>
+    /// Item class archetype.
+    /// </summary>
    public abstract class Item : IStats
     {
        //TODO: Methodfor show in the menu. 

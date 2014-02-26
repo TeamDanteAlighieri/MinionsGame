@@ -5,7 +5,9 @@
 
     using Microsoft.Xna.Framework;
 
-
+    /// <summary>
+    /// Holds runtime constants.
+    /// </summary>
     public class Constants
     {        
         /// <summary>

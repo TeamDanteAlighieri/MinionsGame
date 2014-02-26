@@ -1,17 +1,12 @@
 ﻿namespace SecondAttempt
-{
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-
+{    
     using Microsoft.Xna.Framework.Input;
 
     public class InputManager
     {
         KeyboardState currentKeyState, prevKeyState;
 
-        ////Singleton class (design pattern)
+        //Singleton class (design pattern)
         private static InputManager instance;
 
         public static InputManager Instance

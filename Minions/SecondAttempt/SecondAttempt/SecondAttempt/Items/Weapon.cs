@@ -1,10 +1,10 @@
 ﻿namespace SecondAttempt
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-
+ 
+    /// <summary>
+    /// Dummy class.
+    /// </summary>
     public class Weapon : Equipment, ICloneable
     {
         public Weapon()

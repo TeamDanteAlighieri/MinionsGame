@@ -1,13 +1,11 @@
 ﻿namespace SecondAttempt
-{
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-
+{   
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Graphics;
 
+    /// <summary>
+    /// Displays the ingame menu. Called by using the CancelKeyPressed in the MapScreen.
+    /// </summary>
     public class IngameMenuScreen : GameplayScreen
     {
         private IngameMenuCommands commands;
@@ -18,7 +16,7 @@
         
 
         public override void LoadContent()
-        {
+        {            
             base.LoadContent();
             commands = new IngameMenuCommands(this, Player);
             SelectionBox = new ListBox();

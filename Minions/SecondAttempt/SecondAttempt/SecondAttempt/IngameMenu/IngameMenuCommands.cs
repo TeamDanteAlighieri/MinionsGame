@@ -7,6 +7,9 @@
 
     using Microsoft.Xna.Framework;
 
+    /// <summary>
+    /// Ingame menu box - allows the user to use and equip items, save the game(not yet implemented) and exit to title screen.
+    /// </summary>
     public class IngameMenuCommands : CommandsBox
     {
         private Minion minion;

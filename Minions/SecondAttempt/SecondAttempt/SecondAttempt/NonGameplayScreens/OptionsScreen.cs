@@ -11,7 +11,7 @@
     using Microsoft.Xna.Framework.Input;
 
     /// <summary>
-    /// Used for testing during the coding binge.
+    /// Used for testing during the coding binge. Filled with junk.
     /// </summary>
     public class OptionsScreen : GameScreen
     {

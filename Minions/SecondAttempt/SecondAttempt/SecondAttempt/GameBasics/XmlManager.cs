@@ -1,13 +1,14 @@
 ﻿namespace SecondAttempt
 {
-	using System;
-	using System.Collections.Generic;
-	using System.Linq;
-	using System.Text;
+	using System;	
 
 	using System.Xml.Serialization;
 	using System.IO;
 
+    /// <summary>
+    /// Handles xml serialization and deserialization.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
 	public class XmlManager<T>
 	{
 		public Type Type;

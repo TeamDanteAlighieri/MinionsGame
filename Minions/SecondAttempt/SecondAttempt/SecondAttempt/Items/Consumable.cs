@@ -1,10 +1,7 @@
 ﻿namespace SecondAttempt
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-
+   
     public enum EffectType { Instant, Timed};
 
     public class Consumable : Item, IUsable, ICloneable
