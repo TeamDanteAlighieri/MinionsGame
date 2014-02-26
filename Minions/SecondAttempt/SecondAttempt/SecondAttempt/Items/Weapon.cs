@@ -17,7 +17,7 @@
         /// Returns a MemberwiseClone of the weapon object.
         /// </summary>
         /// <returns></returns>
-        public object Clone()
+        public override object Clone()
         {
             return this.MemberwiseClone();
         }

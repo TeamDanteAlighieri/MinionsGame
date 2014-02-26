@@ -32,14 +32,24 @@
         /// Pixel width of the border of a FrameBox item.
         /// </summary>
         public const int BordeWidth = 5;
+
         /// <summary>
         /// Dimensions for the internal area of a CommandBox
         /// </summary>
         public static readonly Rectangle CommandBoxDimensions = new Rectangle(20, (int)ScreenManager.Instance.Dimensions.Y - 170, 120, 150);
+
+        /// <summary>
+        /// ListBox frame dimensions.
+        /// </summary>
         public static readonly Rectangle ListBoxDimensions = new Rectangle(20, 100, 300, 340);
         public const int ListBoxLeft = 20;
         public const int ListBoxRight = 320;
         public const int ListBoxTop = 100;
+
+        /// <summary>
+        /// Ingame menu command box dimensions.
+        /// </summary>
+        public static readonly Rectangle IngameMenuDimensions = new Rectangle(20, 20, 200, 30);
         
     }
 }

@@ -49,7 +49,7 @@
             Items[activeElement].OnSelectEntry();
         }
 
-        public virtual void OnCancel()
+        protected virtual void OnCancel()
         {
 
         }

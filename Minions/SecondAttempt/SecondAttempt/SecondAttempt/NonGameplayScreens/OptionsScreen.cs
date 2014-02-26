@@ -10,6 +10,9 @@
     using Microsoft.Xna.Framework.Graphics;
     using Microsoft.Xna.Framework.Input;
 
+    /// <summary>
+    /// Used for testing during the coding binge.
+    /// </summary>
     public class OptionsScreen : GameScreen
     {
         private FrameBox boxFrame;
@@ -25,8 +28,8 @@
         {
             base.LoadContent();
             activeOption = 0;
-            //rect = new Rectangle(20, 20, 200, 30);
-            rect = new Rectangle(20, 20, 120, 30);
+            rect = new Rectangle(20, 20, 200, 30);
+            //rect = new Rectangle(20, 20, 120, 30);
             rect3 = new Rectangle(20, 60, 160, 30);
             rect2 = new Rectangle(20, 100, 300, 340);
 
@@ -42,24 +45,24 @@
             thirdFrame = new FrameBox(5, rect3, Color.DarkBlue);
             thirdFrame.LoadContent();
 
-            internalText = new InternalText[3];
+            internalText = new InternalText[4];
 
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < 4; i++)
 			{
 			    internalText[i] = new InternalText();
 			}
 
 
+            
+            internalText[0].Text = "Use";
+            internalText[1].Text = "Equip";
+            internalText[2].Text = "Save";
+            internalText[3].Text = "Exit";
             /*
             internalText[0].Text = "Buy";
             internalText[1].Text = "Sell";
-            internalText[2].Text = "Save";
-            internalText[3].Text = "Exit";
-            */
-            internalText[0].Text = "Buy";
-            internalText[1].Text = "Sell";
             internalText[2].Text = "Exit";
-
+            */
             internalText[0].Position = new Vector2(rect.Left + 10, rect.Top + 5);            
            
             for (int i = 1; i < internalText.Length; i++)

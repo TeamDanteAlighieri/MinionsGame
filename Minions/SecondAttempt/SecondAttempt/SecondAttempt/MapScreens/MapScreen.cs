@@ -63,6 +63,7 @@
             playerSprite.Update(gameTime);
             map.Update(gameTime, playerSprite);
             if (playerSprite.Velocity != Vector2.Zero) nextBattle -= (float) gameTime.ElapsedGameTime.TotalMilliseconds / 1000;
+            if (InputManager.Instance.CancelKeyPressed()) ScreenManager.Instance.ChangeIngameScreens("IngameMenuScreen");
             if (nextBattle <= 0)
             {
                 int enemiesCount = StaticConstants.Random.Next(1, 4);
@@ -78,8 +79,7 @@
         }
 
         public override void Draw(SpriteBatch spriteBatch)
-        {
-            base.Draw(spriteBatch);
+        {            
             map.Draw(spriteBatch, "Underlay");
             playerSprite.Draw(spriteBatch);
             map.Draw(spriteBatch, "Overlay");

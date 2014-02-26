@@ -30,7 +30,7 @@
       <Name>Gun</Name>
       <Description>Well... its a gun</Description>
       <Price>200</Price>
-      <Quantity>1</Quantity>      
+      <Quantity>2</Quantity>      
       <AttackPower>8</AttackPower>
       <Accuracy>0</Accuracy>
       <Defence>0</Defence>
@@ -40,11 +40,25 @@
       <MaxMana>0</MaxMana>
       <CurrentMana>0</CurrentMana>
     </Equip>
+    <Equip>
+      <Name>Bazooka</Name>
+      <Description>It goes boom</Description>
+      <Price>1000</Price>
+      <Quantity>1</Quantity>
+      <AttackPower>50</AttackPower>
+      <Accuracy>5</Accuracy>
+      <Defence>0</Defence>
+      <Speed>-1</Speed>
+      <MaxHealth>0</MaxHealth>
+      <CurrentHealth>0</CurrentHealth>
+      <MaxMana>0</MaxMana>
+      <CurrentMana>0</CurrentMana>
+    </Equip>
     <Usable>
       <Name>Bannana</Name>
       <Description>Restores a small amount of hp</Description>
       <Price>20</Price>
-      <Quantity>1</Quantity>
+      <Quantity>4</Quantity>
       <AttackPower>0</AttackPower>
       <Accuracy>0</Accuracy>
       <Defence>0</Defence>

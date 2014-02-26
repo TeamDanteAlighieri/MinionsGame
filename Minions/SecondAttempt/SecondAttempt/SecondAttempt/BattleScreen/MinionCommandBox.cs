@@ -61,7 +61,7 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        public void AttackCommandSelected(object sender, EventArgs e)
+        protected void AttackCommandSelected(object sender, EventArgs e)
         {
             screenInstance.SelectTarget = true;
             screenInstance.CommandSequence[0] = this.Items[0].Text;
@@ -83,7 +83,7 @@
             screenInstance.SelectTarget = false;            
         }
 
-        public void DefendCommandSelected(object sender, EventArgs e)
+        protected void DefendCommandSelected(object sender, EventArgs e)
         {
             this.IsVisible = false;
             OnDefend();
@@ -100,7 +100,7 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        public void SkillCommandSelected(object sender, EventArgs e)
+        protected void SkillCommandSelected(object sender, EventArgs e)
         {
             //Skill event logic here (pop skill menu to select skill to use)
         }
@@ -120,7 +120,7 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        public void ItemCommandSelected(object sender, EventArgs e)
+        protected void ItemCommandSelected(object sender, EventArgs e)
         {
             screenInstance.ItemSelectionBox.IsVisible = true;
             screenInstance.CommandSequence[0] = this.Items[3].Text;
@@ -143,7 +143,7 @@
             screenInstance.SelectTarget = false;            
         }
 
-        public override void OnCancel()
+        protected override void OnCancel()
         {
             this.IsVisible = true;
         }

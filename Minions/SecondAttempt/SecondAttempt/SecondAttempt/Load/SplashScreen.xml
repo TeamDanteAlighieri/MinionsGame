@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <SplashScreen>
   <Image>
-    <Path>SplashScreen/Image1</Path>
+    <Path>SplashScreen/Dante</Path>
     <Effects>FadeEffect</Effects>
     <IsActive>true</IsActive>
     <Alpha>0.5</Alpha>
@@ -9,8 +9,8 @@
       <FadeSpeed>0.5</FadeSpeed>
     </FadeEffect>
     <Scale>
-      <X>1.5</X>
-      <Y>1.5</Y>
+      <X>1.2</X>
+      <Y>1.6</Y>
     </Scale>
   </Image>
 </SplashScreen>

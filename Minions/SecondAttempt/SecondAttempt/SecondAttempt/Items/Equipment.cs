@@ -18,7 +18,7 @@
         {          
             //Apply effects
             ApplyTo(target);
-
+            
             //Reset max mana and health if they overflowed.
             if (target.CurrentMana > target.MaxMana) target.CurrentMana = target.MaxMana;
             if (target.CurrentHealth > target.MaxHealth) target.CurrentHealth = target.MaxHealth;
@@ -40,7 +40,7 @@
             if (target.CurrentHealth > target.MaxHealth) target.CurrentHealth = target.MaxHealth;
         }
             
-        public object Clone()
+        public virtual object Clone()
         {
             return this.MemberwiseClone();
         }

@@ -97,7 +97,7 @@
                 else
                 {
                     toAdd.Name.Position = new Vector2(StaticConstants.ListBoxLeft + 5, StaticConstants.ListBoxTop + 5);
-                    toAdd.Number.Position = new Vector2(StaticConstants.ListBoxRight - 5 - Items[0].Number.StringSize().X, StaticConstants.ListBoxTop + 5);
+                    toAdd.Number.Position = new Vector2(StaticConstants.ListBoxRight - 5 - toAdd.Number.StringSize().X, StaticConstants.ListBoxTop + 5);
                 }
 
                 Items.Add(toAdd);

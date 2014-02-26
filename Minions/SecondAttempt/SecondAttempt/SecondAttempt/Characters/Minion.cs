@@ -19,7 +19,7 @@
         public Inventory Inventory;
 
         private InternalText hpText;
-        private Weapon equipedWeapon;
+        private Equipment equipedWeapon;
 		
         public Minion() : base()
         {
@@ -39,18 +39,18 @@
         }
 
         public void Equip(Equipment item)
-        {
-            if (item is Weapon)
+        {            
+            Equipment toEquip = (Equipment)item.Clone();
+            toEquip.Quantity = 1;
+            item.Quantity--;
+            if (this.equipedWeapon == null) toEquip.Equip(this);                
+            else 
             {
-                Weapon toEquip = (Weapon)((Weapon)item).Clone();
-                if (this.equipedWeapon == null) toEquip.Equip(this);
-                else
-                {
-                    Inventory.AddItem(equipedWeapon);
-                    equipedWeapon.Unequip(this);
-                    toEquip.Equip(this);
-                }
+                Inventory.AddItem(equipedWeapon);
+                equipedWeapon.Unequip(this);
+                toEquip.Equip(this);
             }
+            equipedWeapon = toEquip;
         }
 
         private void IncreaseLevel()
