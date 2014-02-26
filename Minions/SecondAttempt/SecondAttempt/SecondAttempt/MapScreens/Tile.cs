@@ -12,8 +12,7 @@ namespace SecondAttempt
         private Vector2 position;
         private Rectangle sourceRect;
         private string state;
-        private bool isShopkeeper;
-        private event EventHandler OpenShop;
+        private bool isShopkeeper;        
 
         public Rectangle SourceRect
         {
@@ -23,12 +22,6 @@ namespace SecondAttempt
         public Vector2 Position
         {
             get { return position; }
-        }
-
-        protected virtual void OnShopTile(EventArgs e)
-        {
-            if (OpenShop != null)
-                OpenShop(this, e);
         }
 
         public void LoadContent(Vector2 position, Rectangle sourceRect, string state, bool isShopkeeper)
