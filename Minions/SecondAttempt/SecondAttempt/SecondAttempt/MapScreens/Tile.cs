@@ -1,14 +1,12 @@
 ﻿//the different tiles on that particular layer 
 namespace SecondAttempt
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Graphics;
 
+    /// <summary>
+    /// Holds the pixel position and image size for the creation of a map tile.
+    /// </summary>
     public class Tile
     {
         private Vector2 position;
@@ -57,6 +55,7 @@ namespace SecondAttempt
                 {
                     if (isShopkeeper)
                     {
+                        //TO DO: IMPLEMENTATION
                         //trigger the event/open the trading screen
                     }
                     
@@ -70,7 +69,8 @@ namespace SecondAttempt
                     else
                         player.Image.Position.Y = tileRect.Top - player.Image.SourceRect.Height;
 
-                    player.Velocity = Vector2.Zero;//??the player stops?
+                    //Stop the player from moving.
+                    player.Velocity = Vector2.Zero;
                 }
             }
         }

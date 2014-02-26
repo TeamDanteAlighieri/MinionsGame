@@ -1,14 +1,14 @@
 ﻿namespace SecondAttempt
 {
-    using System;
     using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
 
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Graphics;
     using Microsoft.Xna.Framework.Input;
 
+    /// <summary>
+    /// Creates a vertical list to facilitate item and skill selection (once skill selection is implemented).
+    /// </summary>
     public class ListBox
     {
         public FrameBox Frame;
@@ -19,11 +19,12 @@
 
         public ListBox()
         {
-            this.Frame = new FrameBox(StaticConstants.BordeWidth, StaticConstants.ListBoxDimensions, Color.DarkBlue);           
+            this.Frame = new FrameBox(Constants.BordeWidth, Constants.ListBoxDimensions, Color.DarkBlue);           
             this.IsVisible = false;
             this.activeElement = 0;
         }
 
+        //Considered making the class generic to save on constructor duplication but that cause problems with the actual usage so left it as it is.
         public ListBox(List<Item> content) : this()
         {
             this.Items = new List<ListDescriptorItem>(content.Capacity);
@@ -36,14 +37,14 @@
                 if (i != 0)
                 {                    
                     toAdd.Name.Position = Items[i - 1].Name.Position + new Vector2(0, Items[i - 1].Name.StringSize().Y + 5);
-                    toAdd.Number.Position = new Vector2(StaticConstants.ListBoxRight - Items[i - 1].Number.StringSize().X - 5,
+                    toAdd.Number.Position = new Vector2(Constants.ListBoxRight - toAdd.Number.StringSize().X - 5,
                         Items[i - 1].Number.StringSize().Y + 5 + Items[i - 1].Number.Position.Y);
                 }
 
                 else
                 {
-                    toAdd.Name.Position = new Vector2(StaticConstants.ListBoxLeft + 5, StaticConstants.ListBoxTop + 5);
-                    toAdd.Number.Position = new Vector2(StaticConstants.ListBoxRight - 5 - Items[0].Number.StringSize().X, StaticConstants.ListBoxTop + 5);
+                    toAdd.Name.Position = new Vector2(Constants.ListBoxLeft + 5, Constants.ListBoxTop + 5);
+                    toAdd.Number.Position = new Vector2(Constants.ListBoxRight - 5 - Items[0].Number.StringSize().X, Constants.ListBoxTop + 5);
                 }
 
                 Items.Add(toAdd);
@@ -63,14 +64,14 @@
                 if (i != 0)
                 {
                     toAdd.Name.Position = Items[i - 1].Name.Position + new Vector2(0, Items[i - 1].Name.StringSize().Y + 5);
-                    toAdd.Number.Position = new Vector2(StaticConstants.ListBoxRight - Items[i - 1].Number.StringSize().X - 5,
+                    toAdd.Number.Position = new Vector2(Constants.ListBoxRight - toAdd.Number.StringSize().X - 5,
                         Items[i - 1].Number.StringSize().Y + 5 + Items[i - 1].Number.Position.Y);
                 }
 
                 else
                 {
-                    toAdd.Name.Position = new Vector2(StaticConstants.ListBoxLeft + 5, StaticConstants.ListBoxTop + 5);
-                    toAdd.Number.Position = new Vector2(StaticConstants.ListBoxRight - 5 - toAdd.Number.StringSize().X, StaticConstants.ListBoxTop + 5);
+                    toAdd.Name.Position = new Vector2(Constants.ListBoxLeft + 5, Constants.ListBoxTop + 5);
+                    toAdd.Number.Position = new Vector2(Constants.ListBoxRight - 5 - toAdd.Number.StringSize().X, Constants.ListBoxTop + 5);
                 }
 
                 Items.Add(toAdd);
@@ -90,19 +91,19 @@
                 if (i != 0)
                 {
                     toAdd.Name.Position = Items[i - 1].Name.Position + new Vector2(0, Items[i - 1].Name.StringSize().Y + 5);
-                    toAdd.Number.Position = new Vector2(StaticConstants.ListBoxRight - Items[i - 1].Number.StringSize().X - 5,
+                    toAdd.Number.Position = new Vector2(Constants.ListBoxRight - toAdd.Number.StringSize().X - 5,
                         Items[i - 1].Number.StringSize().Y + 5 + Items[i - 1].Number.Position.Y);
                 }
 
                 else
                 {
-                    toAdd.Name.Position = new Vector2(StaticConstants.ListBoxLeft + 5, StaticConstants.ListBoxTop + 5);
-                    toAdd.Number.Position = new Vector2(StaticConstants.ListBoxRight - 5 - toAdd.Number.StringSize().X, StaticConstants.ListBoxTop + 5);
+                    toAdd.Name.Position = new Vector2(Constants.ListBoxLeft + 5, Constants.ListBoxTop + 5);
+                    toAdd.Number.Position = new Vector2(Constants.ListBoxRight - 5 - toAdd.Number.StringSize().X, Constants.ListBoxTop + 5);
                 }
 
                 Items.Add(toAdd);
             }
-        }
+        }       
 
         public string CheckSelection()
         {

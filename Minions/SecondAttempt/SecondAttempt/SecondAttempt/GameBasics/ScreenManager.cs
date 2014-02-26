@@ -1,9 +1,7 @@
 ﻿namespace SecondAttempt
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
+    using System.Collections.Generic;    
     using System.Xml.Serialization;
     using System.IO;
 
@@ -11,6 +9,9 @@
     using Microsoft.Xna.Framework.Content;
     using Microsoft.Xna.Framework.Graphics;
 
+    /// <summary>
+    /// Holds the current active screen. Uses semi-singleton style interface - only one screen is active at any one time, but other screen types are preserved.
+    /// </summary>
     public class ScreenManager
     {
         //Singleton class (design pattern)
@@ -55,6 +56,10 @@
             IsTransitioning = true;
         }
 
+        /// <summary>
+        /// Used to change screens ingame. Saves the map screen so that it shouldn't have to be reloaded every time a player wins a battle or exits the menu.
+        /// </summary>
+        /// <param name="screenName"></param>
         public void ChangeIngameScreens(string screenName)
         {
             newScreen = (GameScreen)Activator.CreateInstance(Type.GetType("SecondAttempt." + screenName));            
@@ -79,7 +84,11 @@
             }
         }
 
-        public void ChangeToRandomBattle(List<Enemy> enemies)
+        /// <summary>
+        /// Uses the generated enemies to start a new battle.
+        /// </summary>
+        /// <param name="enemies"></param>
+        public void ChangeToBattleScreen(List<Enemy> enemies)
         {
             newScreen = (GameScreen)new BattleScreen(enemies);
             
@@ -88,6 +97,10 @@
             currentScreen.LoadContent();
         }
 
+        /// <summary>
+        /// Enables the trasition fade effect between initial game screens.
+        /// </summary>
+        /// <param name="gameTime"></param>
         void Transition(GameTime gameTime)
         {
             if(IsTransitioning)
@@ -98,7 +111,7 @@
                     currentScreen.UnloadContent();
                     currentScreen = newScreen;
                     xmlGameScreenManager.Type = currentScreen.Type;
-                    if (File.Exists(currentScreen.XmlPath))//?
+                    if (File.Exists(currentScreen.XmlPath))
                         currentScreen = xmlGameScreenManager.Load(currentScreen.XmlPath);
                     currentScreen.LoadContent();
                 }
@@ -109,8 +122,7 @@
                 }
             }
         }
-
-        //constuctor
+        
         public ScreenManager()
         {
             Dimensions = new Vector2(640, 480);
@@ -119,8 +131,7 @@
             xmlGameScreenManager.Type = currentScreen.Type;
             currentScreen = xmlGameScreenManager.Load("Load/SplashScreen.xml");
         }
-
-        //methods
+        
         public void LoadContent(ContentManager Content)
         {
             this.Content = new ContentManager(Content.ServiceProvider, "Content");

@@ -2,14 +2,15 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
     using System.Xml.Serialization;
 
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Graphics;
     using Microsoft.Xna.Framework.Input;
 
+    /// <summary>
+    /// Holds a starting game menu style object. 
+    /// </summary>
     public class Menu
     {
         public event EventHandler OnMenuChange;
@@ -49,7 +50,10 @@
             }
         }
 
-        void AlignMenuItems()
+        /// <summary>
+        /// Alligns menu items to the screen size.
+        /// </summary>
+        private void AlignMenuItems()
         {
             Vector2 dimensions = Vector2.Zero;
             foreach (var item in Items)

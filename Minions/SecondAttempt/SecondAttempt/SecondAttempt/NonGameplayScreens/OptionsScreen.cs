@@ -11,14 +11,14 @@
     using Microsoft.Xna.Framework.Input;
 
     /// <summary>
-    /// Used for testing during the coding binge.
+    /// Used for testing during the coding binge. Filled with junk.
     /// </summary>
     public class OptionsScreen : GameScreen
     {
         private FrameBox boxFrame;
         private FrameBox secondFrame;
         private FrameBox thirdFrame;
-        private InternalText[] internalText;        
+        private FloatingText[] internalText;        
         private Rectangle rect;        
         private Rectangle rect2;
         private Rectangle rect3;
@@ -45,11 +45,11 @@
             thirdFrame = new FrameBox(5, rect3, Color.DarkBlue);
             thirdFrame.LoadContent();
 
-            internalText = new InternalText[4];
+            internalText = new FloatingText[4];
 
             for (int i = 0; i < 4; i++)
 			{
-			    internalText[i] = new InternalText();
+			    internalText[i] = new FloatingText();
 			}
 
 

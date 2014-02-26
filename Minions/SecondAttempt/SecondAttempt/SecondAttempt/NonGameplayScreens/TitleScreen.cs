@@ -1,14 +1,12 @@
 ﻿namespace SecondAttempt
-{
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-
+{   
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Graphics;
     using Microsoft.Xna.Framework.Media;
 
+    /// <summary>
+    /// The title screen holding the initial menu options.
+    /// </summary>
     public class TitleScreen : GameScreen
     {
         private MenuManager menuManager;

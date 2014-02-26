@@ -1,23 +1,17 @@
 ﻿namespace SecondAttempt
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-
-    using Microsoft.Xna.Framework;
-    using Microsoft.Xna.Framework.Content;
+    using Microsoft.Xna.Framework;    
     using Microsoft.Xna.Framework.Graphics;
 
     public struct FrameBox
     {
         public int BorderWidth;
+        public Color InternalColor;
         public Rectangle InternalRect;
         private Rectangle upperBorder;
         private Rectangle rightBorder;
         private Rectangle lowerBorder;
-        private Rectangle leftBorder;
-        public Color InternalColor;
+        private Rectangle leftBorder;        
         private Texture2D texture;
 
         public FrameBox(int borderWidth, Rectangle internalRect, Color internalColor)

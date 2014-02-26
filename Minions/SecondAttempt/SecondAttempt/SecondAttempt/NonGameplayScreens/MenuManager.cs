@@ -1,14 +1,13 @@
 ﻿namespace SecondAttempt
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-
+    
     using Microsoft.Xna.Framework;
-    using Microsoft.Xna.Framework.Graphics;
-    using Microsoft.Xna.Framework.Input;
+    using Microsoft.Xna.Framework.Graphics;    
 
+    /// <summary>
+    /// Handles menu highlighting and action logic upon selection.
+    /// </summary>
     public class MenuManager
     {
         private Menu menu;
@@ -72,7 +71,7 @@
         {
             if(!isTransitioning)
                 menu.Update(gameTime);
-            if (InputManager.Instance.KeyPressed(Keys.Enter) && !isTransitioning)
+            if (InputManager.Instance.ActionKeyPressed() && !isTransitioning)
             {
                 if (menu.Items[menu.ItemNumber].LinkType == "Screen")
                     ScreenManager.Instance.ChangeScreens(menu.Items[menu.ItemNumber].LinkID);

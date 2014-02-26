@@ -1,13 +1,13 @@
 ﻿namespace SecondAttempt
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
     
     using Microsoft.Xna.Framework;
 
-    public class CommandBoxItem : InternalText
+    /// <summary>
+    /// Creates a whole word selectable text object. Selection logic should be rerouted through the Selected event.
+    /// </summary>
+    public class CommandBoxItem : FloatingText
     {
         public bool IsActive { get; set; }        
 

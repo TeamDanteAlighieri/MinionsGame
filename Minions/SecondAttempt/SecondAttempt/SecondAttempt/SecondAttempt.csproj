@@ -81,6 +81,8 @@
     <Compile Include="IngameMenu\IngameMenuScreen.cs" />
     <Compile Include="IngameMenu\IngameMenuCommands.cs" />
     <Compile Include="DrawingCreation\ListBox.cs" />
+    <Compile Include="Interfaces\IEquip.cs" />
+    <Compile Include="MapScreens\TileMap.cs" />
     <Compile Include="WorkInProgress\BossEnemies.cs" />
     <Compile Include="Characters\Character.cs" />
     <Compile Include="DrawingCreation\CommandBoxItem.cs" />
@@ -120,12 +122,12 @@
     <Compile Include="GameStart.cs" />
     <Compile Include="GameBasics\GameExtension.cs" />
     <Compile Include="Characters\NormalEnemies.cs" />
-    <Compile Include="SaveGameContent.cs" />
+    <Compile Include="WorkInProgress\SaveGameContent.cs" />
     <Compile Include="GameBasics\ScreenManager.cs" />
     <Compile Include="WorkInProgress\Skill.cs" />
     <Compile Include="NonGameplayScreens\SplashScreen.cs" />
     <Compile Include="DrawingCreation\Effects\SpriteSheetEffect.cs" />
-    <Compile Include="GameBasics\StaticConstants.cs" />
+    <Compile Include="GameBasics\Constants.cs" />
     <Compile Include="DrawingCreation\FrameBox.cs" />
     <Compile Include="MapScreens\Tile.cs" />
     <Compile Include="NonGameplayScreens\TitleScreen.cs" />

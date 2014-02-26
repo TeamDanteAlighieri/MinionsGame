@@ -1,12 +1,8 @@
 ﻿namespace SecondAttempt
-{
-    using System;
+{    
     using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-
-    using Microsoft.Xna.Framework;
-    using Microsoft.Xna.Framework.Content;
+    
+    using Microsoft.Xna.Framework;    
     using Microsoft.Xna.Framework.Graphics;
     using Microsoft.Xna.Framework.Media;
 
@@ -35,11 +31,7 @@
             //Start the bgm.
             backgroundMusic = content.Load<Song>("Music/mainSong");
             BackgroundMusicPlayer.Play(backgroundMusic);
-            nextBattle = (float) StaticConstants.Random.Next(3, 5);
-
-            //Testing the save method of saveGameContent here
-            //SaveGameContent saveLoadGenerator = new SaveGameContent(playerSprite);
-            //saveLoadGenerator.Save();
+            nextBattle = (float) Constants.Random.Next(3, 5);            
         }
 
         public void ReloadMusic()
@@ -66,15 +58,15 @@
             if (InputManager.Instance.CancelKeyPressed()) ScreenManager.Instance.ChangeIngameScreens("IngameMenuScreen");
             if (nextBattle <= 0)
             {
-                int enemiesCount = StaticConstants.Random.Next(1, 4);
-                int enemyType = StaticConstants.Random.Next(0, RegEnemies.Collection.Count);
+                int enemiesCount = Constants.Random.Next(1, 4);
+                int enemyType = Constants.Random.Next(0, RegEnemies.Collection.Count);
                 List<Enemy> enemies = new List<Enemy>();
                 for (int i = 0; i < enemiesCount; i++)
                 {
                     enemies.Add((Enemy)RegEnemies.Collection[enemyType].Clone());
                 }            
-                ScreenManager.Instance.ChangeToRandomBattle(enemies);
-                nextBattle = StaticConstants.Random.Next(20, 30);
+                ScreenManager.Instance.ChangeToBattleScreen(enemies);
+                nextBattle = Constants.Random.Next(20, 30);
             }            
         }
 

@@ -1,16 +1,11 @@
 ﻿namespace SecondAttempt
-{
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-
-    using System.Xml.Serialization;
-
-    using Microsoft.Xna.Framework;
-    using Microsoft.Xna.Framework.Content;
+{                    
+    using Microsoft.Xna.Framework;    
     using Microsoft.Xna.Framework.Graphics;
 
+    /// <summary>
+    /// Generic character class inherited by both players and enemies.
+    /// </summary>
 	public abstract class Character : IStats
 	{
 		public string Name;
@@ -32,7 +27,7 @@
 
         public virtual void LoadContent()
         {
-            this.ActionTimeGoal = StaticConstants.maxActionTimer/(float)this.Speed;   
+            this.ActionTimeGoal = Constants.maxActionTimer/(float)this.Speed;   
         }
 
         public virtual void Update(GameTime gameTime)

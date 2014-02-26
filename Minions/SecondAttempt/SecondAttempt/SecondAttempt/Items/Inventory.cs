@@ -6,6 +6,9 @@
 
     using System.Xml.Serialization;
 
+    /// <summary>
+    /// Holds a list of equipment and consumable type objects. Can be used by minion(player) class to store their available items as well as the shopkeeper class to store his available wares.
+    /// </summary>
     public class Inventory
     {
         [XmlElement("Equip")]
@@ -70,6 +73,11 @@
             else throw new NoSuchItemException(string.Format("Cannot add item {0}, it is not part of the inventory.", itemName));
         }
 
+        /// <summary>
+        /// Searches the inventory for an instance with property name == itemName.
+        /// </summary>
+        /// <param name="itemName"></param>
+        /// <returns></returns>
         public Item GetItem(string itemName)                    
         {            
             int itemIndex = -1;
@@ -88,6 +96,9 @@
             return result;
         }
 
+        /// <summary>
+        /// Checks if any inventory item has negative or zero quantity. If that is the case, deletes the item from the inventory.
+        /// </summary>
         public void CheckConsistency()
         {
             Item checker = null;

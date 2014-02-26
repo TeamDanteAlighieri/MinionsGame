@@ -1,9 +1,6 @@
 ﻿namespace SecondAttempt
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
+    using System;    
 
     using Microsoft.Xna.Framework;
 
@@ -21,20 +18,20 @@
         {
             this.minion = minion;
             this.screenInstance = screenInstance;
-            this.Frame = new FrameBox(StaticConstants.BordeWidth, StaticConstants.CommandBoxDimensions, Color.Blue);             
+            this.Frame = new FrameBox(Constants.BordeWidth, Constants.CommandBoxDimensions, Color.Blue);             
             this.Items = new CommandBoxItem[4] 
             { 
                 new CommandBoxItem("Attack",
-                    new Vector2(StaticConstants.CommandBoxDimensions.Left + 15, StaticConstants.CommandBoxDimensions.Top + 5), 
+                    new Vector2(Constants.CommandBoxDimensions.Left + 15, Constants.CommandBoxDimensions.Top + 5), 
                     Color.Gray),
                 new CommandBoxItem("Defend",
-                    new Vector2(StaticConstants.CommandBoxDimensions.Left + 15, StaticConstants.CommandBoxDimensions.Top + 5 + 25), 
+                    new Vector2(Constants.CommandBoxDimensions.Left + 15, Constants.CommandBoxDimensions.Top + 5 + 25), 
                     Color.Gray),
                 new CommandBoxItem("Skill",
-                    new Vector2(StaticConstants.CommandBoxDimensions.Left + 15, StaticConstants.CommandBoxDimensions.Top + 5 + 50), 
+                    new Vector2(Constants.CommandBoxDimensions.Left + 15, Constants.CommandBoxDimensions.Top + 5 + 50), 
                     Color.Gray),
                 new CommandBoxItem("Item",
-                    new Vector2(StaticConstants.CommandBoxDimensions.Left + 15, StaticConstants.CommandBoxDimensions.Top + 5 + 75), 
+                    new Vector2(Constants.CommandBoxDimensions.Left + 15, Constants.CommandBoxDimensions.Top + 5 + 75), 
                     Color.Gray)
             };
 
@@ -74,7 +71,7 @@
         /// <param name="target"></param>
         public void OnAttack(Character target)
         {
-            if (StaticConstants.Random.Next(1, 101) < minion.Accuracy)
+            if (Constants.Random.Next(1, 101) < minion.Accuracy)
             {
                 int damage = minion.AttackPower - target.Defence;
                 if (damage <= 0) damage = 1;
@@ -83,6 +80,11 @@
             screenInstance.SelectTarget = false;            
         }
 
+        /// <summary>
+        /// Defend attack automatically self casts.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void DefendCommandSelected(object sender, EventArgs e)
         {
             this.IsVisible = false;

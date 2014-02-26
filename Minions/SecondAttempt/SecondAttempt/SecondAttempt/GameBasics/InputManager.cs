@@ -1,17 +1,12 @@
 ﻿namespace SecondAttempt
-{
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-
+{    
     using Microsoft.Xna.Framework.Input;
 
     public class InputManager
     {
         KeyboardState currentKeyState, prevKeyState;
 
-        ////Singleton class (design pattern)
+        //Singleton class (design pattern)
         private static InputManager instance;
 
         public static InputManager Instance
@@ -63,14 +58,14 @@
 
         public bool ActionKeyPressed()
         {
-            return ((currentKeyState.IsKeyUp(Keys.A) && prevKeyState.IsKeyDown(Keys.A))
-                || (currentKeyState.IsKeyUp(Keys.Enter)) && prevKeyState.IsKeyDown(Keys.Enter));
+            return ((currentKeyState.IsKeyDown(Keys.A) && prevKeyState.IsKeyUp(Keys.A))
+                || (currentKeyState.IsKeyDown(Keys.Enter)) && prevKeyState.IsKeyUp(Keys.Enter));
         }
 
         public bool CancelKeyPressed()
         {
-            return ((currentKeyState.IsKeyUp(Keys.F) && prevKeyState.IsKeyDown(Keys.F))
-                || (currentKeyState.IsKeyUp(Keys.Back)) && prevKeyState.IsKeyDown(Keys.Back));
+            return ((currentKeyState.IsKeyDown(Keys.F) && prevKeyState.IsKeyUp(Keys.F))
+                || (currentKeyState.IsKeyDown(Keys.Back)) && prevKeyState.IsKeyUp(Keys.Back));
         }
     }
 }

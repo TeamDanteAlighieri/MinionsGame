@@ -1,9 +1,5 @@
 namespace SecondAttempt
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Audio;
     using Microsoft.Xna.Framework.Content;
@@ -75,7 +71,7 @@ namespace SecondAttempt
         protected override void Update(GameTime gameTime)
         {
             // Allows the game to exit
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape) || ExitFlag)
+            if (ExitFlag)
                 this.Exit();
 
             ScreenManager.Instance.Update(gameTime);

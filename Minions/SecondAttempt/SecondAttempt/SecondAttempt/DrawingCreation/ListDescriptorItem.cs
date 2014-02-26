@@ -1,23 +1,21 @@
 ﻿namespace SecondAttempt
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Graphics;
 
+    /// <summary>
+    /// Holds a two FloatingText objects that are simultaneously selectable.    
+    /// </summary>
     public class ListDescriptorItem
     {
-        public InternalText Name;
-        public InternalText Number;
+        public FloatingText Name;
+        public FloatingText Number;
         public bool IsActive { get; set; }
 
         public ListDescriptorItem()
         {
-            this.Name = new InternalText();
-            this.Number = new InternalText();
+            this.Name = new FloatingText();
+            this.Number = new FloatingText();
             this.Name.TextColor = Color.Gray;
             this.Number.TextColor = Color.Gray;
             IsActive = false;

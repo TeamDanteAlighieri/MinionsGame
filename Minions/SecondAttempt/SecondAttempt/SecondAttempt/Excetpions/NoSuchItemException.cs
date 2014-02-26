@@ -2,6 +2,9 @@
 {
     using System;
 
+    /// <summary>
+    /// Trigered when the game searches for a weapon in an inventory that does not exist as an item inside said inventory.
+    /// </summary>
     public class NoSuchItemException : ApplicationException
     {
         public NoSuchItemException(string message, Item item = null)
