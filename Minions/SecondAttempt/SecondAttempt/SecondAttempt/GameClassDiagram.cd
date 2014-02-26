@@ -1,0 +1,413 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="SecondAttempt.BattleScreen" Collapsed="true">
+    <Position X="10" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>MIQAEAAAAAEAAkAAAEAAABAAAAAIAAABAAAAQAAAIAQ=</HashCode>
+      <FileName>BattleScreen\BattleScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SecondAttempt.MinionCommandBox" Collapsed="true">
+    <Position X="2.75" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAADAAAAAAQACEAACgAACAQQAAAABAAAAAAAACAAA=</HashCode>
+      <FileName>BattleScreen\MinionCommandBox.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SecondAttempt.Character" Collapsed="true">
+    <Position X="9" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQQEAAAAAAACgAAAAAICAQBAAAAAAAgAAAQAgAAYAY=</HashCode>
+      <FileName>Characters\Character.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SecondAttempt.Enemy" Collapsed="true">
+    <Position X="7.75" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQQAEAAAAAAAAgAAAAAAAAAQAAAAAAAAAQBAAAgAABQ=</HashCode>
+      <FileName>Characters\Enemy.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SecondAttempt.LootTable" Collapsed="true">
+    <Position X="20.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Characters\LootTable.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SecondAttempt.Minion" Collapsed="true">
+    <Position X="10" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQQAkAAAgAAAAgAAEIAAAAAAAAAAAAAhAACgAgAAAAQ=</HashCode>
+      <FileName>Characters\Minion.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SecondAttempt.NormalEnemies" Collapsed="true">
+    <Position X="20.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Characters\NormalEnemies.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SecondAttempt.CommandBoxItem" Collapsed="true">
+    <Position X="5.75" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAQAAAI=</HashCode>
+      <FileName>DrawingCreation\CommandBoxItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SecondAttempt.CommandsBox" Collapsed="true">
+    <Position X="4" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAECAAAAAAGgQAAAGAAAAAAAAAAAAAAAAAAAQAAAU=</HashCode>
+      <FileName>DrawingCreation\CommandsBox.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SecondAttempt.FadeEffect" Collapsed="true">
+    <Position X="7.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAgIAAQ=</HashCode>
+      <FileName>DrawingCreation\Effects\FadeEffect.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SecondAttempt.ImageEffect" Collapsed="true">
+    <Position X="9" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAEAAAAAAAAAAAEAAAAAAAEAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>DrawingCreation\Effects\ImageEffect.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SecondAttempt.SpriteSheetEffect" Collapsed="true">
+    <Position X="10" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AASAEAAAAAAAAAACAAAAAABAACAAAAAAAgAAIAAAAAQ=</HashCode>
+      <FileName>DrawingCreation\Effects\SpriteSheetEffect.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SecondAttempt.Image" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="17" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CgYCkAGAAAAgAgIgEAZAAAACEIAAABBAAAMACAAAAAQ=</HashCode>
+      <FileName>DrawingCreation\Image.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SecondAttempt.FloatingText" Collapsed="true">
+    <Position X="5.75" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYCEAIAAAAAAgAoAAAAAAAAAAAAAAAAAAAACAAAAAQ=</HashCode>
+      <FileName>DrawingCreation\InternalText.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SecondAttempt.ListBox" Collapsed="true">
+    <Position X="24" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAEAAAAAAAGgQAEAAAAAAAAAAAAAAAAAAAAAAAAAE=</HashCode>
+      <FileName>DrawingCreation\ListBox.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SecondAttempt.ListDescriptorItem" Collapsed="true">
+    <Position X="17" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAEAAAAAAAAgAAEEAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DrawingCreation\ListDescriptorItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SecondAttempt.LoadGameException" Collapsed="true">
+    <Position X="18.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Excetpions\LoadGameException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SecondAttempt.NoSuchItemException" Collapsed="true">
+    <Position X="22.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Excetpions\NoSuchItemException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SecondAttempt.BackgroundMusicPlayer" Collapsed="true">
+    <Position X="17" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAoAIAAAAAAAA=</HashCode>
+      <FileName>GameBasics\BackgroundMusicPlayer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SecondAttempt.Constants" Collapsed="true">
+    <Position X="20.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQBAAgAACAIAAAAAAgAAAAAAABAAiAIABBAAAAAA=</HashCode>
+      <FileName>GameBasics\Constants.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SecondAttempt.GameExtension" Collapsed="true">
+    <Position X="22.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAEEAAAAAAAwAAAAAAAAAAAAAAAAgAAAAAAAIAAAQ=</HashCode>
+      <FileName>GameBasics\GameExtension.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SecondAttempt.GameplayScreen" Collapsed="true">
+    <Position X="12.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAEAAAAAAAAgIAAAAAAAAAAAAAAAAAAAAAAQAAAAQ=</HashCode>
+      <FileName>GameBasics\GameplayScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SecondAttempt.GameScreen" Collapsed="true">
+    <Position X="8.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQCEAAAAAAAAgAAAAAAAAAAAAAAAAQAAQAAAAAAAAQ=</HashCode>
+      <FileName>GameBasics\GameScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SecondAttempt.InputManager" Collapsed="true">
+    <Position X="18.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQgAAQAAEAAgAAAAAAAAAAAAABAAAAARAAAABBAAAA=</HashCode>
+      <FileName>GameBasics\InputManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SecondAttempt.ScreenManager" Collapsed="true">
+    <Position X="24" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAEEAAAwAAAgAAAACAAAIgAABiABABQAAkQAAAAAQ=</HashCode>
+      <FileName>GameBasics\ScreenManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SecondAttempt.XmlManager&lt;T&gt;" Collapsed="true">
+    <Position X="22.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgIAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>GameBasics\XmlManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SecondAttempt.IngameMenuCommands" Collapsed="true">
+    <Position X="5" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgKAAAAAAAAAAEAAIAAQAAQAAAAAAAQAAAAIAAAA=</HashCode>
+      <FileName>IngameMenu\IngameMenuCommands.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SecondAttempt.IngameMenuScreen" Collapsed="true">
+    <Position X="14.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAEAAAAgIAAgAAAAAAAgAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>IngameMenu\IngameMenuScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SecondAttempt.Consumable" Collapsed="true">
+    <Position X="2.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAACAAAAAAAAAACAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>Items\Consumable.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SecondAttempt.Equipment" Collapsed="true">
+    <Position X="5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAgAAAAAIAAABA=</HashCode>
+      <FileName>Items\Equipment.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SecondAttempt.Inventory" Collapsed="true">
+    <Position X="20.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAQMAAAQAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Items\Inventory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SecondAttempt.Item" Collapsed="true">
+    <Position X="4" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAQAgCAAAAAAICAQBAAAAAAAgAAAAogAAIAA=</HashCode>
+      <FileName>Items\Item.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SecondAttempt.Weapon" Collapsed="true">
+    <Position X="5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>Items\Weapon.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SecondAttempt.Layer" Collapsed="true">
+    <Position X="22.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACQCEAAgABAAAkAAAAAAAAAAAAAAABAEAAAAAAAAAQQ=</HashCode>
+      <FileName>MapScreens\Layer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SecondAttempt.Map" Collapsed="true">
+    <Position X="22.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAEAAAAAAAAgAAAAAAAAAAAAAAAAAEAAAAAAAAgAQ=</HashCode>
+      <FileName>MapScreens\Map.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SecondAttempt.MapScreen" Collapsed="true">
+    <Position X="12.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAEAAAAAAAAgAAEEAAAAQAAAAAAAIAAAAAAAAAAAQ=</HashCode>
+      <FileName>MapScreens\MapScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SecondAttempt.OverworldSprite" Collapsed="true">
+    <Position X="2.75" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAEAAAAAAAAhAAAAAAAAAAAAAAABAAAAAAAAAEAAQ=</HashCode>
+      <FileName>MapScreens\OverworldSprite.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SecondAttempt.Tile" Collapsed="true">
+    <Position X="18.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAEAAAABAAAAAgAAAAIAAAAEAAAABEAAAAAAAAAAQ=</HashCode>
+      <FileName>MapScreens\Tile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SecondAttempt.TileMap" Collapsed="true">
+    <Position X="20.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAA=</HashCode>
+      <FileName>MapScreens\TileMap.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SecondAttempt.Menu" Collapsed="true">
+    <Position X="24" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAEAAAAAAAmwAAAAQAAACAAABAgAAAAAAAAAAAAgU=</HashCode>
+      <FileName>NonGameplayScreens\Menu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SecondAttempt.MenuItem" Collapsed="true">
+    <Position X="17" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAgABAAAAAAIAAAAAA=</HashCode>
+      <FileName>NonGameplayScreens\MenuItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SecondAttempt.MenuManager" Collapsed="true">
+    <Position X="18.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAEAAAAIAAAgAAAAAAAAgAAABAAAAAAAAAAQAAAAQ=</HashCode>
+      <FileName>NonGameplayScreens\MenuManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SecondAttempt.OptionsScreen" Collapsed="true">
+    <Position X="3.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAEAhAADAAAgBAAAACIAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>NonGameplayScreens\OptionsScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SecondAttempt.SplashScreen" Collapsed="true">
+    <Position X="5.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAEAAAAAAAAgAAAAAAAAAAAAAAABAAAAAAAAAAgAQ=</HashCode>
+      <FileName>NonGameplayScreens\SplashScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SecondAttempt.TitleScreen" Collapsed="true">
+    <Position X="7.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQQEAAAAAAAAgAAAEAAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>NonGameplayScreens\TitleScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SecondAttempt.BossEnemies" Collapsed="true">
+    <Position X="18.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAA=</HashCode>
+      <FileName>WorkInProgress\BossEnemies.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SecondAttempt.SaveGameContent" Collapsed="true">
+    <Position X="2.75" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgIQAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAA=</HashCode>
+      <FileName>WorkInProgress\SaveGameContent.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SecondAttempt.Skill" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="17" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAAICAQBAAAAAAAgAAAAAgAAIAA=</HashCode>
+      <FileName>WorkInProgress\Skill.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SecondAttempt.GameStart" Collapsed="true">
+    <Position X="24" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>GameStart.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="SecondAttempt.FrameBox" Collapsed="true">
+    <Position X="17" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQEACQAAAAAAgAAAAAIAAAAAAhAAgBAAAAAAAAAAAQ=</HashCode>
+      <FileName>DrawingCreation\FrameBox.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Interface Name="SecondAttempt.IEquip" Collapsed="true">
+    <Position X="17" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IEquip.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="SecondAttempt.IEquipable" Collapsed="true">
+    <Position X="18.75" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAIAAAAA=</HashCode>
+      <FileName>Interfaces\IEquipable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="SecondAttempt.IStats" Collapsed="true">
+    <Position X="20.5" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAAICAQBAAAAAAAgAAAAAgAAIAA=</HashCode>
+      <FileName>Interfaces\IStats.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="SecondAttempt.IStringSize" Collapsed="true">
+    <Position X="22.25" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IStringSize.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="SecondAttempt.IUsable" Collapsed="true">
+    <Position X="24" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IUsable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="SecondAttempt.EnemyType" Collapsed="true">
+    <Position X="18.75" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAQAAAAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Characters\EnemyType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="SecondAttempt.EffectType" Collapsed="true">
+    <Position X="17" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Items\Consumable.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

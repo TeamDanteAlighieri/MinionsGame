@@ -94,7 +94,7 @@
                 internalText[i].TextColor = Color.Gray;
             }
             internalText[activeOption].TextColor = Color.White;
-            if (InputManager.Instance.KeyPressed(Keys.Back)) ScreenManager.Instance.ChangeScreens("TitleScreen");
+            if (InputManager.Instance.CancelKeyPressed()) ScreenManager.Instance.ChangeScreens("TitleScreen");
             /*text.Update(gameTime);
             move += 0.01f;
 

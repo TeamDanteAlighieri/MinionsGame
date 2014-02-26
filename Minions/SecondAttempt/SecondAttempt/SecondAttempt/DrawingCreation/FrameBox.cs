@@ -3,6 +3,9 @@
     using Microsoft.Xna.Framework;    
     using Microsoft.Xna.Framework.Graphics;
 
+    /// <summary>
+    /// Creates a blue box with white borders. 
+    /// </summary>
     public struct FrameBox
     {
         public int BorderWidth;
